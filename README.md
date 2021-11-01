@@ -1,1 +1,129 @@
-# Blazmeanbatch3
+# The JavaScript Programming
+- Integrated Development Environment (IDE)
+    - Microsoft Visual Studio Code (VSCode)
+    - Free IDE from Microsoft for Application Development
+    - Cross Platform
+    - https://code.visualstudio.com
+    - This is based on 'Electron'
+- Runtime as Node.js
+    - Server-Side JavaScript Apps
+    - https://www.nodejs.org
+
+# ===================================================================================================================
+
+# JavaScript (JS)
+1. TypeSystem
+    - DataTypes
+        - Primitive Types
+            - Number
+            - String
+            - Boolean
+            - Date
+            - any
+        - Complex Types
+            - Object
+            - Array
+    - Variable Declarations
+        - The 'var', is a keyword that is used to declare a variable
+            - e.g. var x;
+        - VERY IMP****
+            - The Datatype of the variable is set based on its initial value (No explicit datatype declarartion)
+                - The default DataType is 'any'
+        - Each Datatype is derived from the 'Object'   
+        - Since each of the Datatype is Object, every datatype has a 'Standard Function'     
+2. Functions
+    - This is also a Object Type
+    - 3 Types of Functions
+        - Close Type Functions aka a Regular Function Body
+            - function xyz(parameters){........}
+        - Reference Functions
+            - Stores a function reference into an object
+                - var x = function(Parameters){.........}   
+        - Immediately Invokable Function Expression (IIFE)
+            - Self-Invokable function
+            - This function need not be called explicitely instaed it will be immedtaly executed when a JavaScript is loaded
+            - Syntax
+                - (function(){............})();          
+3. Output Statements
+    - The 'Console' class (same as System.Out)
+        - Console.log(); Console.error(), Console.print(), etc. 
+4. The JavaScript Object Model [JSOM] used by Browser
+    - JS is a language of Browser
+    - Loaded in Browser, Parsed in Browser and Executed in the Browser
+        - The JS code is parsed and then executed per statement one-by-one
+    - Following 2 Important Objects are responsible to Manage the JS in Browser
+        - The 'window' object
+            - Represents the Current Instance of Browser Window
+            - Manage all browswer resources
+                - Loading, Parsing and Executing JavaScript
+            - Contains Global Events Objects
+                - init
+                    - onInit()
+                - load
+                    - onLoad()
+                - close     
+                    - onClose()
+                - histroy
+                    - Manages the history    
+            - Objects
+                - location
+                - localStorage (HTML 5)
+                - sessionStorage (HTML 5)
+                - indexedDB (HTML 5)     
+            - Object Methods
+                - alert(), dialog box
+                - prompt(), dialog box to accept value from end-user
+                - atob(), base64 string encoding
+                - btoa(), encodes a string in base64
+                - print()       
+            - Contains some Global Device Events
+                - e.g. Mouse Events, Keyboard Events, etc.
+        - The 'document' object
+            - Represents a Document Object Model (DOM) aka a Static HTML UI Loaded in the browser
+                - HTML UI
+                    - input
+                        - TextBox, <input type="text"/>
+                        - Button, <input type='button"/> or <button></button>
+                        - Radio, <input type="radio"/>
+                        - CheckBox, <input type="checkbox"/>
+                    - layout
+                        - <div>, <table>, <p>
+                    - lists
+                        - <ul>, Un-Ordered List
+                            - <li>, the list item
+                        - <ol>, Ordered List          
+                            - <li>
+                        - <select> <option></option></select>
+                            - Dropdown List       
+            - The 'document' Object is used to query to DOM Tree to extract HTML element based on following Criterias
+                - document.getElementById('[ID-OF-HTML-ELEMENT]');     
+                    - <input type="text" id="txt"/>
+                    - document.getElementById('txt');
+                        - a Single DOM element is extracted from the DOM Tree
+                - document.getElementsByTag('[TAG-OF-HTML-ELEMENT]');
+                    - document.getElementByTag('input');
+                        - Read all input elements from the DOM Tree 
+                        - Return an Array of DOM Elements    
+                - document.getElementsByClass('[CLASS-ATTRIBUTE-OF-HTMOL-ELEMENT]') 
+                    - <input type="text" class="c1"/> <input type="button" class="c1"/>    
+                    - document.getElementsByClass('c1');
+                        - Return all elements those are having class attribute value as 'c1'
+                        - Return an Array of DOM Elements   
+                - document.querySelector('[HTML-ELEMENT-SEARCH-CRITERIA]') 
+                    - class name, tag name, etc.
+                    - Retuns a single DOM ELement object   
+                - document.querySelectorAll('[CRITERIA]');
+                    - Return array of elements
+            - The 'document' object is also used to attach events to DOM Elements
+                - doucment.addEventListener('event', Callback Function, boolean);
+                    - The 'event'
+                        - click, mouseenter, mouseleave, blur, keyup, change, etc.
+                - e.g.
+                    - <input type="button" id="btn">
+                    - Extrct element based on 'id'
+                        - var btn = document.getElementById('btn');
+                    - Attach an event
+                        - btn.addEventListener('click', function(){......}, false);
+                            - When the Button is clicked the function will be executed
+                            - The 'false' means the event will be release from the DOM 
+
