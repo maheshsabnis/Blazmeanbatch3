@@ -44,6 +44,19 @@
                  {DeptNo:50, DeptName:'AC'}
              ];
              
+            var Employees = [
+                {EmpNo:101, EmpName: 'ABC', Salary:20000, DeptNo:10},
+                {EmpNo:102, EmpName: 'ABC', Salary:20000, DeptNo:20},
+                {EmpNo:103, EmpName: 'ABC', Salary:20000, DeptNo:30},
+                {EmpNo:104, EmpName: 'ABC', Salary:20000, DeptNo:40},
+                {EmpNo:105, EmpName: 'ABC', Salary:20000, DeptNo:50},
+                {EmpNo:106, EmpName: 'ABC', Salary:20000, DeptNo:10},
+                {EmpNo:107, EmpName: 'ABC', Salary:20000, DeptNo:20},
+                {EmpNo:108, EmpName: 'ABC', Salary:20000, DeptNo:30},
+                {EmpNo:109, EmpName: 'ABC', Salary:20000, DeptNo:40},
+                {EmpNo:110, EmpName: 'ABC', Salary:20000, DeptNo:50}
+            ];    
+
              var dOptions;
              for(var j=0;j<Departments.length;j++){
                 dOptions += '<option value="' + Departments[j].DeptNo + '">' + Departments[j].DeptName + '</option>';
@@ -95,6 +108,8 @@
             <tr>
                 <th>EmpNo</th>
                 <th>EmpName</th>
+                <th>Salary</th>
+                <th>DeptNo</th>
             </tr>
         </thead>
         <tbody>
