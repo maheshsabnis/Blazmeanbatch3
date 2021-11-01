@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <!--inline script to HTML Page-->
+        <script>
+            // the script will be executed when the window is loaded
+            // the function is passed to 'load' event object of 'window'
+            window.onload = function(){
+                // variable declarartion
+                var x;
+                // print the variable value
+                console.log('x = ' + x);
+                x = 100; // number (integer)
+                console.log('x = ' + x + ' and type of x =  ' + typeof(x));
+                x = 900.56; // number (floating-poit)
+                console.log('x = ' + x + ' and type of x =  ' + typeof(x));
+                x = 'Mahesh Rameshrao Sabnis'; // string
+                console.log('x = ' + x + ' and type of x =  ' + typeof(x));
+                x = true; // boolean
+                console.log('x = ' + x + ' and type of x =  ' + typeof(x));
+                x = new Date(2021, 10, 01,12,56,20); // the Date which is Object
+                console.log('x = ' + x + ' and type of x =  ' + typeof(x));
+                x = [10,20,30,'A', 'B', 100.20, true, new Date(2021,0,1)]; // an Array which is object
+                console.log('x = ' + x + ' and type of x =  ' + typeof(x));
+                x = {}; // an object declaration aka JavaScript Object Notation (JSON) object
+                console.log('x = ' + x + ' and type of x =  ' + typeof(x));
+                x = {
+                    k1: 100,
+                    k2: 10.20,
+                    k3: 'Mahesh',
+                    k4: true,
+                    k5: [10,20,30],
+                    k6: {k11:100, k12: 'Sabnis'}
+                };
+                console.log('x = ' + x.k1);
+                console.log('x = ' + x.k2);
+                console.log('x = ' + x.k3);
+                console.log('x = ' + x.k4);
+                console.log('x = ' + x.k5);
+                console.log('x = ' + x.k6.k11);
+                console.log('x = ' + x.k6.k12);
+                console.log('x = ' + JSON.stringify(x) + '  typof of x = ' + typeof(x));
+
+
+            };    
+        </script>
+    </head>
+    <body></body>
+</html>

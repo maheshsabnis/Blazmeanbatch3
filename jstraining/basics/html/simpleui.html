@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=h1, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./../code/simpleui.js"></script>
+    <script>
+        window.onload = function(){
+            // extract element from the DOM Tree
+            var btnAdd = document.getElementById('btnAdd');
+            // attach an event
+            btnAdd.addEventListener('click', function(){
+                // read the value entered into the textbox
+                var n1 = document.getElementById('txtN1').value;
+                var n2 = document.getElementById('txtN2').value;
+             //   var res = parseInt(n1) + parseInt(n2);
+                var res = add(parseInt(n1),parseInt(n2));  
+                // display the result in txtRes
+                document.getElementById('txtRes').value = res;
+            },false);
+            var btnSub = document.getElementById('btnSub');
+            btnSub.addEventListener('click', function(){
+                // read the value entered into the textbox
+                var n1 = document.getElementById('txtN1').value;
+                var n2 = document.getElementById('txtN2').value;
+              
+                var res = sub(parseInt(n1),parseInt(n2));  
+                // display the result in txtRes
+                document.getElementById('txtRes').value = res;
+            },false);
+            var btnMult = document.getElementById('btnMult');
+            btnMult.addEventListener('click', function(){
+                // read the value entered into the textbox
+                var n1 = document.getElementById('txtN1').value;
+                var n2 = document.getElementById('txtN2').value;
+              
+                var res = mult(parseInt(n1),parseInt(n2));  
+                // display the result in txtRes
+                document.getElementById('txtRes').value = res;
+            },false);
+            var btnDiv = document.getElementById('btnDiv');
+            btnDiv.addEventListener('click', function(){
+                // read the value entered into the textbox
+                var n1 = document.getElementById('txtN1').value;
+                var n2 = document.getElementById('txtN2').value;
+              
+                var res = div(parseInt(n1),parseInt(n2));  
+                // display the result in txtRes
+                document.getElementById('txtRes').value = res;
+            },false);
+
+            var btnClear = document.getElementById('btnClear');
+            btnClear.addEventListener('click', function(){
+                // read the value entered into the textbox
+                 document.getElementById('txtN1').value = 0;
+                 document.getElementById('txtN2').value = 0;
+              
+                document.getElementById('txtRes').value = 0;
+            },false);
+        };
+    </script>
+</head>
+<body>
+    <h1>The Simple UI</h1>
+    Number 1: <input type="text" id="txtN1" value="0"/>
+    <br>
+    Number 2: <input type="text" id="txtN2" value="0"/>
+    <br>
+    Result  : <input type="text" id="txtRes" value="0"/>
+    <br>
+    <div>
+        <input type="button" value="Add" id="btnAdd">
+        <input type="button" value="Substract" id="btnSub">
+        <input type="button" value="Multiply" id="btnMult">
+        <input type="button" value="Divide" id="btnDiv">
+        <input type="button" value="Clear" id="btnClear">
+    </div>
+</body>
+</html>

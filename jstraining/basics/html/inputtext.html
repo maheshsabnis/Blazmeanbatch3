@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var t1 = document.getElementById('t1');
+            var dv = document.getElementById('dv');
+            // t1.addEventListener('change',function(){
+            //     // the 'this' is t1 itself
+            //     dv.innerHTML = this.value;
+            // },false);
+            t1.addEventListener('blur',function(){
+                // the 'this' is t1 itself
+                dv.innerHTML = this.value;
+            },false);
+
+            t1.addEventListener('keyup',function(){
+                // the 'this' is t1 itself
+                dv.innerHTML = this.value;
+            },false);
+        };
+    </script>
+</head>
+<body>
+    <h1>The input:text element</h1>
+    <input type="text" id="t1">
+    <hr>
+    <div id="dv"></div>
+</body>
+</html>

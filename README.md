@@ -16,13 +16,39 @@
     - DataTypes
         - Primitive Types
             - Number
+                - integer or float
             - String
+                - we can use "" or ''
             - Boolean
             - Date
+                - new Date(year, month, day, hour, mins, seconds, milliseconds);
+                    - month starts from '0', 0 is January
             - any
         - Complex Types
             - Object
+                - var x = {k1:100}; // the JavaScript Object Notation (JSON)
+                - The JSON object can store data using Key:Value pair
+                    - Key is always a string
+                    - Value can be any of the following type
+                        - number, string, date, boolean
+                        - object
+                        - array
+                        - function
+                    - To access values of keys from object use the following
+                        - ObjectIdentifier.[Key]
+                        - e.g. x.k1
+                    - All keys are publically accessible using the ObjectIdenttifier
+                - To read all key:value pairs in a single statement use 
+                    - JSON.stringify(ObjectIdentiffier);
+                        - JSON is standard JS Object
+                        - stringify() is a standard function of JSON Object   
+                - The JSON is a widely used mechansim for DATA-COMMUNICATIONS in REST APIs             
+
             - Array
+                - Defined using [] 
+                - We can add any datatype in the array
+                - Array.length
+                    - This will return length of array
     - Variable Declarations
         - The 'var', is a keyword that is used to declare a variable
             - e.g. var x;
@@ -57,12 +83,11 @@
             - Manage all browswer resources
                 - Loading, Parsing and Executing JavaScript
             - Contains Global Events Objects
-                - init
-                    - onInit()
+                
                 - load
-                    - onLoad()
+                    - onload()
                 - close     
-                    - onClose()
+                    - onclose()
                 - histroy
                     - Manages the history    
             - Objects
@@ -126,4 +151,56 @@
                         - btn.addEventListener('click', function(){......}, false);
                             - When the Button is clicked the function will be executed
                             - The 'false' means the event will be release from the DOM 
+        - TO load the HTML page in browser, install the 'LiveServer' plougin or extension of the VSCode                     
+5. The JavaScript Programming Constructs
+    - Conditional Statements
+        - if(Condition){...} statement
+        - if(Condition){...}else {......}
+        - if(Condition){.....} else if(condition) {......}
+    - Switch-Case
+        - switch(condition){ case '':..... break; ........ default: ......}
+            - The 'default' is mandatory
+
+    - Loops
+        - for() loop
+        - for...in loop
+            - Simplification of for loop (NOT forEach loop)
+6. JavaScript Operators
+    - Basic Math
+        - +,-,*,/
+            - IMP***, The '+' is default for String Concatination
+            - if any operand of + expression is string, then the concatination will takes place 
+        - +=, -=    
+        - =, the assignment
+        - ==, the value comparision
+        - ===, the deep comparision  aka 'deep equavality' or 'deep type check' 
+        - !==, not equal
+        - >,<, >=, <=
+        - ||, OR
+        - &&, AND
+        - !, nor or not                
+7. If one JSON object is assigned to other JSON object then both objects will point to same memory store. Hence to create a seperate clone of the object with same structure using 'Object' functions
+    - var obj1 = {x:10};
+    - To create a clone of obj1
+        - var obj2 = Object.assign(target, source);
+            - The first parameter 'target' is a newly created empty object
+            - The second parameter 'source', is the objected of which structure (and values) will be cloned in the target object
+                - e.g.
+                    - var obj2 = Object.assign({}, obj1);
+8. Using the Type Parsing methods
+    - parseInt('[STRING]') 
+    - parseFloat('[STRING]')      
+    - parseXXX methods are responsible for parsing striong from Left-to-Right, till the first string is not found     
+9. Using Eventing for 'input:text' elements
+    - The 'value' attribute /  property used for Read/Write values for input element
+    - The 'change' and 'blur' events those will be fired when the value is changed or 'tab' is pressed respectively
+
+    - if an HTML element is subscibed to an event and the value entered in that element is used in its callback function, then the HTML element will be referred inside its event's callback using 'this' object 
+        - the 'this' object represents the current object scope menas represent an object itself
+
+10. Using Arrays with the HTML Dropdown
+    - Array is a collection of values
+    - Dropdown wil be used to populate 'options' from the array  
+    - The select element has the 'change' event. We can extract the value of selected option using
+        - select.options[select.selectedIndex].value                         
 

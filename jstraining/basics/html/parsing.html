@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var x = '100';
+            var y = '200.20';
+            var z = "123xyz12";
+            var dv = document.getElementById('dv');
+            // use the innerHTML property of div to show the result
+            dv.innerHTML = 'Integer ' +  parseInt(x) + '<br/>' ;
+            dv.innerHTML += 'Floating point ' + parseFloat(y) + '<br/>' ;
+            dv.innerHTML += 'Integer value for 200.20 ' + parseInt(y) + '<br/>';
+            dv.innerHTML += 'The Integer from string ' + parseInt(z);
+        };
+    </script>
+</head>
+<body>
+    <h1>The Parsing</h1>
+    <div id="dv">
+
+    </div>
+</body>
+</html>

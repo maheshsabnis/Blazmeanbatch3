@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            var Profession = [
+                'Un-Employeed', 'Employeed', 'Self-Employeed',
+                'Doctor', 'CA', 'CS', 'Driver', 'Teacher'
+            ];
+
+            var option;
+            for (var i = 0; i < Profession.length; i++) {
+                option += '<option value="' + Profession[i] + '">' + Profession[i] + '</option>';
+            }
+            // add all options as HTML inside the lstprofession
+            document.getElementById('lstprofession').innerHTML = option;
+
+
+            document.getElementById('lstnames')
+                .addEventListener('change', function () {
+                    document.getElementById('dv1').innerHTML = this.options[this.selectedIndex].value;
+                }, false);
+
+
+            document.getElementById('lstprofession')
+                .addEventListener('change', function () {
+                    document.getElementById('dv2').innerHTML = this.options[this.selectedIndex].value;
+                }, false);
+
+
+
+             // Lets create an Array of Objects
+             
+             var Departments = [
+                 {DeptNo:10, DeptName:'IT'},
+                 {DeptNo:20, DeptName:'HR'},
+                 {DeptNo:30, DeptName:'SL'},
+                 {DeptNo:40, DeptName:'TR'},
+                 {DeptNo:50, DeptName:'AC'}
+             ];
+             
+             var dOptions;
+             for(var j=0;j<Departments.length;j++){
+                dOptions += '<option value="' + Departments[j].DeptNo + '">' + Departments[j].DeptName + '</option>';
+             }   
+
+             document.getElementById('lstdept').innerHTML = dOptions;
+
+
+             document.getElementById('lstdept')
+                .addEventListener('change', function () {
+                    document.getElementById('dv3').innerHTML = 'Value = ' + this.options[this.selectedIndex].value + ' Text = ' + this.options[this.selectedIndex].text;
+                }, false);
+
+
+
+        };
+    </script>
+</head>
+
+<body>
+    <h1>Using the 'Select' element</h1>
+    <div>
+        <label>Select Name</label>
+        <select id="lstnames">
+            <option value="Tejas">Tejas</option>
+            <option value="Mahesh">Mahesh</option>
+            <option value="Ramesh">Ramesh</option>
+            <option value="Ram">Ram</option>
+            <option value="Sabnis">Sabnis</option>
+        </select>
+        <div id="dv1"></div>
+    </div>
+    <hr>
+    <hr>
+    <div>
+        <label>Select Profession</label>
+        <select id="lstprofession"></select>
+        <div id="dv2"></div>
+    </div>
+    <hr>
+    <div>
+        <label>Select Department </label>
+        <select id="lstdept"></select>
+        <div id="dv3"></div>
+    </div>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>EmpNo</th>
+                <th>EmpName</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>101</td>
+                <td>Mahesh</td>
+
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

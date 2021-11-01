@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Refer the JavaScript-->
+    <script src="./../code/functiondemo.js"></script>
+    <script>
+        window.onload = function(){
+            console.log('Calling function that is declared in seperate script file');
+            doWork();
+            console.log('Add');
+            addValues(10,20); // 30
+            addValues("A", "B"); // AB
+            addValues(10, "20"); //1020
+            addValues("10", 20); //1020
+            console.log('Add = ' + addData(100,200));
+            console.log('Add = ' + addData("100",200));
+        };
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
