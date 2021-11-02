@@ -5,6 +5,7 @@ var MyObject = function(){
             return 0;
     }
 
+    
     // public declarations exposed using 'this'
     // the 'this' is the scope object, so currently
     // it represents 'MyObject' so all members

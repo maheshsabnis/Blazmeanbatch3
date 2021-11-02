@@ -280,6 +280,35 @@
                                     - var obj =  new MyFunction();
                                     - obj.Key(); for access function OR obj.Key to read property value    
                             - VERY IMP****
-                                - Close Function does not have prototype         
+                                - Close Function does not have prototype        
+                        - Immediately Invokable Function Expression (IIFE)
+                            - Self-Executbale Functions
+                            - No need to instantiate the function defined in IIFE
+                            - Executed before the window.onload is invoked
+                            - Syntax
+                                - (function(){....})();
+                            - Use IIFE for the case when some JS Objects to be initialized before the onload event takes place
+                                - Initializing Collection Objects
+                                - Loading the Code that has operations related to the browser resources
+                                    - e.g. Processing the collection to ganerate Charts that uses Browser's Graphics    
+                                - Please don not write any logic in IIFE that will delay the Browser Loading
+                                    - e.g. HTTP Calls  
+                            - Create a JavaScript Modular Pattern using IIFE
+                                - var Module = (function(){...All Module Members..... return {Key:Value for public access}})();           
+                                    - All Module Members
+                                        - Private and Public
+                                    - Key:Value
+                                        - Only those members which required to be exposed out from the module  
+                                - The module members are not directly accessible, instead they MUST be return using return {} statement         
     - Load the code on UI to make the UI Functional
+        - Refer the JS files into the HTML Page and call functions ftrom JS Files
+- Object class
+    - Object.assign()
+    - Object.create();
+        - Used to make a Clone of then Original Object        
+        - var TargetObject = Object.create(SourceObject);
+    - Object.keys()
+        - USed to Read all Members of Object e.g. Properties and Functions
+    - Object.values()
+        - Used to Read Values of Properties of the Object        
 

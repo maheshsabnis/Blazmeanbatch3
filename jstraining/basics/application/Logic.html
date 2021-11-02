@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./Logic.js"></script>
+    <script src="./uigenerate.js"></script>
+    <script>
+        window.onload = function(){
+            var uiGenerator = new UIGenerator();
+            var logic= new Logic();
+            var dname='';
+            document.getElementById('lstdname').innerHTML = uiGenerator.generateList(logic.getDepartments());
+
+
+            var lstdname = document.getElementById('lstdname');
+            lstdname.addEventListener('change', function(){
+                dname = this.options[this.selectedIndex].value;
+            },false);
+
+            var btnClear = document.getElementById('btnClear');
+            btnClear.addEventListener('click', function(){
+                var controls = document.getElementsByClassName('c1');
+                for(var c in controls){
+                    controls[c].value = '';
+                }
+            },false);
+
+            var btnSave = document.getElementById('btnSave');
+            btnSave.addEventListener('click',function(){
+                var emp = {
+                    EmpNo: parseInt(document.getElementById('eno').value),
+                    EmpName:  document.getElementById('ename').value,
+                    Salary: parseInt(document.getElementById('sal').value),
+                    DeptName:  dname
+                };
+                var emps = logic.addEmployee(emp);
+               
+                // generate table
+                var dvTable = document.getElementById('dvTable');
+                dvTable.innerHTML = uiGenerator.generateTable(emps);
+
+            },false);
+        }
+    </script>
+</head>
+<body>
+    <h1>Employee Information System</h1>
+    <div>
+        <label>EmpNo</label>
+        <input type="text" id="eno" class="c1">
+    </div>
+    <div>
+        <label>EmpName</label>
+        <input type="text" id="ename" class="c1">
+    </div>
+    <div>
+        <label>Salary</label>
+        <input type="text" id="sal" class="c1">
+    </div>
+    <div>
+        <label>DeptName</label>
+        <select id="lstdname" class="c1"></select>
+    </div>
+    <div>
+         <input type="button" value="Clear" id="btnClear">
+         <input type="button" value="Save" id="btnSave">
+    </div>
+    <hr>
+    <div id="dvTable"></div>
+</body>
+</html>

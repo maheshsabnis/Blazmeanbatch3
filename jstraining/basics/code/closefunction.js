@@ -31,6 +31,6 @@ function MyUtilities() {
             }
 
             return str;
-        }
+        } 
     };
 };
