@@ -1,3 +1,17 @@
+# Using GitHub
+- Created a Repository with Readmefile, .gitignore, License
+    - https://github.com/maheshsabnis/Blazmeanbatch3.git
+- MUST have the Git Sign Up
+    - git config  --gobal user.name "user.name"  
+    - git config --global user.email "falana.dhimkana@timkana.com"
+- Clone the repository
+    - git clone https://github.com/maheshsabnis/Blazmeanbatch3.git    
+
+- Commit
+    - git commit -m "firstcommit"
+-Push
+    - git push [REMOTE-URL]
+
 # The JavaScript Programming
 - Integrated Development Environment (IDE)
     - Microsoft Visual Studio Code (VSCode)
