@@ -216,5 +216,70 @@
     - Array is a collection of values
     - Dropdown wil be used to populate 'options' from the array  
     - The select element has the 'change' event. We can extract the value of selected option using
-        - select.options[select.selectedIndex].value                         
+        - select.options[select.selectedIndex].value     
+
+11. Using JavaScript for Application Development
+    - Plan for The Data Structures
+        - Variable Declaration with Scope of the variable
+            - Using 'val' is a function level scope or the JS file level scope,. if it declared globally in the file
+            - This will result into possibility of Dirty Read and Dirty Write
+                - We have to take care of Resetting the 'var' or setting it to undefined
+            - To prevent tye dirty read and dirty writes for 'var', make use of 'use strict' in JavaScript file so that all 'var' declarations will be 'scopped to the current file '    
+            - But the factn is the 'var' declararion will be accessible from its declaration onwards to the other statemenets. So make sure that the 'var' declaration is set to 'undefined'
+        - Using Collection Types i.e. Array
+            - The only 'collection' in Vanilla JavaScript
+            - Array is cross Technology collection
+            - This is a Complex Object that is used to store large amount of values in browser
+            - Methods
+                - push(), pop(), shift(), unshift(), sort() the vanilla JS Methods for Array
+            - Property
+                - length
+            - Array Iteration
+                - Use for..loop or for..in loop        
+
+        - Using a Textual Data i.e. String  
+            - A Array of Characters
+            - Most of the methdos are same as Array
+            - toUpperCase(), toLowerCase()
+            - substring()
+    - Write Logic
+        - Create seperate functions for resuable set of coding. e.g. Collection Operations, Generating UI repetedly, etc.
+            - Functions: They are code-block, those are used for following 
+                - Re-Usable Logical Statement Execution
+                - Used to provide a 'Class-like' coding experience to the application
+                    - Following are 3 syntaxes to create function in JavaScript
+                        - Reference Functions
+                            - Store a Function in 'var'
+                                - var myObject = function(){...} 
+                            - All publically accessible members (i.e. Variables, functions) of this function will be pre-fixed using 'this.'
+                                - var myObject = function {
+                                    this.fn1 = function(){.....};
+                                    this.fn2 = function(){.....}
+                                }
+                                - fn1, fn2 are public functions exposed from 'myObject'
+                                - Access the Publically exposed members using following syntax
+                                - Create an instance of the function
+                                    - var obj = new myObject();
+                                - Access the public members
+                                    - obj.fn1(); 
+                            - The Reference Function can be extended using using the 'prototype' object of JavaScript
+                                - The 'prototype' can be used to enhance the original Reference Function Object by adding new functions in it
+                                    - e.g. If myObject is the Reference Function then used following syntax to add the Prototype
+                                        - myObject.prototype.fn3 = function(PARAMETERS){.......} ;
+                                        - The 'prototype' is used to create a new Object which is be enhenced with new function added in it   
+                                - Generally, it is used in case, when the 'third-party' JS library or code, needs to be enhanced without modifying the original code from the library   
+                                    - In 'prtototype' function, the private function from the original Reference funciton can-not be accessed
+                        - Close-Type Fucntion or a JavaScript Function, that returns a JSON Object
+                            - function MyFunction(){    return { Key:Value, Key:Value };  };       
+                                - Whatever is returned using the JSON Object is Public
+                                - e.g.
+                                    - Key, can be a property, function-Name
+                                        - K1: 10 OR K1: function(PARAMETERS){.........}
+                                    - Everything that not inside the return block is 'private'      
+                                - To Access the Public Members , create an instance using 'new' and access members
+                                    - var obj =  new MyFunction();
+                                    - obj.Key(); for access function OR obj.Key to read property value    
+                            - VERY IMP****
+                                - Close Function does not have prototype         
+    - Load the code on UI to make the UI Functional
 

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./../code/dataentry/logic.js"></script>
+    <script>
+        window.onload = function(){
+           
+
+            var btnClear = document.getElementById('btnClear');
+            btnClear.addEventListener('click', function(){
+                document.getElementById('txtid').value = 0;
+                document.getElementById('txtname').value = '';
+            },false);
+            var btnSave = document.getElementById('btnSave');
+            btnSave.addEventListener('click', function(){
+                var person = {};
+                person.id = parseInt(document.getElementById('txtid').value);
+                person.name = document.getElementById('txtname').value;
+               
+                var logic = new Logic();
+                var persons = logic.addPerson(person);
+                document.getElementById('dvmessage').innerHTML = '';
+                if(persons[0] === 'P' ) {
+                    console.log('if');
+                    document.getElementById('dvmessage').innerHTML = persons;
+                } else {
+                    console.log('else');
+                    gnerateTable(persons);
+                }
+
+            },false);
+
+
+            function gnerateTable(persons){
+                var tbody="";
+                for(var i in persons) {
+                    tbody+= '<tr><td>'+ persons[i].id + '</td><td>' + persons[i].name + '</td></tr>';
+                }
+
+                document.getElementById('tbody').innerHTML = tbody;
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>A Simple Data Entry</h1>
+    <div>
+        <label>Id</label>
+        <input type="text" id="txtid" value="0">
+    </div>
+    <div>
+        <label>Name</label>
+        <input type="text" id="txtname" value="">
+    </div>
+    <div>
+        <input type="button" value="Clear" id="btnClear">
+        <input type="button" value="Save" id="btnSave">
+    </div>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+    <hr>
+    <div id='dvmessage'></div>
+</body>
+</html>

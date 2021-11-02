@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./../code/closefunction.js"></script>
+    <script>
+        window.onload = function(){
+            var utility = new MyUtilities();
+            utility.privateFunction();
+            document.getElementById('dvl').innerHTML = 'Length = ' + utility.getLength('Mahesh');
+            document.getElementById('dvs').innerHTML = 'Length = ' + utility.sort([10,2,4,1,7,8,5,9,3]);
+            document.getElementById('dvr').innerHTML = 'Length = ' + utility.reverse([10,2,4,1,7,8,5,9,3]);
+            document.getElementById('dvuc').innerHTML = 'Length = ' + utility.changeCase('Mahesh', 'U');
+            document.getElementById('dvlc').innerHTML = 'Length = ' + utility.changeCase('Mahesh', 'L');
+        };
+    </script>
+</head>
+<body>
+    <h1>Using Close Function</h1>
+    <div id="dvl"></div>
+    <br>
+    <div id="dvs"></div>
+    <br>
+    <div id="dvr"></div>
+    <br>
+    <div id="dvuc"></div>
+    <br>
+    <div id="dvlc"></div>
+</body>
+</html>

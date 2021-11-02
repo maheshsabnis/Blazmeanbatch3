@@ -34,42 +34,77 @@
 
 
 
-             // Lets create an Array of Objects
-             
-             var Departments = [
-                 {DeptNo:10, DeptName:'IT'},
-                 {DeptNo:20, DeptName:'HR'},
-                 {DeptNo:30, DeptName:'SL'},
-                 {DeptNo:40, DeptName:'TR'},
-                 {DeptNo:50, DeptName:'AC'}
-             ];
-             
+            // Lets create an Array of Objects
+
+            var Departments = [
+                { DeptNo: 10, DeptName: 'IT' },
+                { DeptNo: 20, DeptName: 'HR' },
+                { DeptNo: 30, DeptName: 'SL' },
+                { DeptNo: 40, DeptName: 'TR' },
+                { DeptNo: 50, DeptName: 'AC' }
+            ];
+
             var Employees = [
-                {EmpNo:101, EmpName: 'ABC', Salary:20000, DeptNo:10},
-                {EmpNo:102, EmpName: 'ABC', Salary:20000, DeptNo:20},
-                {EmpNo:103, EmpName: 'ABC', Salary:20000, DeptNo:30},
-                {EmpNo:104, EmpName: 'ABC', Salary:20000, DeptNo:40},
-                {EmpNo:105, EmpName: 'ABC', Salary:20000, DeptNo:50},
-                {EmpNo:106, EmpName: 'ABC', Salary:20000, DeptNo:10},
-                {EmpNo:107, EmpName: 'ABC', Salary:20000, DeptNo:20},
-                {EmpNo:108, EmpName: 'ABC', Salary:20000, DeptNo:30},
-                {EmpNo:109, EmpName: 'ABC', Salary:20000, DeptNo:40},
-                {EmpNo:110, EmpName: 'ABC', Salary:20000, DeptNo:50}
-            ];    
+                { EmpNo: 101, EmpName: 'ABC', Salary: 10000, DeptNo: 10 },
+                { EmpNo: 102, EmpName: 'ABC', Salary: 20000, DeptNo: 20 },
+                { EmpNo: 103, EmpName: 'ABC', Salary: 30000, DeptNo: 30 },
+                { EmpNo: 104, EmpName: 'ABC', Salary: 11000, DeptNo: 40 },
+                { EmpNo: 105, EmpName: 'ABC', Salary: 21000, DeptNo: 50 },
+                { EmpNo: 106, EmpName: 'ABC', Salary: 31000, DeptNo: 10 },
+                { EmpNo: 107, EmpName: 'ABC', Salary: 41000, DeptNo: 20 },
+                { EmpNo: 108, EmpName: 'ABC', Salary: 51000, DeptNo: 30 },
+                { EmpNo: 109, EmpName: 'ABC', Salary: 61000, DeptNo: 40 },
+                { EmpNo: 110, EmpName: 'ABC', Salary: 71000, DeptNo: 50 }
+            ];
 
-             var dOptions;
-             for(var j=0;j<Departments.length;j++){
+            var dOptions;
+            for (var j = 0; j < Departments.length; j++) {
                 dOptions += '<option value="' + Departments[j].DeptNo + '">' + Departments[j].DeptName + '</option>';
-             }   
+            }
 
-             document.getElementById('lstdept').innerHTML = dOptions;
+            document.getElementById('lstdept').innerHTML = dOptions;
 
 
-             document.getElementById('lstdept')
+            document.getElementById('lstdept')
                 .addEventListener('change', function () {
-                    document.getElementById('dv3').innerHTML = 'Value = ' + this.options[this.selectedIndex].value + ' Text = ' + this.options[this.selectedIndex].text;
+                    document.getElementById('dv3').innerHTML = 'Value = ' + this.options[this.selectedIndex].
+                     + ' Text = ' + this.options[this.selectedIndex].text;
+                    // read the dno
+                    var dno = this.options[this.selectedIndex].value;
+                    console.log(dno);
+                    // passing Employees array and selected DeptNo
+                    genrateTable(Employees, dno);
+
+
                 }, false);
 
+                // display  table when the page is loaded for the first Time 
+                genrateTable(Employees,0);
+
+
+
+            // generate the tagble with tr in tbody dynamically
+            function genrateTable(Employees, dno) {
+                console.log('In method ' + dno);
+                var tbody = "";
+                if (parseInt(dno) === 0) {
+
+                    for (k = 0; k < Employees.length; k++) {
+                        tbody += "<tr><td>" + Employees[k].EmpNo + "</td><td>" + Employees[k].EmpName + "</td><td>" + Employees[k].DeptNo + "</td></tr>";
+                    }
+                } else {
+                    console.log('else' + dno);
+                    for (k = 0; k < Employees.length; k++) {
+                        
+                        if (Employees[k].DeptNo === parseInt(dno)) {
+                            tbody += "<tr><td>" + Employees[k].EmpNo + "</td><td>" + Employees[k].EmpName + "</td><td>" + Employees[k].DeptNo + "</td></tr>";
+                        }
+                    }
+                }
+                // add trs in tbody 
+                document.getElementById('tbody').innerHTML = tbody;
+
+            }
 
 
         };
@@ -112,12 +147,8 @@
                 <th>DeptNo</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td>101</td>
-                <td>Mahesh</td>
+        <tbody id="tbody">
 
-            </tr>
         </tbody>
     </table>
 </body>
