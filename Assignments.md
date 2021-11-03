@@ -26,3 +26,31 @@
     - e.g.
         - <input type="radio" name="r"> <input type="radio" name="r"><input type="radio" name="r"><input type="radio" name="r">       
         - Since the name is same for each radio button, it will form group of radio buttons
+
+# Date 03-Nov-2021
+1. Create an Application for Employee Information System for storing the following Information for Employee  (Now)
+    - EmpNo: Number
+    - EmpName: String
+    - DeptName: String
+    - Salary: number
+    - Designation: String 
+- Perform Following Operations on UI (Now)
+    - Accept the Information from End-USer with following Validations
+        - All Entries are Mandatory
+        - EmpNo MUST not be repeated
+            - Check it in 'change' event
+        - EmpName must be string and strats from Uppercase character. It Must not have digit or special character
+        - Select DeptName and Designation from Dropdown list. Generate this dropdown list dynamically
+            - Make sure that one DeptName and Designation is selected
+    - Save Employee Data in indexedDB (Now)
+    - Show data in table from IndexedDB (Now)
+        - Generate table dynamically
+    - When a row is selected from the table, the selected employee info Must be displayed  in Employee Textboxes and DropDown. This infromation can be edited except EmpNo
+    - Make sure that, the Data displayed in Table is shown in following ways based in User's selection
+        - Show data in Table Group by DeptName
+            - Arange data in table group by DeptName 
+        - Show data in Table Group by Designation
+        - When a column EmpNo is clicked, the data can be sorted or reversed by EmpNo
+    - MAke sure that each row of the tbale has Delete button, when this button is clicked make sure that the record is deleted from indexedDB.                     
+
+

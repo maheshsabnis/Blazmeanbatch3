@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // global declarations
+        var myDB; //  used for storing indexedDB REeference 
+        var table; // used for storing Table / ObjectStore Reference
+        function createDatabase(){
+            // 1. create database if not exists else open it
+            myDB = window.indexedDB.open('PersonDB', 1);
+            // Database Creation / Opening operations are 'Asynchronous'
+            // so subscribe to events like onupgradedneeded,onsuccess,onerror com complete
+            // operations like createObjectStore, read data if open is successfull, display error
+            // respectively
+
+            // The 'e' is IDBRequest object
+            // this is used for all transactional operations
+            // perfoermed on indexedDB
+            myDB.onupgradeneeded = function(e){
+                // the indexedDB Reference just created an opened 
+                var dbReference = e.target.result;
+                // create an objectStore with Key (aka Primary Key) and Constraints
+                table = dbReference.createObjectStore('Persons', {keyPath:'id'});
+                var constraints = {unique:false};
+                // define columns and apply constraints
+                // Parameter 1: The Actual Columns Name
+                // Parameter 2: The Developer Firendly Name
+                // Parameter 3: The Column Constraints
+                table.createIndex("PersonId1","PersonId",constraints);
+                table.createIndex("PersonName1","PersonName",constraints);
+                table.createIndex("City1","City",constraints);
+
+                document.getElementById('dvstatus').innerHTML = 'Database is created successfully and Object STore is created';
+
+            };
+
+            myDB.onsuccess=function(e){
+                document.getElementById('dvstatus').innerHTML = 'Opening database is successful' + e;
+            };
+
+            myDB.onerror = function(e){
+                document.getElementById('dvstatus').innerHTML = 'Error Occured while opening database ' + e;
+            };
+
+        };
+        function loadData(){
+            var records = [];
+            myDB = window.indexedDB.open("PersonDB");
+
+            if(myDB) {  
+                myDB.onsuccess = function(e){
+                    // retriev the transaction object
+                    var transaction = e.target.result.transaction("Persons", "readwrite");
+                    // point this transaction to the objectstore
+                    // the table is read for transactions
+                    table = transaction.objectStore("Persons");
+                    
+                    // first read all records and then process each record one by one
+                    // table.openCursor().onsuccess =function(e){
+                    //     // pointing to the first Record and ready to read all recodrs
+                    //     var dataReader = e.target.result;
+                    //     // the if() statement is an internal iteration for reading all records
+                    //     if(dataReader) {
+                    //         records.push(dataReader.value);
+                    //         // the 'continue()' method will continue reading record if they are present
+                    //         // in cursor, when continue() reached to last record
+                    //         // the if(condition) will be false and the else will be executed
+                    //         dataReader.continue(); // move to next record
+                    //     } else {
+                    //         document.getElementById('dvRecords').innerHTML = 'Data Fetched';
+                    //         document.getElementById('dvRecords').innerHTML += JSON.stringify(records);
+                    //     }
+                    // }
+
+                    // we can use getAll() method also
+                    // read all records and process it
+                    // latest version of indexedDB on all modern browsers
+                    table.getAll().onsuccess = function(record){
+                        document.getElementById('dvRecords').innerHTML = 'Data Fetched';
+                            document.getElementById('dvRecords').innerHTML += JSON.stringify(record.target.result);
+                    }
+
+
+                };
+            } else {
+                document.getElementById('dvstatus').innerHTML = 'Error Occured while opening database ';
+            }
+
+
+        };
+        function saveData(){
+            myDB = window.indexedDB.open('PersonDB');
+            if(myDB) {  
+                myDB.onsuccess = function(e){
+                    // retriev the transaction object
+                    var transaction = e.target.result.transaction("Persons", "readwrite");
+                    // point this transaction to the objectstore
+                    // the table is read for transactions
+                    table = transaction.objectStore("Persons");
+                    
+                    var person = {
+                        "id": parseInt(document.getElementById('txtid').value),
+                        "PersonId": document.getElementById('txtid').value,
+                        "PersonName": document.getElementById('txtname').value,
+                        "City": document.getElementById('txtcity').value
+                    };
+                    // pass the person object to table
+                    var operation = table.add(person);  // table.put(person); //table.delete(person);
+
+                    // check if the transaction is succesasful or resulted in error
+                    operation.onsuccess = function(e){
+                        document.getElementById('dvstatus').innerHTML = 'Record is added successfully ';
+                    };
+
+                    operation.onerror = function(e){
+                        document.getElementById('dvstatus').innerHTML = 'Add Operation failed ';
+                    };
+                };
+            } else {
+                document.getElementById('dvstatus').innerHTML = 'Error Occured while opening database ';
+            }
+        };
+        function clearInputs(){
+            var inputs = document.getElementsByClassName('c');
+            for(var i=0;i<inputs.length;i++){
+                inputs[i].value = '';
+            }
+        }; 
+
+        function loadUIAndAttachEvents(){
+            createDatabase();
+            document.getElementById('btnSave').addEventListener('click', saveData, false);
+            document.getElementById('btnClear').addEventListener('click', clearInputs, false);
+            document.getElementById('btnLoadData').addEventListener('click', loadData, false);
+
+        }
+
+        window.onload =  loadUIAndAttachEvents;
+
+    </script>
+</head>
+
+<body>
+    <h1>Using HTML IndexedDB</h1>
+    <div id="dvstatus"></div>
+    <table>
+        <tr>
+            <td>Id</td>
+            <td>
+                <input type="text" id="txtid" class="c">
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>
+                <input type="text" id="txtname" class="c">
+            </td>
+        </tr>
+        <tr>
+            <td>City</td>
+            <td>
+                <input type="text" id="txtcity" class="c">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="button" value="Save" id="btnSave">
+                <input type="button" value="Clear" id="btnClear">
+                <input type="button" value="Load Data" id="btnLoadData">
+            </td>
+        </tr>
+        <tfoot>
+            <tr>
+                <td colspan="2">
+                    <div id="dvRecords"></div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+
+</html>

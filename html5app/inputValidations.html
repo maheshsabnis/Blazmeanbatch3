@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            var btndisplay = document.getElementById('btndisplay');
+            btndisplay.addEventListener('click', function () {
+                var inputs = document.getElementsByClassName('c1');
+                var dv = document.getElementById('dv');
+                console.log('====================================');
+                console.log(inputs);
+                console.log('====================================');
+                for (var i in inputs) {
+                    dv.innerHTML += inputs[i].value + '<hr/>';
+                }
+            }, false);
+
+            // var txtnumber = document.getElementById('txtnumber');
+            // txtnumber.addEventListener('change', function(){
+            //     if(parseInt(this.value) < 0) {
+            //         alert('Value cannot be -ve');
+            //         this.value = 0;
+            //         return;
+            //     }
+            // },false);
+
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Understanding the HTML 5 Input Elements</h1>
+    <form>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Number Input</td>
+                    <td>
+                        <input type="number" id="txtnumber" placeholder="Enter Number" class="c1" min="0" max="1000"
+                            required
+                            name="t1">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Text Text</td>
+                    <td>
+                        <input type="text" id="txttext" placeholder="Enter Name" class="c1" pattern="^[A-Za-z]+"
+                            required name="t2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Numeric Text</td>
+                    <td>
+                        <input type="text" id="txttext" placeholder="Enter Name" class="c1" pattern="[0-9]+" 
+                        required name="t3">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Range Input</td>
+                    <td>
+                        <input type="range" id="txtrange" min="0" max="500" step="10" class="c1"
+                        name="t4">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date Input</td>
+                    <td>
+                        <input type="date" id="txtdate" class="c1" required
+                        name="t5">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Time Input</td>
+                    <td>
+                        <input type="time" id="txttime" class="c1" required
+                        name="t6">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Month Input</td>
+                    <td>
+                        <input type="month" id="txtmonth" class="c1" required
+                        name="t7">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Week Input</td>
+                    <td>
+                        <input type="week" id="txtweek" class="c1" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Color Input</td>
+                    <td>
+                        <input type="color" id="txtcolor" class="c1" required>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                        <input type="submit" value="Display Values" id="btndisplay">
+                    </td>
+                    <td>
+                        <input type="reset" value="Clear Values" id="btnclear">
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </form>
+    <hr>
+    <div id="dv"></div>
+</body>
+
+</html>

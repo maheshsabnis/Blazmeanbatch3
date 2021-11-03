@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var btnssave = document.getElementById('btnssave');
+            btnssave.addEventListener('click', function(){
+                var person = {};
+                person.PersonId = parseInt(document.getElementById('sid').value);
+                person.PersonName = document.getElementById('sname').value;
+
+                // save data in session storage
+                sessionStorage.setItem('Record-000' + person.PersonId, JSON.stringify(person));
+                loadSessionStorageData();
+
+            },false);
+
+            function loadSessionStorageData(){
+                var data = [];
+                for(var rec=0;rec<sessionStorage.length;rec++) {
+                    data.push(sessionStorage.getItem('Record-000'+(rec+1)));
+                }
+                document.getElementById('dvs').innerHTML =  JSON.stringify(data);
+            }
+
+            document.getElementById('btnsclear').addEventListener('click', function(){
+                sessionStorage.clear();
+            },false);
+
+
+            document.getElementById('btnsgetrecord').addEventListener('click', function(){
+                var record = prompt('ENter the Record Id');
+                // convert the String to JSON Object
+                var person = JSON.parse (sessionStorage.getItem(record));
+                
+                document.getElementById('sid').value = person.PersonId ;
+                document.getElementById('sname').value = person.PersonName; 
+            },false);
+
+            document.getElementById('btnsdeleterecord').addEventListener('click', function(){
+                var record = prompt('ENter the Record Id');
+                sessionStorage.removeItem(record);
+            },false);
+            
+
+
+
+            // Logic for the localStorage
+
+
+
+            var btnlsave = document.getElementById('btnlsave');
+            btnlsave.addEventListener('click', function(){
+                var person = {};
+                person.PersonId = parseInt(document.getElementById('lid').value);
+                person.PersonName = document.getElementById('lname').value;
+
+                // save data in session storage
+                localStorage.setItem('Record-000' + person.PersonId, JSON.stringify(person));
+                loadLocalStorageData();
+
+            },false);
+
+            function loadLocalStorageData(){
+                var data = [];
+                for(var rec=0;rec<localStorage.length;rec++) {
+                    data.push(localStorage.getItem('Record-000'+(rec+1)));
+                }
+                document.getElementById('dvl').innerHTML =  JSON.stringify(data);
+            }
+
+            document.getElementById('btnlclear').addEventListener('click', function(){
+                localStorage.clear();
+            },false);
+
+
+            document.getElementById('btnlgetrecord').addEventListener('click', function(){
+                var record = prompt('ENter the Record Id');
+                // convert the String to JSON Object
+                var person = JSON.parse (localStorage.getItem(record));
+                
+                document.getElementById('lid').value = person.PersonId ;
+                document.getElementById('lname').value = person.PersonName; 
+            },false);
+
+            document.getElementById('btnldeleterecord').addEventListener('click', function(){
+                var record = prompt('ENter the Record Id');
+                localStorage.removeItem(record);
+            },false);
+
+
+
+
+        };
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td colspan="2">
+                            <h2>The Session Storage</h2>
+                        </td>
+                         
+                    </tr>
+                    <tr>
+                        <td>Id</td>
+                        <td>
+                            <input type="text" id="sid">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td>
+                            <input type="text" id="sname">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="button" value="Save Local"
+                             id="btnssave">
+                            <input type="button" value="Clear Storage"
+                            id="btnsclear">
+                            <input type="button" value="Get Record"
+                            id="btnsgetrecord">
+                            <input type="button" value="Delete Record"
+                            id="btnsdeleterecord">
+                        </td>
+                    </tr>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2">
+                                <div id="dvs"></div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </td>
+
+
+            <td>
+                <table>
+                    <tr>
+                        <td colspan="2">
+                            <h2>The Local Storage</h2>
+                        </td>
+                         
+                    </tr>
+                    <tr>
+                        <td>Id</td>
+                        <td>
+                            <input type="text" id="lid">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td>
+                            <input type="text" id="lname">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="button" value="Save Local"
+                             id="btnlsave">
+                            <input type="button" value="Clear Storage"
+                            id="btnlclear">
+                            <input type="button" value="Get Record"
+                            id="btnlgetrecord">
+                            <input type="button" value="Delete Record"
+                            id="btnldeleterecord">
+                        </td>
+                    </tr>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2">
+                                <div id="dvl"></div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </td>
+        </tr>
+    </table> 
+</body>
+</html>
