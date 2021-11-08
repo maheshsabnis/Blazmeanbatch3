@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        input:first-of-type {
+            background-color: goldenrod;
+            font-size: 30px;
+            height: 60px;
+            width: 100px;
+        }
+        input:last-of-type {
+            font-weight: bold;
+            color: cyan;
+            height: 60px;
+            width: 100px;
+        }
+
+        table, td {
+              border: double;
+              border-color: blueviolet;  
+        }
+
+        /* change the color and font of first row*/
+
+        tr:nth-child(1) {
+            color: red;
+            font-size: 50px;
+        }
+
+        /* changing the last column  */
+        td:nth-last-child(1) {
+            background-color: blanchedalmond;
+        }
+
+        td:nth-last-of-type(2){
+          color: brown;  
+        }
+
+
+        /* Style will be applied to all input elements comming after the <p>*/
+        p~input {
+            height: 100px;
+            width: 100px;
+            box-shadow: 10px 5px 8px 0px yellow;
+        }
+
+        
+        
+
+    </style>
+
+
+    <!-- <script>
+        window.onload  =function(){
+            var inputs = document.getElementsByTagName('input');
+            inputs[0].style.backgroundColor = 'green';
+            inputs[inputs.length-1].style.backgroundColor = "red";
+        }
+    </script> -->
+</head>
+<body>
+    <h1>Applying CSS 3 Style based in index and Order of the HTML element</h1>
+    <input type="text">
+    <br>
+    <input type="text">
+    <br>
+    <input type="text">
+    <br>
+    <table>
+        <tbody>
+            <tr>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+            </tr>
+            <tr>
+                <td>31</td>
+                <td>32</td>
+                <td>33</td>
+            </tr>
+        </tbody>
+    </table>
+    <input type="button" value="No Style">
+    <br>
+    <p>Style will be applied the button appearing after the paragraph </p>
+    <input type="button" value="Style Applied">
+</body>
+</html>

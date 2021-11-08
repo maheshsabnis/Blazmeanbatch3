@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Defining inline HTML CSS Style-->
+    <style>
+        /* define style for all div tags*/
+        #dv1 {
+            height: 350px; 
+            width: 1200px;
+            overflow: auto;
+            /* To display the scroll-bar, used in case where the Height or width of div is less than its children */
+            background-color: yellow;
+            color: green;
+            font-size: 20px;
+            font-family: cursive;
+            font-weight: bold;
+            border: 10px solid red; /* Box Model */
+            border-radius: 25px;
+            /*CSS 3 Style*/
+            padding: 10px;
+            /*CSS 3 Style*/
+            margin: 10px 10px;
+            /* CSS 3 Style Left Top Right Bottom with respect to the immediate parent of HTML Element*/
+        }
+
+        #txt1 {
+            width: 300px;
+            height: 50px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+            font-size: 20px;
+            color: greenyellow;
+            margin: 4px 3px;
+        }
+        #txt4 {
+            color: red;
+        }
+
+
+
+        #dv2{
+            border: 5px dashed;
+            border-color: magenta;
+            width: 1000px;
+        }
+
+        /* creating a style using a Class */
+        .invalid {
+            background-color: red;
+        }
+        .valid {
+            background-color: green;
+        }
+       
+
+ 
+        h1 {
+              /* Lets use Text Styles for The Textual Data CSS 3 */
+            text-align: center;
+            text-shadow: 3px 5px 7px lawngreen;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            // applying the style class based on event
+            var txt6 = document.getElementById('txt6');
+            txt6.addEventListener('keyup',function(){
+                if(parseInt(this.value) <=0){
+                    this.className = 'invalid'
+                } else {
+                    this.className = 'valid';
+                }
+            },false);
+        };
+    </script>
+</head>
+
+<body>
+    <h1>Applying CSS Styles based on Selectors (id)</h1>
+ 
+
+    <div id="dv1">
+        t1: <input type="text" value="Text 1" id="txt1">
+        <br>
+        t2: <input type="text" value="Text 2" id="txt2">
+        <br>
+        t3: <input type="text" value="Text 3" id="txt3">
+    </div>
+    <br>
+    <div id="dv2">
+        t4: <input type="text" value="Text 4" id="txt4">
+        <br>
+        t5: <input type="text" value="Text 5" id="txt5">
+        <br>
+        t6: <input type="text" value="0" id="txt6" class="valid">
+    </div>
+    <br>
+    <input type="button" value="Click Me">
+    <br>
+
+</body>
+
+</html>

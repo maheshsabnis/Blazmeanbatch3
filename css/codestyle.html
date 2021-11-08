@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload  = function(){
+            var dv = document.getElementById('dv');
+            dv.style.backgroundColor = "red";
+            dv.style.color = "yellow";
+            dv.style.fontFamily = 'Times New Romen';
+            dv.style.fontWeight = "Bold";
+            dv.style.height = "300px";
+            dv.style.width = "300px";
+
+            // var txt  =document.getElementById("txt");
+            // txt.style.fontSize = "30px";
+            // txt.style.color = "blue";
+            // txt.style.height = "150px";
+            // txt.style.fontWeight = "bold";
+
+            var btn = document.getElementById('btn');
+            btn.addEventListener('mouseenter',function(){
+                this.style.color = "yellow";
+                this.style.backgroundColor = "blue";
+            },false);
+
+            btn.addEventListener('mouseleave',function(){
+                this.style.color = null;
+                this.style.backgroundColor = null;
+            },false);
+        };
+    </script>
+</head>
+<body>
+    <h1>Applying Styles using JS Code</h1>
+    <div id="dv">
+        Enter Name:<input type="text" id="txt">
+        <br>
+        <input type="button" value="Click" id="btn">
+    </div>
+</body>
+</html>

@@ -54,7 +54,7 @@
     - MAke sure that each row of the tbale has Delete button, when this button is clicked make sure that the record is deleted from indexedDB.                     
 
 # Date: -8-Nov-2021
-1. Create a list using ul.li
+1. Create a list using ul.li (Today)
     - Each List Item MUST show the Product with its price
     - Let the use drag the li and drop it in other div.
         - When the Drop takes place, the div must add a textbox and a button where and end-user will enter the quantity in textbox. When the button clicked the quantity and price wil b multiplied to show the total dropped Product bill. Likewise, the end-use can select multiple products and finally the Total price of all products will be shown at the botton of the target div.
@@ -63,4 +63,8 @@
                 - On the target div, the Buttn must be appended next to the dropped li so that the dropped li can be deleted
                 - When the dropped li is removed from the trarget div, the price must be reduced
             - Reference: https://www.dotnetcurry.com/aspnet-mvc/1039/drag-drop-html5-aspnet-mvc-jquery
-
+2. Apply style on table in sucha way that when a mouse is hover on a table-row, the background-color, font-size, font-weight, font-family must be changed. When move leave the  table row the style must be removed (Today)
+3. Self-Study: Explore ::before, ::after, opacity, Combinators e,g,
+    - div > p
+        - all paragraphs those are childfren of div
+    - z-index    

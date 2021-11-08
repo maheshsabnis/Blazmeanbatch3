@@ -1,0 +1,79 @@
+# CSS
+- Using a Simple JavaScript Code for Managing / applying UI on HTML Elements
+    - Using document object to read HTML element from DOM
+    - Use the 'style' property to define the UI Display e.g. COlor, Height, Width, etc.
+        - The 'style' is ElementCSSInlineStyle object that contains various JavaScript properties for applying  styles
+- Cascading Style Sheets (CSS), have come up with new JavaScript Object Model for defining Display of HTML Elements
+    - Layout Stylying
+        - Margin
+        - Paddining
+    - Dimensions
+        - Height, WIdth, Raious
+    - Borders
+        - border, border-radious
+    - Text Styling
+        - Apply style of Testual Data rendered in Browser
+            - Fonts
+            - Alignments
+    - Using Inline Styles to HTML Elements      
+    - The CSS Objects used for applying Styles 
+        - Use the CSS Selectors to Define styles for HTML Elements
+            - Tag selector
+                - define one style object for all matching HTML tags
+                - This style object is applied to all HTML elements having the tag for which the style object is defined
+                    - tag {....}
+            - The 'id' selector    
+                - internal access for document.getElementyById('id') to query an element to DOM and applyiung styles on it
+                - style is deined as 
+                    - #[id] {....}
+            - The class Selector
+                - The style is applied using the 'class' attribute of the HTNL element     
+                    - define Style as
+                        - .[c] {....}
+                            - here the 'c' is class name
+                    - apply it
+                        - <HTML element class="[c]">       
+# CSS 3 Ways of Applying Styles
+    - CSS 3 uses an inline JavaScript property and eventing system for following
+        - Applying Styles based on Order or position of DOM Element in the tree
+            - CSS 3 Position or Indexed based styles where the JS Object Model is used by CSS 3 to locate the element and apply style on it
+                - :nth-child(index)
+                    - child at a  specifixc index will be read to apply style 
+                - :nth-last-child(index)
+                    - child from last
+                - :first-of-type
+                    - first occurance of specific element
+                - :last-of-type
+                    - last occurance of the specific element     
+            - CSS 3 style applied based on the parent-child order
+                - element1~elemen2
+                    - All element2 occures after element 1           
+        - APplying style based on tag+type, tag+class
+            - CSS 3 query selector, that is used to extract element based on tag and type as weel as tag and class
+                - tag[type="<TYPE>"] {....} 
+                - tag.className{....}           
+        - Applying Styles based on Mouse or keybord events
+            - CSS will listen to a DOM event and then based on  the Event the Style wil be applied
+                - :hover, :mouseenter, :mouseleave, etc.
+                    - document.addeventListener('mouseenter')
+                - e.g.
+                    - [selector]:[event]{......}    
+        - Applying Styles based on values of attributes of HTML elements
+            - The CSS 3 will use JSOM to locate an element basd on its attribute's value and style will be applied
+            - The Element will be located based on the pattern
+            - e.g.
+                - div[class^=myclass]
+                    - All div having class value starts from 'myclass'
+                - div[class$=myclass]
+                    - All div having class value ends with 'myclass'   
+                - div[class*=myclass]
+                    - All div having class value as 'myclass' anywhere in class attribute value     
+
+                - <div class="myclass myclass1 myclass2" >      
+# CSS 3 Frameworks
+    - Bootstrap
+    - iota
+    - New CSS 3 Specification known as SCSS
+        - Syntactically Awesome StyleSheets (SASS)  
+        - SASS --> SCSS Transpler --> Generates CSS
+

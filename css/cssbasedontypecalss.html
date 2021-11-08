@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*  style will be applied only to input:text elements */
+        input[type="text"] {
+            height: 80px;
+            width: 300px;
+        }
+
+
+        /* input[type="button"] {
+            height: 100px;
+            width: 100px;
+        } */
+        /* .c1 {
+            height: 100px;
+            width: 100px;
+        }
+        .c2 {
+            height: 150px;
+            width: 150px;
+        } */
+        /* all input elements (Current this includes text and buttons) */    
+        input.c1 {
+            height: 100px;
+            width: 100px;
+        }
+
+
+        /* All input type buttons having class as c2 */
+        input[type="button"].c2 {
+            height: 150px;
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Applying Styles based on Tag Type and Tag Class</h1>
+
+    <div>
+        <input type="text">
+        <br>
+        <input type="text">
+        <br>
+        <input type="button" value="Click" class="c1">
+        <br>
+        <input type="button" value="Click" class="c2">
+        <br>
+        <input type="button" value="Click" class="c1">
+        <br>
+        <input type="button" value="Click" class="c2">
+        <br>
+        <input type="text" class="c1">
+        <br>
+        <input type="text" class="c2">
+    </div>
+
+
+
+</body>
+</html>

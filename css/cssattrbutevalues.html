@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div[class^=First] {
+            font-family: cursive;
+            font-size: 100px;
+            color: red;
+            font-weight: bold;
+        }
+
+        div[class$=Third] {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 100px;
+            color:yellow;
+            font-weight: bold;
+        }
+
+        div[class*=Fourth] {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 100px;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Applying Styles based on Attribute values</h1>
+    <div class="First Third Second ">
+        The First Div
+    </div>
+    <hr>
+    <div class="Second First  Third">
+        The Second Div
+    </div>
+    <hr>
+    <div class="Second Fourth  Third">
+        The Third Div
+    </div>
+</body>
+</html>
