@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var button = document.getElementsByTagName('input');
+            // iterate over all buttons and attach the 'dragstart' event to them
+            for (var index = 0; index < button.length; index++) {
+                
+                button[index].addEventListener('dragstart', function(evt){
+                    // set the data as 'id' of the element that si being dragged 
+                    evt.dataTransfer.setData('Text', evt.target.id);
+                },false);
+                
+            }
+
+            var dvtgt = document.getElementById('dvtgt');
+            // set the drop event
+
+            dvtgt.addEventListener('drop',function(evt){
+                // block all other operations so that the drop is completed
+                evt.preventDefault();
+                // receive tyhe data from the dataTransfer Object
+                var id = evt.dataTransfer.getData('Text');
+                console.log('Drop ' +  id);
+                // complete the drop by appending the dragged element into the target
+                evt.target.appendChild(document.getElementById(id));
+            },false);
+
+            // make sure that element being dragged is drooped only in the dvtgt
+            dvtgt.addEventListener('dragover', function(evt){
+                // make sura that no other event is allowd on the dvtgt
+                // except the 'drop' and till the 'drop' does no takes place 
+                // block othert operations on the page using
+                // preventDefault()
+                evt.preventDefault();
+            },false); 
+        };
+    </script>
+</head>
+<body>
+    <h1>The Drag-Drop in HTML 5</h1>
+    <h2>The Source Div</h2>
+    <div id="dvsrc"  style="height: 100px;width: 400px;">
+        <input type="button" draggable="true" value="b1" id="b1" style="height: 80px;width: 80px;">
+        <input type="button" draggable="true" value="b2" id="b2" style="height: 80px;width: 80px;">
+        <input type="button" draggable="true" value="b3" id="b3" style="height: 80px;width: 80px;">
+        <input type="button" draggable="true" value="b4" id="b4" style="height: 80px;width: 80px;">
+    </div>
+    <hr>
+    <h2>The Target Div</h2>
+    <div id="dvtgt"  style="height: 100px;width: 400px;"></div>
+</body>
+</html>

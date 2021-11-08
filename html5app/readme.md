@@ -118,3 +118,25 @@
                         - add(), put(), delete(), get()
                     - SUbscribe to the event
                         - onsuccess, onerror                      
+        - HTML 5 Dynamic Positioning of HTML elements using 'Drag-Drop'
+            - The new Events to Read-Only Elements (?)
+                - Read-Only HTML elemnts are those who does not have 'change' event
+                    - E.g. Buttons, All Layout elements, Images, etc.
+            - The 'dragstart' event
+                - Represent an element is linked with the 'mouseleftbuttondown' event (internal event)
+                - This accepts a 'dragstartevent' object as a callback
+                    - This has a 'dataTransfer' object property
+                        - This object represent the data to be read from the element being dragged
+                            - setData('Key', 'Value')
+                                - Read the data from the element being dragged and save it in the dataTransfer Object  
+                            - getData('Key')
+
+            - The 'dragover' event
+                - This event will make sure that, the element being dragged is bound with the Mouse-Left-Button-Down and will be drooped (aka released) only on the target element.
+                    
+            - The 'drop' event
+                - Raised for the MouseLeftButtonDown event's release
+                - This also uses the 'dataTransfer' proeprty object to receive the from the element being dragged 
+                    - dataTransfeer.getData('key')
+            - The 'draggable' property
+                - This Property MUST be set to trut to make sure that, the HTML element can be dragged           
