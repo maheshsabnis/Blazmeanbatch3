@@ -1,0 +1,138 @@
+# Using Bootstrap
+- install bootstrap for the current Project
+    - create package.json
+        - npm init OR npm init -y
+    - Install bootstrap package in cyrrent project
+        - npm install --save-dev [PACKAGE-NAME]
+        - npm install --save-dev bootstrap
+            - THis command will connect to https://www.npmjs.com and will download and install bootstrap package for the current application    
+
+- Referring Bootstrap in a project
+    - Install bootstrap locallly and refer it from the local 'node_modules' folder
+    - Refer the Bootstrap from the 'Content Delivery Network (CDN)'
+        - Eliminates need of local installation of bootstrap
+        - BUT, make sure that the CDN is always avaiable and there may be charges for Downloading the file from CDN Servers
+            - Microsoft, Google, AWS, etc. 
+
+- Bootstrap Ready to Use Classes            
+    - Layout
+        - container, used for <div>
+            - the default is the 100% of the Browser's draw space (rendering space) by excluding the gutter
+                - gutter is a reservsed space which will not be used by any UI element
+                - The gutter has an auto padding and margin for div
+            - Flavours of 'container'
+                - 'container-fluid'
+                    - occupy 100% of the width (No Gutter)   
+                - container-sm. container-lg, container-md container-xl
+                    - USed in case of Mobile Browsers     
+                    - A 'pixel' based calculation is performed based on browsers dimensions and the container-fluid will auto-adjest itself for small (sm), medium (md), large(lg) and extra large (xl)
+            - Using container with
+                - padding 'p-[pixels-for-opadding]', e.g. container p-3
+                - borders, container border
+                - background theme, container bg-[theme],  theme could be 'dark', 'primary', 'warning', 'danger'
+                - text effects, container text-[color]        
+        - table, used for <table>
+            - Applied on the <table>
+                - table, base style for table
+                - table-bordered, table with border
+                - table-borderless, new in 4.0+
+                - table-striped, the table with row borders
+                - table-dark, table-danger, table-warning, etc.
+                    - row styles
+                        - applied using table
+                            <tr>, table-dark, table-primary, table-warning, table-active, etc.
+                - thead-dark, the header of the table
+                - Responsive table
+                    - applied on <div> that has child as <table>
+
+        - grid, the Page Layouting in rows & columns
+            - Auto-Layouting for the Browser's Rendering space in by default 12 Columns
+            - This is also known as 12 column Flexbox to span the UI layouting at max 12 columns by auto-layouting the HTML Elements
+            - Grid-System Classes, varied from extra small devices to extra large devices, 576px (eatrc-small) to >=1400px (extra-large)
+                - 'col' < 576px, col-sm >=576px, col-md >=768px, col-lg >=992px, col-xl, col-xxl
+                - row, represents a single row for the Grid-System in browser where all columns with its dimesions are present into it
+                    - <div class="row"> <div class="col">  </div>
+                        - col-*-*
+                            - adjust all div's based on available spec in 12-max column grid 
+                        - col-sm-3
+                            - USe te 3 Small Columns on the page
+                        - col-md-4  
+                            - medium size column with 4 columns in each column
+    - Forms
+        - Used to manage thje display of the Form-Elements
+            - div, inside the form
+                - form-group
+                    - create a group of one-or-more elements to manage an auto layout and arrangements of elements inside the form to maike it as responsive 
+                - btn-group
+                    - create a group layout for buttons
+                        - btn-group-sm (mobile)
+                        - btn-group-lg
+                        - btn-group-verticle    
+            - input elements
+                - form-control
+                    - applied on editable elements to define an auto-width accroding to the dimensions of its immediate parent
+            - buttons
+                - The 'btn' as a standard class 
+                    - btn-danger, btn-primary, btn-success, btn-warning
+            - select
+                - form-select
+                    - form-select-sm
+                    - form-select-lg
+            - Lists
+                - list-group, applied in ul and ol
+                - list-group-item, applied on li
+
+            - Progress Bar
+            - spinners      
+            - pagination
+                - The class is defined for generating pagination numbers and it is allpied on the 'ul'         
+                - The 'pagination' class
+                    - 'page-item'
+                        - Represent the number inside the list and it is applied on 'li'
+                    - 'page-link'
+                        - aplied on <a> tag to execute the pagination (NEED JAVASCRIPT LOGIC)                      
+            - Pagination using Breadcrumb
+            - Navigations
+                - Mechanism of Creating menus    
+                    - The 'nav' class, applied on 'ul'
+                        - The 'nav-item', applied on 'li'
+                            - The Item used to contain the navigation link 
+                            - The 'nav-link' class, define the navigation link using the <a> tag
+                        - The 'nav-tabs' class, used to display tabs  
+                        - The 'nav-pills' class, shows the button based navigations 
+
+                        - The HTML Page Must use the bootstrap.js file to execute an event to show the dropdown effect
+                          <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>     
+                            - data-bs-toggle
+                                - data- , is  HTML 5 attribute used for attaching data and event to HTML 5 elements
+                                - bs-toggle, is a bootstrap event that will toggle the state of UI element from True-to-False-True (infinite number of times) base on Mouse Events
+
+                        - dropdown class
+                            - Create a <select> like Rendering
+                        - nav-item-dropdown 
+                            - Generate a UI for Drop-Down List
+                            - Uses the 'dropdown-menu' to create a dropdown list
+                                - THis list contains the 'dropdown-item'  
+                            - dropdown-toggle
+                                - Execute the Mouse Left Button DOwn Event to show the dropdown UI that contains the list
+                                - data-bs-toggle
+                                    - An event listened by bootstrap top expand the list as Dropdown          
+            - Using Bootstrap Models
+                - It is a dialog-box that is invoked to show event based UI with Ok and Cancel button in it
+                - This also needs the bootsrap.min.js file along wiht CSS
+                    - The 'modal' class, applied on <div> tage that contains UI to be shown in Model
+                    - The 'modal-dialog', the container that contains UI
+                    - The 'model-header', the header text
+                    - The 'model-content', the UI Content 
+                    - The 'modal-footer', used tpo contain buttons
+                - data-bs-target
+                    - The <div> that contains the Modal Dialog Box UI    
+                - data-bs-toggle
+                    - Load/UnLoad Modal Dialog
+                - data-bs-dismiss
+                    - Unload the Model Dialog   
+                - Classes for Modal Size
+                    - modal-xl, modal-sm, modal-lg
+                    - modal-fullscreen 
+                        - modal-fullscreen-sm, lg, xl
+

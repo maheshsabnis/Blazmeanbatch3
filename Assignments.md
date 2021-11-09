@@ -68,3 +68,17 @@
     - div > p
         - all paragraphs those are childfren of div
     - z-index    
+
+# Date: 09-11-2021
+
+NOTE: All TAsks from 1 and 2 MUST be done today
+
+1. Define an array of Employees with 40 Records in it. Each record will have following schema
+    - {EmpNo, EmpName, DeptName, Salary, Designation}
+2. Generate a Table based on the Employees array. Below the table show a Pagination for numbering 1 to 8. The Table for each Page will show 5 records (8 pages * 5 records per page = 40)
+    - Generate Pagination Numbers Based on Number of records in the array
+    - When a Page Nummber is clicked, the next bunch of 5 records must be loaded into the table
+    - The Pagination Must have 'First' and 'Last' Page
+        - First 1 2 3 4 5 6 7 8... Last
+        - If you are at Last Page the 'Last' Must be disabled the same effect must be shown for 'First' page
+3. Each row of the table MUST contain an 'Edit' button. When this button is clicked, the selected Employee details for the row must be shown in 'Modal-Dialog'. The End-user can now be able to Modify the Employee Details. Once the 'Save' button in the Modal dialog is clicked, the Modal dialog must be dismissed and updated values MUST be shown back in the table (If possible then today, else MUST be completed by 12-Nov-2021)                     

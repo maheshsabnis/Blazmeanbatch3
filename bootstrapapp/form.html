@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!--Refer the bootstrap CSS from the local installation-->
+     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <h1>The Bootstrap Form</h1>
+    <div class="container">
+        <div class="form-group">
+            <label>EmpNo</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>EmpName</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Salary</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Designation</label>
+            <select class="form-control form-select">
+                <option value="Manager">Managre</option>
+                <option value="Clerk">Clerk</option>
+                <option value="Operator">Operator</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>DeptName</label>
+            <select class="form-select">
+                <option value="IT">Information Technology</option>
+                <option value="SL">Sales</option>
+                <option value="TR">Training</option>
+                <option value="AC">Account</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Experience in years</label>
+            <ul class="list-group">
+                <li class="list-group-item active">1-5</li>
+                <li class="list-group-item">5-10</li>
+                <li class="list-group-item">10-15</li>
+            </ul>
+        </div>
+        <div class="form-group">
+            <label>Enter Technical Skills</label>
+            <!--Group of Items look like list items with the hyperlinks-->
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action">Go to Educational Skills</a>
+                <a href="#" class="list-group-item list-group-item-action">Go to Technical Skills</a>
+                <a href="#" class="list-group-item list-group-item-action">Go to Certification Skills</a>
+            </div>
+        </div>
+        <div class="btn-group-large">
+            <input type="button" value="New" class="btn btn-primary">
+            <input type="button" value="Save" class="btn btn-success">
+            <input type="button" value="Update" class="btn btn-warning">
+            <input type="button" value="Delete" class="btn btn-danger">
+        </div>
+    </div>
+</body>
+</html>

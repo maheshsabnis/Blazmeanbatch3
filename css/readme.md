@@ -69,11 +69,52 @@
                 - div[class*=myclass]
                     - All div having class value as 'myclass' anywhere in class attribute value     
 
-                - <div class="myclass myclass1 myclass2" >      
+                - <div class="myclass myclass1 myclass2" >
+    - RICH UI
+        - User Interface
+        - It is an approach to show the User Interface to the End-User as per the Business Requirements
+            - Data ENtry
+            - Data Validations
+            - UI generation based on Data
+            - Events          
+    - RICH User Experience (UX)
+        - A way of providing an interaction to the end-user based on
+            - Data
+            - Events
+            - Device Support
+        - The UI is made
+            - Flexible
+            - Responsive
+            - Auto-Layout 
+            - Rich Styles                     
 # CSS 3 Frameworks
     - Bootstrap
+        - Twitter Bootstrap
+            - CReated in Midl 2010
+            - Enhanced the CSS 3 as a 'One-Framework' for Browser and Mobile Application with RICH Ready to use Styles
+        - Layout
+        - Colors
+        - Images
+        - Butons
+        - Forms
+        - Text
+        - Collapse
+        - Pagination
+        - Navigation
+        - Lists
+        - Spinners
+        - Icons
+        - Models    
     - iota
     - New CSS 3 Specification known as SCSS
         - Syntactically Awesome StyleSheets (SASS)  
         - SASS --> SCSS Transpler --> Generates CSS
+- Create a Project with bootstrap
+    - Install Bootstrap
+        - We need a 'package.json', a Configuration File that maintains list of Project Development and Runtime Dependencies
+            - Command to Create package.json
+                - npm init
+                    - It will provide a Wizard to create package.json step by step
+                - npm init -y 
+                    - The COmmand to create a package.json with defaults            
 

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!--Refer the bootstrap CSS from the local installation-->
+     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <h1>Using Bootstrap Navigations aka Navs</h1>
+    <div class="container">
+        <h6>Simple Navigation Menu</h6>
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Masters</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Transactions</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Reports</a>
+            </li>
+        </ul>
+    </div>
+    <br>
+    <div class="container">
+        <h6>Simple Navigation Menu Justified at Center</h6>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Masters</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Transactions</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Reports</a>
+            </li>
+        </ul>
+    </div>
+    <br>
+    <div class="container">
+        <h6>Simple Navigation Menu as Tab</h6>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Masters</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Transactions</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Reports</a>
+            </li>
+        </ul>
+    </div>
+    <br>
+    <div class="container">
+        <h6>Using Navigation with Menus with dropdown</h6>
+        <ul class="nav nav-tabs">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Masters</a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" href="#">Vendor Master</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">Order Master</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">Truck Master</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">Driver Master</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Transactions</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Reports</a>
+            </li>
+        </ul>
+    </div>
+     
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!--Refer the bootstrap CSS from the local installation-->
+     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <h1>Using Bootstrap Modal Dialog Box</h1>
+
+    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#themodal">
+        Open Modal Dialog
+    </button>
+    <!--The UI for Modal Dioalog-->
+    <div class="modal fade" id="themodal">
+        <div class="modal-dialog modal-fullscreen">
+            <!--Define Contents-->
+            <div class="modal-content">
+                <!--Define Headrs-->
+                <div class="modal-header">
+                    <h5 class="modal-title">The Test Model</h5>
+                    <!--btn-close will show the X button-->
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <!--Define Model Body-->
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>EmpNo</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>EmpName</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Salary</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Designation</label>
+                        <select class="form-control form-select">
+                            <option value="Manager">Managre</option>
+                            <option value="Clerk">Clerk</option>
+                            <option value="Operator">Operator</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>DeptName</label>
+                        <select class="form-select">
+                            <option value="IT">Information Technology</option>
+                            <option value="SL">Sales</option>
+                            <option value="TR">Training</option>
+                            <option value="AC">Account</option>
+                        </select>
+                    </div>
+                </div>
+                <!--Model Footer-->
+                <div class="modal-footer">
+                    <div class="btn-group-large">
+                        <input type="button" value="New" class="btn btn-primary" data-bs-dismiss="modal">
+                        <input type="button" value="Save" class="btn btn-success" data-bs-dismiss="modal">
+                        <input type="button" value="Update" class="btn btn-warning" data-bs-dismiss="modal">
+                        <input type="button" value="Delete" class="btn btn-danger" data-bs-dismiss="modal">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
