@@ -1,0 +1,85 @@
+# ES 6 Programming
+- Its is new JavaScript  Standard for the Modern JavaScript Full-Stack Apps
+- Contains Following Features
+    - Variable Scopes
+    - DataTypes
+    - Collections
+        - Array
+        - Set
+        - Map
+    - String Interpolation aka Templates
+    - Object Mutations aka Object Spread aka rest parameters
+    - Arrow Operators
+    - Iterators using for..of loop
+    - Object Oriented Programming
+    - Asynchronous  Programming using Promises
+    - Patterns for Proxy and Reflection
+    - Sequence Generators and Iterators
+- Languages those are built on concepts of ES 6
+    - Modern JavaScript aka High-Level JavaScript aka ES 6/7/8/9/10/next
+        - Primarily used in Node.js, React.js, VueJS, and most of the Modern JS Libraries and Frameworks
+        - DataTypes are implicit based on the initial value assigned to variable
+    - TypeScript
+        - Language by Microsoft
+        - Primarily used in Angular development by Google
+        - Supports DataTypes explicitly
+        - Based on C# and conceptually more close to JAVA
+        - Preferred Language for Building Modern "Micro-Front-End Apps", using React and Angular and VueJS at a time on Browser
+            - React, Angular and VueJS can use TypeScript for effective code sharing      
+    - Dart
+        - Language by Google
+        - Extensively used by Google for Web PlugIns for Optimized UI 
+- ES 6 / 7 / 8 / 9 / 10 as standard and not a library
+    - Standard  Library
+    -   ES 6    ES2015 (Foundation with Modern Features)
+    -   ES 7    ES2016 (Used with Promises) 
+    -   ES 8    ES2017 (Used with Asynchronous Programming)
+    -   ES 9    ES2018 (Features Mostly for Server-Side Apps development) 
+    -   ES 10   ES2019
+    -   ES 11   ES2020 (Under Development)
+    -   ESNext                 
+
+# ES 6 Application Development
+- Project Configuration
+    - Use the 'babel' Transpiler
+        - This will be used to transpile (Compiled Transformation aka Transforming after Compilation) ES 6 to Browser-Compatible JavaScript
+    - Create a package.json
+        - Important Sections of package.json
+            - scripts
+                - This is a JSON object that contains commands as Key and its value as the program to run or execute
+                - The Commands those are used to build, test and run package (or current application)
+                    - 'build', 
+                        { 'build': 'babel myfile' }
+                            - the command is 'npm run build' OR 'npm build'
+                                - This will invoke 'babel myfile' command and execute it
+                    - 'start'
+                            - {'start': 'node myfile.js'}
+                            - npm run start or npm start        
+
+            - dependencies
+                - List of all packages used during the execution time on the server for the current application 
+                    - These packages will be installed using the following command
+                        - npm install --save [PACKAGE-NAME]
+                            - e.g. npm install --save express
+            - devDependencies    
+                - List of all packaged used during the development of the current application
+                    - These packages will be installed using following command
+                        - npm install --save-dev [PACKAGE-NAME]
+    - For ES 6 Development use the following Mandatory Packages
+        - @babel/cli
+            - The Command line interface used for Transpiling ES 6 into JavaScript 
+            - The CLI MUST be installed for Global Scope and Current Application Scope
+                - npm install -g @babel/cli
+                    - Once installed in Global Scope it can be used for Command Line execution for Transpilation
+        - @babel/core
+            - The Package that is used to contain ES 6 code specifications
+            - Used by Transpiler to validate the code during ES Source Code Compilation  
+            - Install this package in Global and Application Scope
+                - npm install -g @babel/core  
+        - @babel/preset-env
+            - The package used for Project Environment Settings for Code Environment check e.g. Array or collection declaration, variable declaration, ect.
+            - This is used by Transpiler
+        - @babel/plugin-proposal-class-properties
+            - Support for ES 6 Class properties e.g. get and set
+        - @babel/plugin-proposal-private-methods                
+            - Support for ES 6 class Private Methods and Class Members    
