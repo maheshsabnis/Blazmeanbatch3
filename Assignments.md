@@ -82,3 +82,13 @@ NOTE: All TAsks from 1 and 2 MUST be done today
         - First 1 2 3 4 5 6 7 8... Last
         - If you are at Last Page the 'Last' Must be disabled the same effect must be shown for 'First' page
 3. Each row of the table MUST contain an 'Edit' button. When this button is clicked, the selected Employee details for the row must be shown in 'Modal-Dialog'. The End-user can now be able to Modify the Employee Details. Once the 'Save' button in the Modal dialog is clicked, the Modal dialog must be dismissed and updated values MUST be shown back in the table (If possible then today, else MUST be completed by 12-Nov-2021)                     
+
+# Date: 10-11-2021
+1. Create an Array of Products as (Today)
+    - ProductId:string, ProductName:string, CategoryName:string, Price:string, Manufacturer:string
+    - The Array MUST contain 50 records
+    - Display all records in a table
+    - Above the table add Radio Buttons for
+        - CategoryName, Manufacturer
+    - When a specific Radio button is clicked, the table should show record in a group by the selected Radio Button
+    - On the Top of the Table add a Text Element and when either CategoryName or ProductName or Manufacturer value is entered in this Text element, the table MUST show records matching with the search value entered into the Text Element (Possible today else Max by Friday)         

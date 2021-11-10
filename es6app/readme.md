@@ -39,7 +39,7 @@
     -   ES 11   ES2020 (Under Development)
     -   ESNext                 
 
-# ES 6 Application Development
+# ES 6 Application Development Environment Configuration
 - Project Configuration
     - Use the 'babel' Transpiler
         - This will be used to transpile (Compiled Transformation aka Transforming after Compilation) ES 6 to Browser-Compatible JavaScript
@@ -83,3 +83,72 @@
             - Support for ES 6 Class properties e.g. get and set
         - @babel/plugin-proposal-private-methods                
             - Support for ES 6 class Private Methods and Class Members    
+    - Creating the Babel Resource COnfiguration, this will be used by the Babel Transpiler for ES 6 to JavaScript Transpilation
+        - The name of the file will be  '.babelrc'
+            - Configure the Presets and the Plugins      
+        - The .babelrc is a resource configuration used by the Babel Transpiler to compile the ES 6 code that contains the Private Methods and  get,set Properties in ES 6 class
+- The Command for the Transpilation
+    - babel [Source-File].js -o [Target-File].js
+        - Source-File.js is ES 6 Source Code
+        - Target-File.js is The Transpiled file
+        - -o is output
+# ES 6 Programming
+- Scope Definition for the variable
+    - The 'let' keyword
+    - This is Block-Scope declaration
+        - e.g. let x;
+            - The 'x' will be only accessible in declaring Block, e.g. if, for..loop
+- Template String AKA String Interpolation
+    - a Simpler Syntax for String Concatenation
+        - Syntax:
+            - `${str1} ${str2}`;
+                - str1 and str2 are string, they will be concatenated into a single string object
+                - Eliminate a need of using '+' operator for concatenation 
+                - ${}, a syntax the represents an expression that will be evaluated to string interpolation
+                    - Template String is also know as a process of building a 'Single immutable string object that accepts multiple strings in it'. 
+- New Iteration Loops
+    - The 'for..of' loop, that internally uses the ES 6 Iterator to create a readable sequence of values
+    - This will start reading the sequence from the first index and will auto-advance to the last record in the sequence and return them
+        - for(let record of collection){......}
+            - The 'record' is a record or entry from the collection
+- A Simplification of the Callback Function using an 'Arrow Operator'
+    - Array.sort(function(a,b){return a - b;});
+        - function(a,b){return a - b;}
+            - function without name
+    - For a Function Without Name or a Callback function, the ES 6 have provided the new syntax which is called as an 'Arrow Operator'
+        - Syntax
+            - =>
+            - Array.sort((a,b)=> {return a-b;});            
+- Array Collection and its New Methods
+    - Iteration Methods
+        - forEach(callback function)
+            - Used to read Records from an Array
+            - forEach() does not return any data from an iterating Array
+        - map(callback function)
+            - Used to Read Records from an Array 
+            - map() can be used to return modified value or processed values from iterating array with same size as of the iterating array
+                - While processing records from iterating array, if the condition of processing record does not match and undefined value will be returned for that record in output array, and the output array will be of same size of iterating array
+        - filter(callback function)
+            - Used to return an output array based on reding records from array by filtering each record based on condition match
+        - find(callback function)
+            - Return a first match record based on condition
+    - Manipulation methods               
+        - join()
+        - reverse()
+        - reduce() 
+            - Cases discussed for Data in Array 
+                - CASE 1: Summation of numeric values in array
+                    - [1,2,3,4,5,6]
+                        - looping or iteration
+                            - Point to 0th index read-it and advance-to to next record upto max-length 
+                        - The iteration must process on two-values of array from left-to-right and keep reducing the array size till end-of-array does not reach    
+                            - [1,2,3,4,5,6] , 0th iteration
+                            - [3,3,4,5,6], 1st iteration 1 and 2 are reduced after processing  
+                            - [6,4,5,6], 2nd iteration 3,3 are processed and array is reduced
+                            - [10,5,6], 3rd
+                            - [15,6], 4th
+                            - [21], 5th                     
+                - CASE 2: Frequency of a word/character in string array
+                - CASE 3: Grouping data in Array 
+
+
