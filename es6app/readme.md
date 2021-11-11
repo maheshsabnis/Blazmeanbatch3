@@ -149,6 +149,60 @@
                             - [15,6], 4th
                             - [21], 5th                     
                 - CASE 2: Frequency of a word/character in string array
-                - CASE 3: Grouping data in Array 
-
-
+                - CASE 3: Grouping data in Array
+- ES 6 Collections
+    - Well organized way of storing the data
+    - Requirements for collections as follows
+        - Data to be stored in Key:Value Pair
+        - Data to be stored with Unique Key
+        - Data to be stored with Complex Structure (Needs received from NoSQL)
+    - Set();
+        - Used to store the data as unique entry into the Collection
+            - The duplicate entry will not be accepted
+        - Used to Store any type of data
+        - Methods
+            - add(), values(), keys(), has(), clear() clear all entries from set
+            - delete(), delete the specific entry from the set
+        - We can store Objects in the Set()    
+        - WeakSet()
+            - Used to store only objects
+    - Map();            
+        - Used to Store data in Key:Value pair
+        - Key is always unique
+            - If Key is Duplicated, the earlier will be overwritten by the latest one
+        - Value can be any data type
+        - Methods
+            - set(), get(), has(), clear(), delete(), values(), entries(), forEach(), values()
+        - Properties
+            - size
+        - WeakMap()
+            - Key and Value both are objects
+- ES 6 Object Oriented Programming
+    - Support for Classes with following in ES 6
+        - Constructor()
+            - the 'constructor()' is a Standard functions
+        - Class Members
+            - They are defined as public members with 'this.' prefix inside the 'constructor()' function    
+        - public Methods
+            - default to ES 6 
+        - private methods
+            - # prefixed methods
+            - Local to class
+            - accessed in the class using 'this.'
+        - private members
+            - # prefixed variable
+            - local to class
+            - accessed inside the class using 'this.'    
+        - properties
+            - get and set methods (ES 7)
+            - the 'get' and 'set'
+        - static methods
+            - The 'static' keyword
+    - No Abstract class by default, but can be defined inside the Object Constructor using 'new' moniker  
+    - The derivation can be implemented using 'extends' keyword
+    - The method overloading is not directly possible
+        - Can be implemented using indirect coding 
+            - an 'arguments' array
+            - using 'rest-parameters' aka 'object spread'
+    - the 'class' is a keyword
+        - No Keywords for 'public', 'private' and 'protected'               
