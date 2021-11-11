@@ -92,3 +92,30 @@ NOTE: All TAsks from 1 and 2 MUST be done today
         - CategoryName, Manufacturer
     - When a specific Radio button is clicked, the table should show record in a group by the selected Radio Button
     - On the Top of the Table add a Text Element and when either CategoryName or ProductName or Manufacturer value is entered in this Text element, the table MUST show records matching with the search value entered into the Text Element (Possible today else Max by Friday)         
+
+# Date: 11-11-2021 (1 to 3 all to be done today)
+1. Create a HTML page that will have two Date Pickers and two Time Pickers. 
+    - Form Date [Date Picker] From Time [Time Picker]
+    - To Date [Date Picker] To Time [Time Picker]
+2. Add button below the Date and Time pickers. 
+3. When From Date, From Time and To Date and To Time is selected and the button is Clicked, show the Date Difference as follows
+    - x Years x Months x Days x Hours x Minutes x Seconds 
+- Algorithm
+    - If Months Difference is greater than and equal to 12, the add 1 in year
+    - If Days Difference is greater than 30/31 (based on month) add 1 to Month
+    - If the year is Leap Year then for February, 29 days Must be used else use 28 days
+    - If Hours difference is greater than or equal than 24, then add 1 in days
+    - If Minutes difference is greater than or equal 60, then add 1 in hours
+    - If Seconds difference is greater than or equal 60, then add 1 in minutes
+- Use Math objects, especially use Math.abs() function
+
+4. Create a Map() that wil be used to store Employees information received from the UI and then perform following operations on the Employee data from Map() (Possible on Today or else max by Friday [12-11-2021])
+    - Print Sum of Salary per Department
+    - Print Max and Second Max Salary Per Department
+    - Print Tax for each Employee as 30% for Salary More than Rs 5Lakh and 25% Less than or equal to 5Lakh.
+    - Delete an Employee based on EmpNo received from the UI
+
+
+
+
+

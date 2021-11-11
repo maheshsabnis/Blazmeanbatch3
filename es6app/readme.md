@@ -223,3 +223,14 @@
                         - The 'p' is an array object that has variable length
     - the 'class' is a keyword
         - No Keywords for 'public', 'private' and 'protected'               
+- Rest Parameters
+    - AKA Object Spread ...obj
+    - Used to build an immutable object in which additional properties will be added at runtime
+        - Instead of re-declaring an object, we can directly add new properties or data in existing object
+        - Syntax
+            - let obj1 = {...obj0, x:1, y:1};
+                - The obj1 will be having an schema of obj0 and with additional properties as x and y  
+                    - let obj1 =  Object.assign({}, obj0);
+                        - a Blank obj1 is created and the schema of obj0 is copied into it
+- Date Object    
+    - The object that is used to show yer, month, date, hour minutes, seconds, milliseconds    
