@@ -189,6 +189,9 @@
             - # prefixed methods
             - Local to class
             - accessed in the class using 'this.'
+        - public data members (ES 9+)
+            - These can be declared directly at class level w/o using 'this.' prefix  
+            - NOTE: This is introduced because 'React.js has a public "state" object at class level'  
         - private members
             - # prefixed variable
             - local to class
@@ -199,10 +202,24 @@
         - static methods
             - The 'static' keyword
     - No Abstract class by default, but can be defined inside the Object Constructor using 'new' moniker  
+        - To prevent an instance creation check the 'new.target', if it is same as the class to be instantiated then throw type error and prevent the JavaScript from parsing the 'new' statement that is used to create an instance 
+            - The 'new' is JS object for instance creation
+            - The 'new.target' is a property that returns the name of the class which is to be instantiated
+        - Throw Either 'Error' or 'TypeError' for exception or error message    
     - The derivation can be implemented using 'extends' keyword
+        - Derive class has an access of all public members of base class
+        - If the base class constructor has parameters then in derive class we can use 'super()' inside the constructor of derive class to access base class constructor
+    - If the base class and derived class have same methods names then using an instance of derive class, the method from derived class will be accessible
+        - In ES 6 OOPs there is no UpCasting and DownCasting    
     - The method overloading is not directly possible
+        - If The method with same name in class exists then the later will overwrite earlier one 
         - Can be implemented using indirect coding 
             - an 'arguments' array
+                - This is a standard JavaScript array that reads numbers of arguments to a method
             - using 'rest-parameters' aka 'object spread'
+                - The rest-parameters also used in case where method needs variable numbers of parameters
+                - Syntax
+                    - function xyz(...p)
+                        - The 'p' is an array object that has variable length
     - the 'class' is a keyword
         - No Keywords for 'public', 'private' and 'protected'               
