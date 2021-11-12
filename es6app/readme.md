@@ -233,4 +233,110 @@
                     - let obj1 =  Object.assign({}, obj0);
                         - a Blank obj1 is created and the schema of obj0 is copied into it
 - Date Object    
-    - The object that is used to show yer, month, date, hour minutes, seconds, milliseconds    
+    - The object that is used to show yer, month, date, hour minutes, seconds, milliseconds
+- Proxy Object
+    - The Proxy Design Pattern used by ES 6 for Preventing all functionality from the Real-Target object from direct access from the Consumer         
+    - Uses 'Proxy()' class
+        - Proxy(target,handler) 
+            - target, is the read object
+            - handler, is an object that contains behavioral method to interact with target object and trap all incoming requests from the car
+                - The handler is a Object with Following methods (Optionally implemented)
+                    - get()
+                        - Trap incoming request from consumer and based on it provide ab access of the real object
+                    - set()
+                        - Trap request and set the received data from consumer to real object
+                    - ownKeys()
+                        - Read properties of the real object
+                    - ownValues
+                        - Read values of properties of real object
+- Promise
+    - An object used in JavaScript for handling Long running async operations using Subscriber Pattern
+    - Players
+        - Caller, Object that makes long running call
+        - Provider, Accepts call and start processing
+            - Generates a Promise, a proxy of the result
+        - Caller subscribes to the Promise and w/o waiting for the result, it is free to perform other operations.       
+    - Making an Async call to REST Api using JavaScript XMLHttpRequest object
+        - The object is used to perform Http calls to externally hosted Http Resources e.g. api, web services, etc.
+            - open('[HTTP-METHOD]', "[URL]", [ASYNC-STATE], [CREDENTIALS])
+                - HTTP-METHOD: GET/POST/PUT/DELETE
+                - URL: URL of Externally hosted http resource
+                - CREDENTIALS: USerName and Password
+                - ASYNC-STATE: true for call as Asynchronous,  false for Synchronous call
+                    - Default is true
+            - send([BODY])
+                - Initiate the request
+                - BODY: The data to be send for POST (Create new record) and PUT (update existing record) request
+            - setRequestHeader("[HEADER-KEY]","[VALUE]")
+                - Set the Http Header Information    
+                - E.g. If POST request is sending JSON data as Content (aka MIME Type)
+                    - HEADER-KEY: Content-Type
+                    - VALUE: application/json
+            - onload Event Handler
+                - Executed if the call is successful
+            - onerror EVent Handler        
+                - Executed if the call fails
+            - IMP NOTE*****Make sure that,
+             the event handles MUST be subscribed before opening and sending the calls (FOR ALL ASYNC Operations) 
+        - We need the Promise object, to make sure that the caller will get data only after the long-running operation is completed (Success / Error)       
+        - Promise((resolve,reject)=>{   ...... Async Operations ......  });
+            - resolve: A Success Callback, this will be executed for successful execution
+            - reject: A Error Callback, this will be executed for Failed Execution  
+        - The Promise has the following method Chain aka PROMISE CHAIN
+            - Promise.then(SuccessCallback).catch(ErrorCallback);
+                - The 'then()', is a method that will be executed when the Promise is 'resolved'.
+                - The 'catch()' is a method that will be executed when the Promise is 'rejected'.
+            - Note: No Transpilation is needed for Promise for Modern Browsers
+                - Edge, Chrome, Firefox, Brave, Safari (Current Version - 4)   
+                    -  @babel/preset-env, will take care of Promise Compatibility       
+                - But for IE 10 please check the support
+        - What if that there are multiple Promise Based calls?
+            - Using Multiple Promises     
+                - Promise.all([<ARRAY-OF-PROMISES>])
+                    - Can be used to make parallel promise based calls (MAX 10) using single all() method.
+                    - When all Promises are resolved, then the caller will be notified as success else the error will be returned     
+        - If a method is making multiple promise calls then there MUST be a mechanism exists that will subscribe and complete (Resolve/Reject) the promise    
+            - Call Promise 1. Subscribed and Completed
+            - Call Promise 2. Subscribed and Completed         
+        - ES 7
+            - The 'async' and' 'await' keywords
+                - Use 'async' modifier on the method which is performing Promise based operations
+                - The 'async' method MUST have a promise call statement that is decorated with 'await' keyword
+                    - The 'await' keyword subscribes and complete the promise object and collect response from it
+                - async CallPromises() {
+                    let res1 = await getResultFromPromise1();
+                    let res2 = await getResultFromPromise2();
+                }               
+
+                - getResultFromPromise1(); and getResultFromPromise2(); are methods those are returning 'Promise' object
+ 
+- ES 6 and ES 7
+    - Iterators
+        - It is a mechanism of building a sequence 
+        - Reading the sequence in order
+        - While Reading we read record one-by-one by processing it and returning it
+            - Read-Process-Return-MoveNext, this is called as  'yield'        
+        - Implementation of Iterator in ES6 and ES 7 was difficult
+            - A Object for MoveNext or next() methods
+            - Reading the the Collection
+            - Returning it
+        - const iterator = {
+            next:function(){
+                implement logic for Reading Record
+                Process Record
+                Check for End-of-Collection 
+                return record;
+            }
+        }         
+    - ES 8, The Generators
+        - A Read-to-Use Iterator Solution for building Sequence    
+        - Generator Function
+            - function* myGenerator(start, end, step){ .... yield }
+                - start: The Record from the collection to Start
+                - end: The last Record from the collection where the generator will stop
+                - step: The increment counter to move to next record   
+            - function* means a ES Transpiler will add the following features in the function
+                - The 'next()' function
+                - The yield for the record
+                    - The 'value' represents the record
+                - Check for the End-Of the input collection using 'done'    

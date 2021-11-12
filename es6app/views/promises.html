@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./../advanced/Promises/usingPromise.js"></script>
+    <script>
+        window.onload = function (){
+            // var response = getData();
+
+            // document.getElementById('dv').innerHTML = response;
+
+
+            var promise = getData(); // this method returns promise
+            // use promise subscription and wait for the response
+            promise.then(function(response){
+                document.getElementById('dv').innerHTML = response;
+            }).catch(function(error){
+                document.getElementById('dv').innerHTML = error;
+            });
+
+            document.getElementById('btnPost')
+                    .addEventListener('click', function(){
+                        var prd = {
+                            ProductId: 'Prd-001',
+                            ProductName: 'Laptop',
+                            CategoryName: 'Electronics',
+                            Manufacturer: 'HP',
+                            Description: '360 Flip',
+                            BasePrice: 120000
+                        };
+                        var pm = postData(prd);
+                        pm.then(function(response){
+                            document.getElementById('dv1').innerHTML = response;
+                        }).catch(function(error){
+                            document.getElementById('dv1').innerHTML = error;
+                        });
+                    },false);
+
+        }
+    </script>
+</head>
+<body>
+    <h1>Understanding Promise based calls</h1>
+    <div id="dv"></div>
+    <br>
+    <button id="btnPost">Post Data</button>
+    <div id="dv1"></div>
+    <br>
+</body>
+</html>

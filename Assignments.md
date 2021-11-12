@@ -115,6 +115,8 @@ NOTE: All TAsks from 1 and 2 MUST be done today
     - Print Tax for each Employee as 30% for Salary More than Rs 5Lakh and 25% Less than or equal to 5Lakh.
     - Delete an Employee based on EmpNo received from the UI
 
+# Date: 12-11-2021
+1. Complete the application in 'application' folder of es6app folder with UI and Logic
 
 
 

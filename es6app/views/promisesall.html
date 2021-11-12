@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./../advanced/Promises/promiseall.js"></script>
+    <script>
+      window.onload = function () {
+        document.getElementById("btnMiltiplePromises").addEventListener(
+          "click",
+          function () {
+            // array of Promises
+            let promises = multiplePromises();
+            promises
+              .then(function (resp) {
+                document.getElementById("dv1").innerHTML = `First Promise
+                          ${resp[0]}`;
+
+                document.getElementById("dv2").innerHTML = `Second Promise
+                          ${resp[1]}`;
+              })
+              .catch(function (err) {
+                console.log("Error Occurred");
+              });
+          },
+          false
+        );
+
+        document.getElementById("btnasyncawait").addEventListener(
+          "click",
+          function () {
+            // array of Promises
+            let promises = getDataFromPromises();
+            promises
+              .then(function (resp) {
+                document.getElementById("dv1").innerHTML = `First Promise
+                          ${resp[0]}`;
+
+                document.getElementById("dv2").innerHTML = `Second Promise
+                          ${resp[1]}`;
+              })
+              .catch(function (err) {
+                console.log("Error Occurred");
+              });
+          },
+          false
+        );
+      };
+    </script>
+  </head>
+  <body>
+    <h1>Understanding Promise based calls</h1>
+    <button id="btnMiltiplePromises">Using Multiple Promises</button>
+    <button id="btnasyncawait">Using Async/Await</button>
+    <br />
+    <div id="dv1"></div>
+    <br />
+    <div id="dv2"></div>
+  </body>
+</html>
