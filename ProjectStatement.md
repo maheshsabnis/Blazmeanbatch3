@@ -1,0 +1,65 @@
+You are working as a In house Software Engineer with "Perfect Service"  Company. This company is in following types of Vehicle service
+    - Trucks
+    - Bus
+    - Four Wheeler
+    - Three Wheeler
+    - Two Wheeler
+- The Company wants you to design a software application for automation of the all the Operations as described in following
+    - Customer Needs to Register to the WebSite of the Company for Vehicle Maintenance  
+       - Customer Can be a Vehicle Owner Company
+       - Customer Can be Individual
+    - The Customer Can book the Servicing Booking using Web Site or Customer can call to the Service Representative for Servicing Booking or Customer can directly get the Vehicle to Service Station for Servicing
+    - The Booking is Monitored by the Servicing Manager, and he assign the Vehicle Service booking to the Servicing Lead
+        - The Servicing Lead then further allocates Workers for following
+            - Washing
+            - Cleaning
+            - Servicing
+                - Part Change
+                - Oiling
+        - Once each worker completes the work on the vehicle, the status of the servicing on vehicle is updated and can be seen by 
+            - Servicing Lead
+            - Servicing Manager
+            - Servicing Representative 
+            - Customer
+    - Servicing Workers may have more than one Vehicles for Washing, Cleaning, Servicing
+    - Vehicle Owning Company Customer can send Multiple vehicles for Servicing
+    - Once the Servicing is complete the Customer wil be provided with detailed Bill. THis bill is calculated based on various types of servicing done on it which is provided as follows
+        - For Washing and cleaning there are separate rates for Trucks, Bus, Four Wheelers, Three WHeelers and Two WHeelers
+        - The  Trucks, Bus, Four Wheelers, Three WHeelers  can be cleaned and washed by more than one worker at a time
+        - Rates for Cleaning and Washing are constant and can be set by the Application Administrator only
+        - For Servicing the Rates are applied as 
+            - Per Part that is changed e.g. Clutch, Break, oil, etc.
+            - There is different rates for servicing for Trucks, Bus, Four Wheelers, Three WHeelers and Two Wheelers.
+        - The Bill is calculated only by Accountant as a role based on Servicing Status uploaded by Worker or Servicing Lead or Manager
+            - The Service Wise Bill must be separate
+                - Washing Bill
+                - Cleaning Bill
+                - Servicing Bill
+                    - Part Replacement
+                    - Oil Change
+                - Worker Bill
+        - The Customer Information Must contain following
+            - Customer Id, NAme, Address, City, State, Primary Contact Number, Mobile Number, Landline, Email
+        - The Vehicle Servicing information will be as follows
+            - Vehicle No, Vehicle Type, Servicing Id, No of Service, Service Registration Date, Actual Service Start Date, Expected Service End Date, Actual Service End Date, Service ManagerId, Service Lead Id, WorkerIs (Separate for Washing, Cleaning, Servicing Worker), Pick Up Charges (If Any)       
+
+    - The Administrator can see the status of all Vehicles as
+        - Number of Vehicles Booked for Servicing
+        - Actual Vehicles inward for servicing
+        - Service Status (Pending, Servicing, Completed but Waiting for Bills, Completed with Bills but waiting for delivery, Delivery done )
+    - The Servicing Manager can see only vehicles allocated by him to Servicing Leads under him with same details as of Administrator   
+    - The Servicing Lead can see vehicle status assigned to him for servicing
+    - No Dashboard for Workers
+    - THeir MUST be a Daily Collection Report accessible to Accountant and Administrator
+        - Customer wise Bills
+        - Vehicle Type wise Bills
+    - Once the Vehicle is Ready for Dispatch then worker MUST not make any changes in any service details, but Lead and Manager can do that. But they can only update servicing details
+    - Except Customer or Customer Representatives Or Administrator the Customer Information like Name, Address, EMail, Mobile NUmber cannot be changed by any other user
+    - Once the vehicle is accepted by Lead for Servicing, the Servicing Manager can change the Lead but once the servicing starts e.g. Parts changes, oil,. washing, etc, the Lead cannot be changed. Similarly, Lead cannot change the worker once the servicing starts.
+           
+    - You may add additional information  regarding the servicing
+        - E.g.
+            - If the Vehicle is in Annual Maintenance Contract (AMC), then please Send NOtification to Customer that the vehicle is due for servicing
+
+
+
