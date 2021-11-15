@@ -16,3 +16,21 @@
                 - All Records are scanned with their values for a specific column or columns
             - The performance of scalar functions  cannot be predicated easily because they are dependent on the volume of records in table        
             - If the Scalar function is used along with the Column name e.g. Count(*) is to be used along with the column name, then make sure that the column is having some impact to generate the result for Count(*) based on with 'where' condition or groups      
+    - When Reading data from Multiple Tables Make sure about the following
+        - If there is relationship across tables then establish a join or column value match for both table to optimize the query, Otherwise all records from all tables used in query will be read        
+        - Simple Join aka Inner Join
+        - Left Join
+        - Right Join
+- In Most of the cases, operations performed on each table needs the Audit e.g. when the record is inserted, updated, deleted, etc.
+    - To monitor the auditing, it is recommended that, the triggers are created
+        - CREATE Trigger [NAME]
+            {BEFORE | AFTER} {INSERT|UPDATE|DELETE}
+            on [TABLE-NAME] FOR EACH ROW
+            [Trigger-Body]        
+        - The Trigger Body  uses an MySQL Object known as 'OLD'
+            - This is used to referring OLD values for rows in the table on which the trigger is fired
+            - Trigger Event     OLD
+                - Insert        Not Available
+                - Update        Available
+                - Delete        Available
+        - Like OLD the 'NEW' object is also available and it is used INSERT and UPDATE                   

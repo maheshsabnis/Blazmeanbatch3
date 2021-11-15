@@ -23,6 +23,7 @@ insert into Department Values(20, 'HR', 'Pune', 8);
 insert into Department Values(30, 'TR', 'Pune', 5); 
 insert into Department Values(40, 'SL', 'Pune', 15); 
 insert into Department Values(50, 'AC', 'Pune', 25); 
+insert into Department Values(60, 'AD', 'Pune', 6); 
 -- See all records from table
 select * from Department;
 
@@ -53,6 +54,40 @@ Insert into Employee Values(108, 'Tushar', 'Lead', 210000, 30);
 Insert into Employee Values(109, 'Kaustubh', 'Clerk', 110000, 40);
 Insert into Employee Values(110, 'Ram', 'Manager', 190000, 50);
 
+-- Creating Trigger
+-- auto_increment: The Identity Key
+-- Default is used to assign default value
+Create Table Employee_Audit(
+  id int auto_increment Primary Key,
+  EmpNo int not null,
+  TransactionDate DateTime Default Null,
+  action varchar(50) Default Null
+);
+
+-- Creating a Trigger before an update takes place in Employee Table
+Create trigger before_employee_update
+ before update on Employee -- before an update operatyion takes place
+ For Each Row	-- the operation will be executed for each row 
+	Insert into Employee_Audit
+    Set action = 'update',
+    EmpNo = OLD.EmpNo,
+    TransactionDate = Now();
+
+
+-- Update Employee
+Update Employee Set Salary = Salary + (Salary * 0.002) where EmpNo = 101;
+
+
+Create trigger after_employee_insert
+ After Insert on Employee -- before an update operatyion takes place
+ For Each Row	-- the operation will be executed for each row 
+	Insert into Employee_Audit
+    Set action = 'insert',
+    EmpNo = NEW.EmpNo,
+    TransactionDate = Now();
+
+Insert into Employee Values(111, 'Ramesh', 'Manager', 990000, 10);
+ 
 
 
 

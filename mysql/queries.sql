@@ -20,3 +20,44 @@ select EmpName, Count(*) from Employee; -- Avoid This
 select DeptNo, Count(*) from Employee where DeptNo=10;
 -- Use group key to evaluate the select statement with the scalar functon
 select DeptNo, Count(*) from Employee group by DeptNo; 
+-- Display MAx Salary Per Department
+select DeptNo, max(Salary) as MAX_SALRY from Employee Group by DeptNo;
+-- Second Max Salary
+ select DeptNo, max(Salary) as MAX_SALRY from Employee where Salary < (Select MAx(Salary) from Employee);
+ -- second max salary per department
+select DeptNo, max(Salary) as MAX_SALRY from Employee where Salary < (Select MAx(Salary) from Employee) group by DeptNo;
+-- Sum of salary for all Employee
+select Sum(Salary) From Employee;
+-- Sum Salary by DeptNo
+ select Sum(Salary) From Employee group by DeptNo;
+ 
+ -- Listing all Employees Order by Salary
+ Select * from Employee Order By Salary;
+ 
+ Select * from Employee Order By    Salary DESC;
+ 
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
