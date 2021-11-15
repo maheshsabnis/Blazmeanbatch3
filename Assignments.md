@@ -117,7 +117,8 @@ NOTE: All TAsks from 1 and 2 MUST be done today
 
 # Date: 12-11-2021
 1. Complete the application in 'application' folder of es6app folder with UI and Logic
-# Date: 15-11-2021, start the table creation based on the Problem Statement given in ProjectStatement.md
+# Date: 15-11-2021, 
+1. start the table creation based on the Problem Statement given in ProjectStatement.md
 
 
 
