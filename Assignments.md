@@ -120,6 +120,42 @@ NOTE: All TAsks from 1 and 2 MUST be done today
 # Date: 15-11-2021, 
 1. start the table creation based on the Problem Statement given in ProjectStatement.md
 
+# Date: 16-11-2021
+
+1. Create a Database Called as Ecom with Following tables (Today from Task 1 to 4)
+    - Category Table
+        - Category
+            - CategoryId, Varchar (30)  Primary Key,
+            - CategoryName varchar (100) Not Null
+            - Manufacturer Varchar (100) Not Null
+    - Product Table
+        - ProductRowId, Identity Key Primary Key,
+        - ProductId varchar(100) Unique Not Null,
+        - ProductName varchar(100) Not Null,
+        - Price int Not Null,
+        - QuantityAvailable int not null,
+        - CategoryId Varchar(30) Not Null Foreign Key
+    - Customer
+        - CustomerId int Primaty Key,
+        - CustomerName varchar(200) Not null    
+    - Order
+        - OrderId int Primary Key,
+        - ProductId int Not Null Foreign Key
+        - OrderedDate datetime not null,
+        - QuantityOrdered int not null,
+        - TotalPrice int Not Null
+        - CustomerId int Not null Foreign Key
+
+2. Insert data into Category and Product Tables
+3. Create a Stored Procedure to Create an Order for Product
+    - Customer can place order
+    - Make sure that, the QuantityAvailable for the product is deducted when an Order is placed for the ProductId successfully.
+    - If the Order Placing is failed, then the Update in QuantityAvailable for the ProductId Must be Rolled Back
+    - Calculate the TotalPrice for the order
+4. Create a Stored Procedure that will return orders placed by the Customer as follows3 
+    - CustomerId, CustomerName, ProductName, CategoryName, OrderedDate, TotalPrice
+                    
+
 
 
 

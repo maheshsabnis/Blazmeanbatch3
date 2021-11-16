@@ -34,3 +34,21 @@
                 - Update        Available
                 - Delete        Available
         - Like OLD the 'NEW' object is also available and it is used INSERT and UPDATE                   
+
+- MySQL Stored Procedures
+    - SP MUST start from 'DELIMITER', this is a SP block
+        - This is common concept and syntax in MySQL and Postgres
+    - To define an input and output parameter use 'IN' and 'OUT' keywords, InOut is a keyword used for input and output Parameter    
+    - Syntax 
+         - Create Procedure [NAME](IN Parameters.... OUT Parameters.....) BEGIN  [SP BODY]  END
+
+         - Call Stored Proc
+            - CALL [NAME]
+
+         - Delete Stored Proc
+            - DROP Procedure [NAME];
+    - We Can use Scalar Function in function in Stored Procedure to calculate a single Value
+    - The Programming Constructs like 'IF-END IF', 'IF-ELSE-END IF', 'WHILE Condition DO ....... END WHILE'           
+    - The Parameter name to Sp starts from 'p' in postgres
+
+
