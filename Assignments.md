@@ -155,6 +155,12 @@ NOTE: All TAsks from 1 and 2 MUST be done today
 4. Create a Stored Procedure that will return orders placed by the Customer as follows3 
     - CustomerId, CustomerName, ProductName, CategoryName, OrderedDate, TotalPrice
                     
+# Date: 17-11-2021
+(Project Kick-Start) Tasks for the day
+1. Create a Database in PostgreSQL that stores an information of the Servicing Company (The Project Discussed in ProjectStatement.md)
+    - Create stored Procedures for Performing CRUD Operations on These tables
+    - Make sure that the Stored Procedure Validates each Parameter passed to it.
+    - Create Triggers to Log/Audit every operation done on each table 
 
 
 
