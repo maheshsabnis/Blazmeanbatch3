@@ -1,0 +1,27 @@
+# PostgreSQL
+- Version 10 Does not have support for Stored Procs
+- Version 11 is Mandatory for Stored Procs
+
+- Suggestions for using PostgreSQL
+    - Make sure that, the pgAdmin is installed
+    - Do not use CLI as a beginner to PostgreSQL
+    - Make sure that the Password is set while installing pgSQL
+    - The Super User aka Default use is 'postgres'
+- Important Objects of PostgreSQL
+    - Databases
+        - Schemas
+            - Functions
+            - Procedures 
+    - Login or Role Groups
+        - Users and roles with an access rights       
+- Make sure that for Database Centric Logic Create Function or Stored Procedure
+    - pg Function
+        - It is executable group of statements those are used for accepting parameters and returning parameters after executing 'VALID' Statements
+        - The pg Language
+            - The pgSQL uses 'plpgsql' language so that PostgreSQL will compile the Code inside the DB Engine    
+        - If the Function return Table then Return type must be 'returns table'     
+    - pg Stored Procedures
+        - Added in PostgreSQL 11
+        - Can have Input and output Parameters
+        - Using 'Commit' Transactions are handled in SP          
+    - While Creating Trigger, make sure that a function is created that returns a 'Trigger'     
