@@ -53,8 +53,23 @@ Create Table Employee (
  Foreign Key (DeptNo)  References Department(DeptNo) -- Foreign Key	
 );
 
+-- Creating a Table using AUTO_Increment value for the column
+-- use 'Serial' keyword to generate value from 1 onwards
+
+Create table Category(
+  CategoryId Serial Primary Key,
+  CategoryName varchar(100)  Not Null  	
+);
+-- NOTE: Please specify the Column(s) to insert data when using Serial Column for Auto-Increament of Column Value  
+insert into Category (CategoryName) Values('Electronics');
+
+insert into Category (CategoryName) Values('Electrical');
 
 
+Select * from Category;
 
+Delete From Category where CategoryId = 2;
+-- Resetting of the Table by deleting all records from the Table 
+Truncate Table Category;
 
 
