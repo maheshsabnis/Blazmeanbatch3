@@ -1,0 +1,163 @@
+# Node.js
+1. Need of JavaScript Full-Stack
+    - Same Standard of code on Server-Side and on Front-End (Client-Side)
+    - Code-Sharing to avoid repetitive set-of code
+    - Cross-Platform Solutions
+    - Existing JS Developers can be directly working on Full-Stack 
+        - Front-End Technologies
+        - Middleware Technologies
+        - Server-Side Technologies
+        - Database (SQL, NoSQL, etc.)
+2. High-Scale of Optimization for Utilizing Server-Side Resources
+    - Single Thread Execution Model
+    - Node.js Programming object Model for Server-Side Execution
+        - Programmable HTTP Server
+        - Programmable HTTP Request Processing
+        - Programmable Resource Management
+            - Files aka streams aka buffers
+            - Sockets 
+            - Database
+    - MEAN Stack, MERN Stack, XEYN Stack
+        - Mongo / MySQL, Express, Angular, Node (MEAN)
+        - Mongo / MySQL, Express, React, Node (MERN)
+        - X is Database, MySQL, MongoDB, PostgreSQL, MariaDB, SQL, DynamoDB, CosmosDB, etc.
+        - Y is JS Front-End Library or Framework, Angular, React, Vue, Backbone, ExtJs, etc.
+3. Node.js Modules
+    - These are ready-to-use functionalities for following
+        - File IO
+        - Http Operations / Https
+        - Socket
+        - Pipes
+        - Cryptography
+        - .... any many more
+    - Third Party Community-Driven Modules
+        - Express
+            - Express-Session, Express-FileUpload, Express-Jwt
+        - Mongoose
+        - MongoDB
+        - JsonWebToken
+        - CORS
+        - Sequelize
+        - mysql/mysql2
+        - node-sql
+        - mssql
+        - pg
+        - bcrypt
+        - .... any many more     
+    - Third-Party packages are designed, developed and maintained by separate communities, so they MUST be evaluated before use
+    - Guidelines to choose the Module
+        - Check for the integrity of the Community tht have developed the module
+        - Check for Git Stars and forks
+        - Check for the Stack Overflow Popularity
+        - Check for Issue list and the frequency of resolving it
+        - Check for the support
+        - Check for the Learning Curve and Object Model      
+    - https://www.npmjs.com
+
+# Using Node.js for Application Development
+- Create package.json file
+    - npm init -y / npm init -f / npm init with wizard
+- Create a JavaScript file and write application code in it
+    - To run the file on the server use the following command
+        - node [FILE-NAME].js    
+- To use intellisense, install Node.js type definitions
+    - npm install --save-dev @types/node         
+- Using Standard Modules
+    - The Node.js runtime will load and cache the Module (Standard /  Custom / Third Party) using following object
+        - let [identifier] = require('[MODULE-NAME]');
+            - require()
+                - This will search the module (this is a .js file) on the current path where the Node.js application is executing, if found then the module will be parsed and if successful it will be loaded and cached in Current Application's process allocated by Node.js
+                - If the module is not found on the current path, then it will be search in the Node.js runtime, and if found it will be loaded and cached
+                - If module not found anywhere, the 'ModuleNotFound' exception will be thrown
+            - The 'caching' is required because is the same module is loaded using 'require()' object at variable places in one single application, then the repetitive search of the same module will be avoided.       
+        - ES 6 Syntax of Loading Module in Node.js application
+            - This is available from Node.js 11.0+
+            - import [identifier] from '[MODULE-NAME]';
+                - Not all modules (External) are ES 6 compliant
+                - The package.json MUST be modified to support ES 6 module for current Node.js application
+                    - Either Add following JSON jey in package.json
+                        - "type":"module" (default type is commonjs, standard for JS)
+                    - OR change an extension of Source code file from .js to .mjs     
+                - Some standard Global Variable of Node.js may not work with ES 6           
+    - fs
+        - The Module for performing File IO with Synchronous and Asynchronous calls
+        - Read/Write Files
+            - readFileSync(), synchronous execution
+            - readFile(), Asynchronous execution
+            - writeFileSync() and writeFile()
+                - If the file is not already available it will be created else overwritten
+            - open()
+                - Create a file and make it ready for write using 'w' flag``    
+            - appendFile()
+                - If file Exist append data in it else create the file  
+            - unlink()
+                - Delete the file      
+        - Work With Directories
+            - mkdir(), the method to Create a Directory
+            - readdir(), read contents of the directory 
+                - Return an array of contents in the directory (files and subdirectories)
+    - path
+        - A Standard Module that used to set application path using a Global Variable
+            - __dirname
+                - A global variable that will be used to alway point to Application path from the Root
+
+    - http
+        - The 'http' module is used for following
+            - Create a HTTP Server and start listening HTTP Requests from Clients
+            - Help to Process HTTP Requests based on HTTP Methods
+                - GET /  POST / PUT / DELETE
+                - This can be used to build REST APIs
+            - Helps to read the URL and based on which resources on server can be processed
+                - e.g. Read the Key from URL and Process the HTML
+                - This feature can be used to build the Complete Functional HTTP Web Server for accepting requests for Files and generating responses from it
+        - Methods
+            - createServer(HttpRequestListener OR RequestListener)
+                - Used to create Http Server for HTTP Request Processing 
+                - RequestListener, is an object that is used to accept Http Request, the Request object 
+                        - method and url properties
+                - and after processing send response using Http Response Object, the Response object
+                    - response object has following methods
+                        - writeHead()
+                            - Write Http Response Header
+                        - write()
+                            - The response to be send to client
+                        - end()
+                            - The completion of the response           
+            - listen(port)
+                - listen on the port
+            - request(options)
+                - Used to make request to other HTTP resource (Web Service /  REST APIs) based on Options
+                    - options, the JSON object that contains information of the server
+        - Properties of request object of RequestListener the parameter to 'createServer()' method of 'http' module
+            - method: the property used to detect the request method
+                - e.g. get, post, put, delete
+                - if(request.method === "GET" / "POST" / "PUT" / "DELETE") {... start.. processing...the...request}
+            - url:
+                - the requested url    
+                - Used to read the requested URL and based on it perform the operations
+                    - e.g. If the Request is 'http://server:port/myfile' then the 'req.url' will be '/myfile'
+            - headers
+                - reading header parameters
+                    - e.g. http://localhost:7011/{id}
+                        - The 'id' is header parameter    
+                    - To read parameter use the following code
+                        - request.headers.[NAME-OF-PARAMETER]
+                            - e.g. request.headers.id
+            - The 'on()' method of the 'request' object
+                - This method is used to process the request
+                    - Read the data send by the client to Http Server
+                - The 'data', 'end', 'error', 'pause' and 'resume' are events, those will be internally raised     
+                - request.on('data'), start reading data received from the request
+                - request.on('end'), complete the data reading and start processing
+                - request.on('error'), the error occurred while reading/processing the data
+                - request.on('pause'), pause the reading and hence processing
+                - request.on('resume'), resume the data reading and hence processing
+- Use 'nodemon' external module to continuously run the Node.js application. This must be installed in Global Scope
+    - npm install -g nodemon
+    - This will Monitor the Node.js file for Update and reloads it into the Node.js runtime     
+
+
+
+
+
+

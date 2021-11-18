@@ -1,0 +1,1 @@
+I am the file that will be read using fs module

@@ -162,6 +162,17 @@ NOTE: All TAsks from 1 and 2 MUST be done today
     - Make sure that the Stored Procedure Validates each Parameter passed to it.
     - Create Triggers to Log/Audit every operation done on each table 
 
+# Date: 18-11-2021 (All Today)
 
+1. Create a Node.js app which uses 'fs' module to read all files and contents of each file in a directory and all of its subdirectories
+2. Create a Node Application that will use 'fs' and 'http' module and will perform the following operations
+    - When the request is http get and url is '/app', the app.html MUST be responded
+        - The app.html will contains HTML UI for Accepting Employee details like EmpNo, EmpName, Designation, DeptName, Salary
+        - There will be a Table that will show all Employees
+    - When the XMLHttpRequest request is made to Http get method and the URL is /api/getall, then return all Employees data that will be displayed in HTML table on app.html
+    - When the 'Save' button is clicked the XMLHttpRequest MUST be made to Http method as 'POST' and URL as  '/api/post' to create a new Employee Record. Once the record creation is complete, all employees MUST be responsed back and shown in HTML Table
+    - When a Table row clicked, the selected row data MUST be shown in Employee input elements. Now, when teh Update button is clicked the XMLHttpRequest MUST be made to method as 'PUT' and URL as  '/api/update' to update employee and return updated Employees back and display in HTML table
+    - After selecting Employee from HTML Table and showing Employee information in input elements when the Delet5e button is clicked the XMLHttpRequest DELETE Must be made to DELETE Method with URL as '/api/delete' to delete record from Employees array and remaining records mUST be shown in HTML Table.    
+    - Make sure that the Http application is hosted on port 9090 (HTML page and all APIs)  
 
 
