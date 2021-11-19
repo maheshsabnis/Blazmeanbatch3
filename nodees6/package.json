@@ -18,6 +18,11 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
-    "jquery": "^3.6.0"
+    "jquery": "^3.6.0",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.11.0",
+    "sequelize-auto": "^0.8.5",
+    "sequelize-cli": "^6.3.0"
   }
 }

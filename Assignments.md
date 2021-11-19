@@ -176,3 +176,14 @@ NOTE: All TAsks from 1 and 2 MUST be done today
     - Make sure that the Http application is hosted on port 9090 (HTML page and all APIs)  
 
 
+
+
+# Date: 19-11-2021
+1. Use the Express Server that will render HTML Pages as (Today)
+    - index.html
+    - department.html
+    - employee.html
+2. The department.html and employee.html will perform CRUD operations on Postgres Database using Express REST APIs and the Sequelize (Today)
+3. Perform Server-Side Search on the Department-wise Employees using department and employee models (Monday)   
+4. The REST APIs for the Servicing Project MUST be completed by Coming Wednesday (24-11-2021)  
+

@@ -12,9 +12,9 @@ instance.use(express.json());
 instance.use(express.urlencoded({extended:false}));
 // add CORS middleware
 instance.use(cors({
-  origin: '*',
+  origin: '*', 
   methods: '*',
-  allowedHeaders: '*'
+  allowedHeaders: '*' 
 }));
 
 const port = process.env.PORT || 7012;
