@@ -1,0 +1,1 @@
+I am the File Read using ES 6 Node.js Coding Standard

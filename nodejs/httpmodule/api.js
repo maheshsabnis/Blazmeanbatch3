@@ -37,6 +37,7 @@ const server = http.createServer((req, resp) => {
 
   // detect the POST request
   if (req.method === "POST") {
+      
        // read data from request using 'request.on('data')' 
        // The 'chunk' is the data that is received
        let receivedData;

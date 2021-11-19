@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <script src="jquery.min.js"></script>
+    <script src="logic.js"></script>
+    <script>
+      window.onload = function () {
+        document.getElementById("btnget").addEventListener(
+          "click",
+          function () {
+            var promise = getData();
+
+            promise
+              .then(function (response) {
+                document.getElementById("dvstatus").innerHTML =
+                   response;
+              })
+              .catch(function (error) {
+                document.getElementById("dvstatus").innerHTML =
+                  "Error Occured " + error;
+              });
+          },
+          false
+        );
+
+        document.getElementById("btnpost").addEventListener(
+          "click",
+          function () {
+            var emp = {
+              EmpNo: 107,
+              EmpName: "Kumar",
+              DeptName: "HR",
+              Salary: 787887,
+            };
+            var promise = postData(emp);
+
+            promise
+              .then(function (response) {
+                document.getElementById("dvstatus").innerHTML =
+                   response;
+              })
+              .catch(function (error) {
+                document.getElementById("dvstatus").innerHTML =
+                  "Error Occured " + error;
+              });
+          },
+          false
+        );
+      };
+    </script>
+  </head>
+  <body>
+    <h1>The Home Page</h1>
+
+    <table class="table table-bordered table-striped">
+      <tbody>
+        <tr>
+          <td>
+            <a href="/">Index</a>
+          </td>
+          <td>
+            <a href="/home">Home</a>
+          </td>
+          <td>
+            <a href="/about">About</a>
+          </td>
+          <td>
+            <a href="/contact">Contact</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="container">
+      <button id="btn" class="btn btn-success">Click</button>
+      <button id="btnget" class="btn btn-danger">Get Data</button>
+      <button id="btnpost" class="btn btn-warning">Post Data</button>
+    </div>
+    <hr />
+    <div class="container" id="dvstatus"></div>
+  </body>
+</html>

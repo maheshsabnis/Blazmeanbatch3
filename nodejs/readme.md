@@ -155,7 +155,13 @@
 - Use 'nodemon' external module to continuously run the Node.js application. This must be installed in Global Scope
     - npm install -g nodemon
     - This will Monitor the Node.js file for Update and reloads it into the Node.js runtime     
-
+- Creating Custom Module in Node.js
+    - It is like a reusable set of code that can be shared across other files in a Node.js Application
+        - In File1.js
+            - module.exports = {   ..... your logic here    };
+        - In File2.js
+            - const mymodule = required('./File1.js);
+                - mymodule will have an access of all exportable functionality from File1.js    
 
 
 
