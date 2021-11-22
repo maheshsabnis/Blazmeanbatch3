@@ -25,7 +25,7 @@ instance.use(cors({
 instance.use(
     
     session({
-      secret: "aaaaaaaaaaa",
+      secret: "",
       resave: false,
       saveUninitialized:true,
       cookie:{

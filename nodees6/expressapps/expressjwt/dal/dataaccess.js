@@ -18,7 +18,7 @@ const sequelize = new Sequelize("business", "maheshadmin", "P@ssw0rd_", {
 
 // define a secret key (You may use the crypto)
 const jwtSettings = {
-  jwtSecret: "mi16ciaraw0708waraic61im",
+  jwtSecret: "",
 };
 
 class AuthLogic {
