@@ -1,0 +1,24 @@
+Select * from Users;
+insert into Users (UserName, Password)
+Values ('leena', 'leena');
+
+Create Table Roles (RoleId serial not null, RoleName varchar(30) not null,
+				    Primary Key (RoleName));
+insert into Roles (RoleName) values ('Admin');	
+insert into Roles (RoleName) values ('Manager');	
+insert into Roles (RoleName) values ('Clerk');	
+insert into Roles (RoleName) values ('Operator');	
+
+
+Select * from Roles;
+
+create table UsersInRole (
+ RelationId serial not null,
+ UserName varchar(20) Not null, 
+ RoleName varchar(30) Not Null,
+ Primary Key (RelationId),
+ Foreign Key (UserName) references Users(UserName),
+ Foreign Key (RoleName) references Roles(RoleName)
+);
+					
+					

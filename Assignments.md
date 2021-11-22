@@ -187,3 +187,16 @@ NOTE: All TAsks from 1 and 2 MUST be done today
 3. Perform Server-Side Search on the Department-wise Employees using department and employee models (Monday)   
 4. The REST APIs for the Servicing Project MUST be completed by Coming Wednesday (24-11-2021)  
 
+
+# Date 22-11-2021
+1. Create a Role Table with Columns as RoleId (Integer Serial not null), RoleName (varchar Primary Key)
+2. Add Roles as Administrator, Manager and Clerk
+3. Create a Table UsersInRole with Columns as RelationId(Integer Serial not null), UserName (Foreign Key from Users Table ), RoleName (Foreign Key from Roles Table)
+4. Create a REST API method that will Assign Role To User
+5. When a Uer LogsIn send a Token with the payload as UserName and RoleName int it
+6. After the Token is verified makes sure that Following requirements are satisfied by the Application
+    - Administrator Role Users can Perform CRUD Operations
+    - Manager Role Users can Perform CRU
+    - Clerk Role Users can Perform CR
+7. Hint Store the Identity Information in Session    
+

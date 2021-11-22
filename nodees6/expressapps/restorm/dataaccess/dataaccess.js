@@ -44,7 +44,7 @@ class DataAccess {
 
   async getData(req, resp) {
     // 1. establish the connection
-    await sequelize.sync({ false: false });
+    await sequelize.sync({ force:false });
     // 2. read all records
     let records = await department.findAll();
     // 3. send response
@@ -58,7 +58,7 @@ class DataAccess {
 
   async postData(req, resp) {
     // 1. establish the connection
-    await sequelize.sync({ false: false });
+    await sequelize.sync({ force:false });
     let dept = await department.create(req.body);
     if (dept) {
       return resp
@@ -71,7 +71,7 @@ class DataAccess {
   }
   async putData(req, resp) {
     // 1. establish the connection
-    await sequelize.sync({ false: false });
+    await sequelize.sync({ force:false });
     // 2. update each column based on data received from body
     // update() method uses the where condition to search record and update
     let dept = await department.update(
@@ -98,7 +98,7 @@ class DataAccess {
   }
   async deleteData(req, resp) {
     // 1. establish the connection
-    await sequelize.sync({ false: false });
+    await sequelize.sync({force:false });
     // 2. update each column based on data received from body
     // update() method uses the where condition to search record and update
     let dept = await department.destroy({
