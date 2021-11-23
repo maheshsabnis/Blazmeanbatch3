@@ -212,5 +212,6 @@ NOTE: All TAsks from 1 and 2 MUST be done today
         - Where Salary >= 10000 OR  Salary <=98989
 2. Create a HTML Page That will access the REST API on 'onChange' event of the input:text or DropDown, etc
     - Use XmlHttprequest         
+3. Use http.request() method to perform POST calls using 'q'    
 
 
