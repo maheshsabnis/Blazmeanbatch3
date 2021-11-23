@@ -9,8 +9,11 @@ insert into Roles (RoleName) values ('Manager');
 insert into Roles (RoleName) values ('Clerk');	
 insert into Roles (RoleName) values ('Operator');	
 
-
+Select * from Users;
 Select * from Roles;
+Select * from UsersInRole;
+insert into UsersInRole (username,rolename) 
+values ('leena', 'Clerk');
 
 create table UsersInRole (
  RelationId serial not null,
@@ -20,5 +23,9 @@ create table UsersInRole (
  Foreign Key (UserName) references Users(UserName),
  Foreign Key (RoleName) references Roles(RoleName)
 );
+
+select * from department;
+select * from employee;
+
 					
 					

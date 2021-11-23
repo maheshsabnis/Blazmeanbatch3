@@ -22,6 +22,7 @@
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
+    "q": "^1.5.1",
     "sequelize": "^6.11.0",
     "sequelize-auto": "^0.8.5",
     "sequelize-cli": "^6.3.0"

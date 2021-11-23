@@ -307,3 +307,26 @@ export default function initModels(sequelize) {
           - secret key: The Signature 
           - decode
             - After the token verification is complete receive the payload information and used it for Authenticating the user and provide the application access 
+- Node.js Promises
+  - The Global object that will be used when the Node.js app is performing Multiple Async External Calls those are returning Promises
+  - The Node.js app is performing several Async Operation as
+    - Line 1: Write into File Async
+    - Line 2: Read From File Async
+    - Line 3: Read from Database Async
+    - Line 4: Write to Database Async
+    - Line 5: Make an External HTTP Call
+  - Node.js Promise Packages
+    - The 'q' package
+      - A Promise based Object Model, this is used to monitor Async Operations under the defer
+        - Provides the 'defer()' object
+          - Create an Async Operation Manager to monitor the Async Execution and return the Promise from it so that the caller can easily subscribe to it 
+    - The 'bluebird'
+      - A Promise based package for Managing large scale Async Operations     
+
+# Advanced Node.js Programming
+  - Node.js Micro-Services
+  - Node.js Integration with AWS Services       
+    - Using S3 Bucket
+    - Using SQS
+    - Using Serverless Deployment
+    - Using DynamoDb
