@@ -200,3 +200,17 @@ NOTE: All TAsks from 1 and 2 MUST be done today
     - Clerk Role Users can Perform CR
 7. Hint Store the Identity Information in Session    
 
+# Date 23-11-2021
+1. Create REST API, that will provide a 'Server-Side' Search of Employees based on the following criteria
+    - DeptName || EmpName
+        - DeptName='IT' OR EmpName='Mahesh'
+    - DeptName && EmpName
+        - DeptName='IT' AND EmpName='Mahesh'  
+    - Employees in specific DeptName
+        - Where DeptName in ('IT', 'HR', 'TR')
+    - Employees between Salary Ranges
+        - Where Salary >= 10000 OR  Salary <=98989
+2. Create a HTML Page That will access the REST API on 'onChange' event of the input:text or DropDown, etc
+    - Use XmlHttprequest         
+
+
