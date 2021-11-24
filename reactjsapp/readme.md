@@ -277,6 +277,23 @@
         - bundle.js
           - Transpilation and merging of Standard React libraries into a single file
         - vendors~main.chunk.js the final Build of the Application loaded and executed in browser  
+- Using React App for Line-of-Business (LOB) apps
+  - The UI
+    - Use Forms with Validations on Client-Side (Mandatory)
+      - HTML 5 Validations
+      - Custom Validations 
+    - Plan for the Component Re-usability      
+      - Plan for UI of the Component
+      - Data to be passed to the component
+        - Input values passed to the component by its parent
+        - These are 'props' properties to be passed from parent-component to child-component  
+      - Data to be received from the Component
+        - Values to be received from child-component by its parent based on 'event' raised in child-component 
+      - In the child / reusable component make sure that each 'props' property is evaluated against 'undefined', 'null' so that the UI rendering crash is prevented, if these properties has 'undefined', 'null' values then render a fallback UI.   
+    - Handling External Http Calls      
+  - Lifecycle Management
+    - Plan for most suitable approach for External Http calls
+    - Implement Secure communication based on the offering from the Server (REST) 
 
 - Routing
 - Hight-Order-Component

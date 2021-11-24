@@ -218,5 +218,13 @@ NOTE: All TAsks from 1 and 2 MUST be done today
 # Date 24-11-2021
 1. Create a Calculator like Windows-Calc (Today before lunch)
     - use eval() function
+2. Modify the DataGridComponent as follows
+    - Pass the 'canDelete' props to it from parent. If this property value is 'true', then show delete button for each row. When this button is clicked the row value MUST be deleted from parent component (Today)
+
+    - Pass the 'canSort' and 'sortKey' props to DataGridComponent, if the canSort is true then sort the data in DataGridComponent based on value of 'sortKey' property. e.g. if canSort=true and sortKey='EmpName', then sort data on DataGrid Component by EmpName (Today)
+
+    - Pass the 'canGroup' and 'groupKey' props to DataGridComponent, if the canSort is true then group the data in DataGridComponent based on value of 'sortKey' property. e.g. if canGroup=true and groupKey='DeptName', then group data on DataGrid Component by DeptName   (Today)    
+    
+    - (Tomorrow): Pass  'pageSize' property to DataGridComponent to show data in paginated mode and shoe pagination 
 
 
