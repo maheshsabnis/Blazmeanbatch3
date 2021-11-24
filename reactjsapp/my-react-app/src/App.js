@@ -11,6 +11,11 @@ function App(props) {
   function clickMe(){
     alert('Button is Clicked');
   }
+  // evt is an event object that is returned by the 'onChange' event
+  function updateLocalMyValue(evt){
+    myValue = parseInt(evt.target.value);
+    console.log(`Lates Value = ${myValue}`);
+  }
   return (
      <div className="container">
        <h1>The First Component</h1>
@@ -25,6 +30,10 @@ function App(props) {
         <div className="container">
            <h5>{myValue}</h5>  
         </div> 
+        <br/>
+        <input type="text" value={myValue}
+          onChange={updateLocalMyValue}/>
+        <br/>
 
        {/* the 'clickMe()' function is bind with onClick event of button */}
        <input type="button" className="btn btn-primary" value="Click Me" onClick={clickMe}/>

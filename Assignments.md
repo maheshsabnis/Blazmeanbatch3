@@ -215,3 +215,8 @@ NOTE: All TAsks from 1 and 2 MUST be done today
 3. Use http.request() method to perform POST calls using 'q'    
 
 
+# Date 24-11-2021
+1. Create a Calculator like Windows-Calc (Today before lunch)
+    - use eval() function
+
+

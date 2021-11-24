@@ -211,16 +211,43 @@
               - The value from the object is accessible using following
                 - props.[PROPERTY-NAME]
           - Properties and its Values used local to component
+            - Local Variable (NOT-STATE-PROPERTIES)
+              - <input type="text" value={VARIABLE}>
+              - To update the value of the 'local variable' of functional component 'what if we use the 'onChange' event'
+                - IMP** This won't update the UI because the 'local-variable' of functional component is not 'state' object 
+          - What is 'State'?
+            - It is an object or value of the local component that will be used to bind with HTML elements so that these elements can show the state property value while rendering.
+            - The state property value is updated based on events raised on HTML elements and its causes the HTML element to re-render if they are using the state property that is being updated.        
+            - How to define a 'State' in functional component?
+              - Use the 'useState()' hook
         - Events
           - These are the JSX parsed attributes those are used to bind functions defined inside the component to HTMl elements using standard JavaScript event-names
             - <input type="button" value="click me" onClick={function-name}>
               - function-name, is the name of the function defined inside the Component 
+        - Controller Component
+          - The component that uses the 'state' property bound with HTML elements  
+          - Based on Events on HTML elements the state will be updated
+        - UnControlled Component
+          - The HTML elements will us State property
+          - Instead of using event to update the state property, the 'ref' or 'useRef() hook' is used to read an element explicitly with the updated value
+            - just line document.getElementById()      
     - AJAX Calls
         - Hooks
 - Hooks
-    - Standard JavaScript Functions those are having Pre-defined behavior to perform while working with React's Functional Components. All these hooks are available from 'react' package         
+    - Standard JavaScript Functions those are having Pre-defined behavior to perform while working with React's Functional Components. All these hooks are available from 'react' package from version 16.8         
         - useState()
             - Used to define a local state property for Component
+            - Syntax: Destructuring
+              - const [statePropertyName, Action-to-update-State-Property] = useState(initial-value-of-state-property);
+                - statePropertyName:
+                  - The property name bound with HTML Elements. Based on this the rendering of HTML will takes place
+                  - The type can be primitive type (number, string, boolean, date, array) or can be object ({}) 
+                    - This type will be decided based on initial-value-of-state-property
+                - Action-to-update-State-Property:
+                  - The method that will be used to update the state property-value from initial-value to new-value based on an 'Action-Dispatched' (aka Event) on HTML element
+                - initial-value-of-state-property:
+                  - The initial value of stateProperty    
+              - if the state property is of the type array [], and if this array is used to dynamically generate HTML elements, e.g. <select> with <options> OR <table> with <tr>, <th>, <td>, then these dynamically generated elements must be assigned with 'key' property which is unique     
         - useContext()
             - Used to share data across components
             - USed to maintain the state of data across components 
