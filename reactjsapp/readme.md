@@ -165,6 +165,38 @@
 
 # Programming With React.js
 - Creating Components
+    - Create a Separate JavaScript file for separate component
+    - The component name Must be Pascal Case 
+    - We can export 'only-one-component' from a JavaScript file
+    - Functional Component Syntax
+      - The JavaScript Function
+        - export default function [FUNCTION-COMPONENT-NAME](props) {
+              .... define State Properties
+              .... define initialization operations e.g. Ajax Calls, Events Subscription
+              .... logical functions
+              .... instances of external classes 
+              return (
+                <HTML-DOM>
+              )
+        }
+        - The JavaScript Constant Function Expression (Mostly-used by ES 6 developers)
+          - const [FUNCTIONAL-COMPONENT-NAME]=(props)=>{
+              .... define State Properties
+              .... define initialization operations e.g. Ajax Calls, Events Subscription
+              .... logical functions
+              .... instances of external classes 
+              return (
+                <HTML-DOM>
+              )
+          }
+          export default [FUNCTIONAL-COMPONENT-NAME];
+        - The Constant Expression that has the HTML Placeholders
+          - const [FUNCTIONAL-COMPONENT-NAME]=(props)=>(
+            <HTMl-DOM>
+          );  
+      - The 'props' is the data received from the parent-component of the current 
+      component
+      - IMP****, The <HTML-DOM> can have 'only-one' container HTML element e.g. <div> or <table>     
     - State
         - Hooks
     - Parent Child Communication
@@ -172,7 +204,17 @@
         - context
     - Data Binding
         - State
+          - Properties and its Values either received from Parent-to-child
+            - the 'props'
+              - The 'immutable' object that is always 'live' across components
+              - This is read-only object
+              - The value from the object is accessible using following
+                - props.[PROPERTY-NAME]
+          - Properties and its Values used local to component
         - Events
+          - These are the JSX parsed attributes those are used to bind functions defined inside the component to HTMl elements using standard JavaScript event-names
+            - <input type="button" value="click me" onClick={function-name}>
+              - function-name, is the name of the function defined inside the Component 
     - AJAX Calls
         - Hooks
 - Hooks
@@ -194,6 +236,21 @@
             - Used tgo refer HTML element for Data Read/Write operations
             - May br deprecated in future
     - We can create custom hooks 
+- The Application Compilation and Execution
+  - create-react-app CLI
+    - This will internally use 'WebPack' module loader and bundler to perform following
+      - Load the index.js
+        - Read index.js for all 'imports'
+        - All imported resources (.js, .css, etc.) will be loaded using 
+          - file-loader (load .js and .css files)
+          - style-loader and css-loader
+            - Compile the .css and style files
+            - All styles will be loaded in output build using JS objects for CSS     
+        - All the dependencies imported in index.js will be compiled and merged into 'main.chunk.js'
+        - bundle.js
+          - Transpilation and merging of Standard React libraries into a single file
+        - vendors~main.chunk.js the final Build of the Application loaded and executed in browser  
+
 - Routing
 - Hight-Order-Component
 - Error Handling
