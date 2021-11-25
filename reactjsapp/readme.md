@@ -234,7 +234,7 @@
     - AJAX Calls
         - Hooks
 - Hooks
-    - Standard JavaScript Functions those are having Pre-defined behavior to perform while working with React's Functional Components. All these hooks are available from 'react' package from version 16.8         
+    - Standard JavaScript Functions those are having Pre-defined behavior to perform while working with React's Functional Components. All these hooks can be invoked at functional component level only. They cannot be invoked in any other child function inside the functional component. All these hooks are available from 'react' package from version 16.8         
         - useState()
             - Used to define a local state property for Component
             - Syntax: Destructuring
@@ -250,10 +250,82 @@
               - if the state property is of the type array [], and if this array is used to dynamically generate HTML elements, e.g. <select> with <options> OR <table> with <tr>, <th>, <td>, then these dynamically generated elements must be assigned with 'key' property which is unique     
         - useContext()
             - Used to share data across components
-            - USed to maintain the state of data across components 
+            - Used to maintain the state of data across components 
+            - Instead of props, the Context is more useful because the ParentComponent (aka SenderComponent aka Provider) have a knowledge of the ChildComponent (aka ReceiverComponent aks Consumer ) about what data properties are provided to and will be consumed by ChildComponent
+              - The 'createContext()' method from 'react' package, this is used to define a context object for sharing data across components
+                - e.g. 
+                  - const DataContext = createContext(initialValue);
+              - The 'Context' object (in our case DataContext)  has following objects
+                - Provider
+                    - Used by Sender Component to Pass/Provide data to ChildComponent
+                      - <DataContext.Provider value={}>
+                         <ChildComponent/>
+                      </DataContext.Provider>
+                    - The 'value' is a complex object that is state to be shared across components
+                      - value = {array} OR value = {{array, callback}}, etc.
+                        - array is data to be provided
+                        - callback is the function callback from Received/Consumer/Child component to parent
+                - Receiver / Consumer
+                  - Use  'useContext()' hook to subscribe to the 'Context' object (in our case DataContext)
+                    - let data = useContext(DataContext);
+                      - useContext() will call <DataContext.Consumer> behind the scene          
         - useEffect()
-            - Used to perform Long-Running Operations
-            - Used to Subscribe and Unsubscribe events
+            - Used to perform Long-Running Operations e.g. AJAX Calls
+              - All ajax calls are Promise based
+              - React suggests to use 'axios' library for handling external Http calls
+              - The 'axios' is Promise based ES 6 library for handling external HTTP Communication
+              - Installed using 
+                - npm install --save axios
+              - The 'axios' methods
+                - get(), post(),put(),delete()
+                  - These methods returns promise object 
+                - axios(), constructor  
+              - The is a Standard ES6 'fetch()' object is also available for HTTP calls     
+         
+            - useEffect() syntax
+              - useEffect(()=>{initializationProcess}, return =>{cleaningProcess}, [dependency-parameter-array]);
+                - initializationProcess
+                  - a Logic that will be executed the when the component is loaded and rendering is done
+                  - This could be AJAX call
+                  - Could be any such code that will take time to execute e.g. processing large array or string asynchronously
+                  - Attaching Global Windows Events to the Component e.g. MouseEvents, Keyboard Events
+                - cleaningProcess (Logic that will be executed when the component is unloaded from DOM)
+                  - The logic to release all heavy objects those may reduce performance of the component or may result into memory leak
+                  - release the Global Windows Events
+              - Like any other Hook, the useEffect() will be executed at functional Component level, and this will be continue executing with logic written in the 'initializationProcess'. The 'initializationProcess' may update the 'state' property of the component, if useEffetc() updates the state property, then the useState() dispatch action will be executed 'only-once' and receive data from useEffect(). The React Lifecycle, will be informed by useState() that the state is change once and rendering based on the updated state value will be done once.     But 'initializationProcess' will not be able to stop an execution of useEffect(). In this case the useEffect() will continue executing.   
+                - To inform the useEffect() about the state update and rendering based on state update, pass the 'dependency-parameter' to the useEffect() as a second parameter. This is the parameter that will be auto-notified by React's Lifecycle for State update that has completed rendering to useEffect() that, 'Hay!! useEffect(), I am done with rendering based on state update so now you can stop'.
+                - The dependency-parameter MUST be an empty array (this represents 'any' state property that is updated by 'initializationProcess' logic in useEffect())      
+          
+          - Used to Subscribe and Unsubscribe events  
+            - Attach Global Events to Component
+            - UnLoading the Component from DOM MUST make sure that all of its Events Subscriptions and any-other global references e.g. the AJAX Reference, MUST be released or unsubscribed     
+                
+          - Class Components Lifecycle Methods
+              - First Load of class Component
+                - constructor(), getInitProps(), getInitState(), render(), componentDidMount()
+                     - componentDidMount()
+                          - Method executed after render() and contains long-running-process e.g. Ajax
+                          - Subscribe Events
+                          - Execute the Complex Performance intensive logic 
+              - The 'props' Change (updated valued received from parent)
+                - shouldComponentUpdate(), if this is true, render(), componentDidUpdate()
+                    - componentDidUpdate()
+                        - Indicates that after 'props' changes, the rendering is successful
+              - The 'state' change based on events
+                - shouldComponentUpdate(), if this is true, render(), componentDidUpdate()
+                   - componentDidUpdate()
+                        - Indicates that after 'state' changes, the rendering is successful
+              - Un Mounting Component
+                - componentWillUnMount()    
+                    - This will be executed when component is unloaded /removed from DOM
+                    - Used to release events and any other subscriptions 
+              - componentDidCatch()
+                - Used when any child component throws an exception       
+          - The 'useEffect()', is a combination of 'componentDidMount()'  and 'componentWillUnMount()'        
+
+
+
+
         - useReducer()
             - Used for State Transition
             - Manage State updated from initial-State-to-final-state 
@@ -281,7 +353,10 @@
   - The UI
     - Use Forms with Validations on Client-Side (Mandatory)
       - HTML 5 Validations
+        - All Editable elements and form MUST have 'name' attribute
+        - Best Practice recommendations
       - Custom Validations 
+        - While implementing Custom Validations for Form, make sure that each element and its state property is validated separately 
     - Plan for the Component Re-usability      
       - Plan for UI of the Component
       - Data to be passed to the component

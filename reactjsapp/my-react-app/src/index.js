@@ -8,6 +8,9 @@ import "./index.css";
 import App from "./App";
 import SimpleCalculator from "./components/statefulcomponent/simpleCalculator";
 import EmployeeFormComponent from "./components/formcomponent/employeeformcomponent";
+import EmployeeFormValidationComponent from './components/formcomponent/employeeformcomponent';
+import DepartmentComponent from "./components/useeffectdemocomponent/departmentcomponent";
+import ToggleComponent from "./components/eventbasedlifecycle/togglecomponent";
 import reportWebVitals from "./reportWebVitals";
 
 // the ReactDOM.render() method will mount and render the component
@@ -21,7 +24,7 @@ ReactDOM.render(
     {/* The JSX parser allows us to add properties in 'props' dynamically
     in this is 'msg' is a JSX property defined for 'App' component 
     props={msg:message} */}
-    <EmployeeFormComponent></EmployeeFormComponent>
+    <ToggleComponent></ToggleComponent>
   </React.StrictMode>,
   document.getElementById("root")
 );

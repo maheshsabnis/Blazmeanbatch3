@@ -227,4 +227,11 @@ NOTE: All TAsks from 1 and 2 MUST be done today
     
     - (Tomorrow): Pass  'pageSize' property to DataGridComponent to show data in paginated mode and shoe pagination 
 
+# Date: 25-11-2021
+1. Create a Re-Usable Custom Component named ValidationSummaryComponent. This component will be used to Validation Error Messages for each Editable element on the form. (Today)  
+2. When a value is valid for an element then the error message for that element MUST be removed from Validation Summary  (Today)
+3. Write Validation of Custom Dropdown component also so that, the value MUST be selected from them (Tomorrow) 
+4. Create Component for CRUD operations on Employee Table using REST API
+    - Perform Server-Side Search for Employees as per REST APIs created on Date: 23-11-2021
+    - Show Search Results in React Component 
 
