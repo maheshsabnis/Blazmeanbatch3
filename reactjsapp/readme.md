@@ -323,18 +323,43 @@
                 - Used when any child component throws an exception       
           - The 'useEffect()', is a combination of 'componentDidMount()'  and 'componentWillUnMount()'        
 
-
-
-
         - useReducer()
             - Used for State Transition
             - Manage State updated from initial-State-to-final-state 
+            - The Hook similar to useState() but provides a structured way of state updates with systematic approaches 
+              - PURE FUNCTION: The function that has input and output parameter as same objects
+              - useReducer(reducer, initialState)
+                - reducer: A JavaScript 'PURE FUNCTION', that accepts following two parameters
+                  - parameter 1: state, the initial state 
+                  - parameter 2: an action, based on which the state transition will takes place from initial (or old) state to new state
+                    - The 'action' will be dispatched either from UI or by some condition so that the state will be updated
+                    - This action will contain a custom logic that will be executed before the state is updated 
+                - initialState
+                  - Initial value in state object (like userState(), initial value)    
+              - e.g.
+                - departments is a state that is to be updated based on Ajax call
+                  - if the call is in progress (means not completed yes), then set departments as 'undefined' 
+                  - Check the success response, if yes, then sort the data from response (custom logic) and update the state    
+                  - If the call failed then add a invalid entry in departments
+                    - write custom logic for invalidation
         - useMemo()
             - use for Caching for performance improvement
         - useRef()
             - Used tgo refer HTML element for Data Read/Write operations
             - May br deprecated in future
     - We can create custom hooks 
+      - Provide a custom Functionality for by creating a 'JavaScript-Function' that will act as a Custom Hook
+      - Use Cases
+        - Encapsulation over AJAX call and State Update
+          - When we need to makes an AJAX call on Component load and update the state in the component, it is better to create a custom hook and encapsulate a logic for Ajax call and state update and use this logic across various functional components
+        - Create a custom hook for validating the State against validation rules loaded dynamically
+            -  function useSelfValidator(stateObject, validationRuleSource){
+                -- stateObject, is  state to be validated
+                --  validationRuleSource, is the custom validation rule that will be used to validate the state object
+            }
+      - Custom Hooks can use standard hooks in it      
+          
+
 - The Application Compilation and Execution
   - create-react-app CLI
     - This will internally use 'WebPack' module loader and bundler to perform following
@@ -376,7 +401,7 @@
    - An experience to the end-user for providing 'no-post-back' or 'no-page-refresh' experience 
    - Instead of refreshing  whole DOM, the part of the DOM is refreshed (or reloaded) based on routes OR query-staring
    - SPA, is an approach to divide the UI of the application in small-chunks (components) and load then based on route based navigation or based on query-string  
-   - The 'react-router-dom' package 
+   - The 'react-router-dom' package  version 6.0+
     - Creating SPA for React Apps
       - npm install --save react-router-dom
       - Object Model
@@ -387,14 +412,14 @@
         - Route Object
           - Used to define a route table
           - Properties
-            - component, the component to navigate to
+            - element, the component to navigate to
             - path, the URL for navigation
             - exact, the URL matcher to match the route URL and execute navigation  
-        - RedirectTo
+        - Redirect (Removed) in V6.0+
           - Used to redirect to specific Route path
           - Property
             - 'to', accept the URL to navigate to
-        - Switch
+        - Switch (removed) by Routes in V 6.0+
           - Object used to contains the Route Table
         - Link
           - define a route link

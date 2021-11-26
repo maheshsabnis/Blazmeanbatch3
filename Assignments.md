@@ -235,3 +235,14 @@ NOTE: All TAsks from 1 and 2 MUST be done today
     - Perform Server-Side Search for Employees as per REST APIs created on Date: 23-11-2021
     - Show Search Results in React Component 
 
+# Date: 26-11-2021
+1. Using react-router-dom version 5.3.0 design a single Page Application as follows
+    - npm install --save react-eouter-dom@5.3.0
+    - When the application is loaded, the 'IdentityComponent' MUST be display
+        - The IdentityComponent will provide following two facilities
+            - UI for RegisterNewUser
+            - UI for LoginUser    
+2. Once the User is successfully, the user can access Links for performing
+    - CRUD Operations on Department
+    - CRUD Operations on Employees
+

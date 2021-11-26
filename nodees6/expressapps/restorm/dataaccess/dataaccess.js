@@ -56,6 +56,20 @@ class DataAccess {
     return resp.status(500).send({ message: "Some error Occurred" });
   }
 
+  async getDataById(req, resp) {
+    // 1. establish the connection
+    await sequelize.sync({ force:false });
+    // 2. read all records
+    let record = await department.findOne({where:{deptno:parseInt(req.params.id)}});
+    // 3. send response
+    if (record) {
+      return resp
+        .status(200)
+        .send({ message: "Data is received successfully", data: record });
+    }
+    return resp.status(500).send({ message: "Some error Occurred" });
+  }
+
   async postData(req, resp) {
     // 1. establish the connection
     await sequelize.sync({ force:false });

@@ -13,7 +13,13 @@ import DepartmentComponent from "./components/useeffectdemocomponent/departmentc
 import ToggleComponent from "./components/eventbasedlifecycle/togglecomponent";
 import ChartComponent from "./components/charts/chartcomponent";
 import TokenSecureComponent from "./components/securecallcomponent/tokensecurecomponent";
+import MainRouterComponent from "./routingapp/mainroutingcomponent";
+import CustomHookUtilizerComponent from "./components/customhookscomponent/customhookutilizercomponent";
+import UseReducerComponent from "./components/usereducerdemo/usereducercomponent";
 import reportWebVitals from "./reportWebVitals";
+
+// import the BrowserRouter to load the Routing in DOM
+import {BrowserRouter} from 'react-router-dom';
 
 // the ReactDOM.render() method will mount and render the component
 // in HTML eleemnt with id as 'root' in index.html present in 'public' folder
@@ -26,7 +32,10 @@ ReactDOM.render(
     {/* The JSX parser allows us to add properties in 'props' dynamically
     in this is 'msg' is a JSX property defined for 'App' component 
     props={msg:message} */}
-    <TokenSecureComponent></TokenSecureComponent>
+    {/* <BrowserRouter>
+      <MainRouterComponent></MainRouterComponent>
+    </BrowserRouter> */}
+    <UseReducerComponent></UseReducerComponent>
   </React.StrictMode>,
   document.getElementById("root")
 );

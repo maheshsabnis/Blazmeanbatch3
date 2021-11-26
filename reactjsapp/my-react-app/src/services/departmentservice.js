@@ -10,6 +10,10 @@ export default class DepartmentHttpService {
         let response = axios.get(`${this.url}/api/departments`);
         return response;
     }
+    getDataById(id){
+        let response = axios.get(`${this.url}/api/departments/${id}`);
+        return response;
+    }
     postData(dept){
         let response = axios.post(`${this.url}/api/departments`, dept, {
             headers:{
