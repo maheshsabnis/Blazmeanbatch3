@@ -300,6 +300,8 @@ export default function initModels(sequelize) {
           - secret key: The Signature
           - Token Settings
             - Expiry
+              - Make sure that the expiry is not un-necessarily kept for long duration
+              - Ideally 20-mins is best 
             - Algorithm
       - verify(token, secret key, decode)
         - Verify the received token      

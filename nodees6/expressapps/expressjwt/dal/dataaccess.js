@@ -18,7 +18,7 @@ const sequelize = new Sequelize("business", "maheshadmin", "P@ssw0rd_", {
 
 // define a secret key (You may use the crypto)
 const jwtSettings = {
-  jwtSecret: "",
+  jwtSecret: "msit007700itms",
 };
 
 class AuthLogic {
@@ -72,6 +72,8 @@ class AuthLogic {
     }
 
     // authorize the user and generate the token
+    // PayLoad: {user}, can also contains any other identity information (except Password, or any other secret info)
+    // You can pass RoleName, UserName (This will be used by client-App to work with Role-Based-Security)
     const token = jsonwebtoken.sign({ user }, jwtSettings.jwtSecret, {
       expiresIn: 3600, // 1 hr
       algorithm: "HS384",
@@ -90,6 +92,9 @@ class AuthLogic {
       // read the token from the header
       // AUTHORIZATION : 'Bearer [TOKEN-VALUE]'
       const receivedToken = req.headers.authorization.split(" ")[1]; // [1] means read the [TOKEN-VALUE]
+      console.log('====================================');
+      console.log(`Received Token ${receivedToken}`);
+      console.log('====================================');
       // verify and decode the token
       await jsonwebtoken.verify(
         receivedToken,
@@ -104,6 +109,7 @@ class AuthLogic {
           // decode the token, the decode is the property of Express request object
           // that will read the decoded (identity) information from the received token
           req.decode = decode;
+          // the decode can access the payload information
           console.log(`Decoded value ${JSON.stringify(decode)}`);
           // respond the data
           await sequelize.sync({ force: false });

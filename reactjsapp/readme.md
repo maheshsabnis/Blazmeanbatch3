@@ -369,9 +369,44 @@
   - Lifecycle Management
     - Plan for most suitable approach for External Http calls
     - Implement Secure communication based on the offering from the Server (REST) 
+      - Make sure that the identity Information received from server e.g. Token MUST be stored in SessionStorage  
 
 - Routing
+   - defining a Single-Page-App (SPA)
+   - An experience to the end-user for providing 'no-post-back' or 'no-page-refresh' experience 
+   - Instead of refreshing  whole DOM, the part of the DOM is refreshed (or reloaded) based on routes OR query-staring
+   - SPA, is an approach to divide the UI of the application in small-chunks (components) and load then based on route based navigation or based on query-string  
+   - The 'react-router-dom' package 
+    - Creating SPA for React Apps
+      - npm install --save react-router-dom
+      - Object Model
+        - BrowserRouter
+          - Container for Routing
+          - Manages navigation across components
+          - Manages global props types to share data across components
+        - Route Object
+          - Used to define a route table
+          - Properties
+            - component, the component to navigate to
+            - path, the URL for navigation
+            - exact, the URL matcher to match the route URL and execute navigation  
+        - RedirectTo
+          - Used to redirect to specific Route path
+          - Property
+            - 'to', accept the URL to navigate to
+        - Switch
+          - Object used to contains the Route Table
+        - Link
+          - define a route link
+          - The 'to' property that accepts the Route URL. This is used to query to the route table for Navigation aka routing
+  - The 'next' framework by 'Vercel' for developing production-ready react apps              
 - Hight-Order-Component
 - Error Handling
 - LazyLoading
 - Application State Management    
+- The 'next' framework
+  - Native Routing (Main default feature)
+  - The Server-Side Rendering (Default)
+  - Inbuilt Support for CSS and Styles
+  - The ease of REST API calls to update the UI (no useEffect required) 
+  - Support for Authorization (experimental)
