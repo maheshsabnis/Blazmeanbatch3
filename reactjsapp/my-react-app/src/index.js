@@ -20,6 +20,11 @@ import reportWebVitals from "./reportWebVitals";
 
 // import the BrowserRouter to load the Routing in DOM
 import {BrowserRouter} from 'react-router-dom';
+import SimpleComponent from "./classcomponents/sampleclasscomponent";
+import ContainerComponent from "./components/errorboundy/simpleerror";
+import MyContainerComponent from "./components/errorboundy/errorboundry";
+import LazyLoadComponent from "./components/lazyloadingcomponent/lazyloadcomponent";
+import CodeSplitComponent from "./components/codesplitting/codesplitcomponent";
 
 // the ReactDOM.render() method will mount and render the component
 // in HTML eleemnt with id as 'root' in index.html present in 'public' folder
@@ -35,7 +40,7 @@ ReactDOM.render(
     {/* <BrowserRouter>
       <MainRouterComponent></MainRouterComponent>
     </BrowserRouter> */}
-    <UseReducerComponent></UseReducerComponent>
+    <CodeSplitComponent></CodeSplitComponent>
   </React.StrictMode>,
   document.getElementById("root")
 );

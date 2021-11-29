@@ -424,10 +424,44 @@
         - Link
           - define a route link
           - The 'to' property that accepts the Route URL. This is used to query to the route table for Navigation aka routing
-  - The 'next' framework by 'Vercel' for developing production-ready react apps              
-- Hight-Order-Component
-- Error Handling
+  - The 'next' framework by 'Vercel' for developing production-ready react apps          
+- Class Components
+  - Component<P,S> base class
+    - P, props
+    - S, state      
+- Higher-Order-Component
+  - A Mechanism to extend an existing component with the new features 
+  - It is a design pattern
+  - Factory Method, that accepts component as input parameter and return the component as output parameter
+  - A PURE FUNCTION
+  - The Existing COmponent's functionality can be enhanced based on new properties used by the PURE Function
+    - function HoC(MyInputComponent, data){
+        // write some logic
+        // process data
+        return (<MyInputComponent data>);
+    }
+- Error Handling 
+  - It is a process of rendering a fallback UI when the component is throwing an exception while updating the state that causes rendering 
+  - Use the Class Component for Managing the Errors to render the fallback UI so that the Component Tree will not crash.
+  - Use the  'compoenntDidCatch()' method to handle the error and the 'getDerivedSateFromError(error)' static property that will listen to the error (or exception)  
+    - The static property will be contineously listing to the error`  
+ - The ErrorBoundaryComponent will contain various children component and will keep listening error /  exception thrown by these children
+ - IMP NOTE: ****, when react app is created using 'create-react-app', there is a default 'iframe' that is used to render a default exception message for any DOM exception. To supress th iframe modify the index.css by adding a new style as 'iframe: {display:none}'   
 - LazyLoading
+  -  Code-Splitting
+    - Dividing the code into reusable  modules
+      - It is a process of creating re-usable utilities so that multiple components in the application can access it by importing
+        - import {} from [FILE-NAME]
+          - the compile time module loading
+          - this is synchronous
+          - if the module takes time to load the code that is using the module will delay the execution 
+        - Instead ofg synchronous module loading use async module loading
+          - import('[FILE-PATH]').then((module)=> success).error((error)=> fail);   
+    - using 'lazy-loading'
+      - React.lazy(()=>import([FILE-PATH]));
+      - The 'Suspense' component
+        - This will load the fallback UI till the module is not loaded completely
+
 - Application State Management    
 - The 'next' framework
   - Native Routing (Main default feature)
