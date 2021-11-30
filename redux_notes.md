@@ -88,6 +88,28 @@
                     - props_name, the reference of an event raised on UI
                     - action_name, the action that will be dispatched  
         - connect (mapStateToProps, mapDispatchToProps)(COMPONENT_NAME);
-            -  COMPONENT_NAME, will be subscribed to the store for dispatching actions and reading the current or latest state from store            
+            -  COMPONENT_NAME, will be subscribed to the store for dispatching actions and reading the current or latest state from store
+# Redux with SAGA
+1. redux-saga
+    - Provides an object Model for managing an Async Calls dispatched from UI
+    - Async Methods
+        - redux-saga/effects module
+            - all()
+                - This will accept an array of all 'generator functions' those are executed based on action dispatched from UI and once they are executed, the all() will make sure that the reducer will take an action on the promise completion.  
+                - The all() function will make sure that, the SAGA is running in root/global scope of React-Redux application  
+            - take()
+                - A Method that is used monitor an action dispatched from UI
+                - This will be used to join an input action with an output action using 'generator functions'
+            - takelatest()
+                - Like 'take()', it also listen to the most recent action dispatched from UI
+                - This uses 'generator function' to map input action to output action  
+            - put()
+                - Once the Promise is completed (resolved,rejected), the put() method will dispatch an output action so that 'reducer' will listen to it and update store accordingly
+            - call()
+                - Method used to initiate an async call to REST APIs
+                - This will provide a subscription to the Promise Object
+                - If there are parameter passed by UI along with the dispatched actions, the call() will read them using 'payload' object
+
+
 
 
