@@ -246,3 +246,9 @@ NOTE: All TAsks from 1 and 2 MUST be done today
     - CRUD Operations on Department
     - CRUD Operations on Employees
 
+# Date: 29-11-2021
+Pending Assignmets were in progress
+
+# Date: 30-11-2021
+- Add a new reducer that will monitor the action of RowCLick on the table and selected row value will be shown in textboxes of the other component    
+

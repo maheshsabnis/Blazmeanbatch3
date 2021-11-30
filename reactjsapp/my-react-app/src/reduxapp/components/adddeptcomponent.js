@@ -1,5 +1,5 @@
 import {useState} from 'react';
-const AddDepartmentComponent=()=>{
+const AddDepartmentComponent=(props)=>{
 
     const [dept, setDept]  = useState({deptno:0,deptname:'', location:'',capacity:0});
 
@@ -7,7 +7,10 @@ const AddDepartmentComponent=()=>{
         setDept({deptno:0,deptname:'', location:'',capacity:0});
     }
     const save=()=>{
-      
+        // on the 'Save'  button click, the 'save()' function will be called
+        // the 'dept' object will be passed to 'AddDepartment()' function received 
+        // from parent using 'props' 
+      props.AddDepartment(dept);
     }
 
     return (
