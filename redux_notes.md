@@ -109,6 +109,21 @@
                 - Method used to initiate an async call to REST APIs
                 - This will provide a subscription to the Promise Object
                 - If there are parameter passed by UI along with the dispatched actions, the call() will read them using 'payload' object
+2. Defining Actions
+    - Action MUST be having following two implementation
+        - INIT_INPUT_ACTION
+            - These are dispatched from UI
+            - These actions may have input parameters
+        - SUCCESS_OUTPUT_ACTION
+            - This is dispatched by the SAGA
+            - There will be Success return 
+        - FAILED_OUTPUT_ACTION  
+             - This is dispatched by the SAGA
+             - There will be Error Return
+3. Define SAGA that will be used to Monitor the Input Actions with the help of Reducer and then start Asynchronous calls
+    - The SAGAS will be dispatching Output actions those are mapped with input actions
+    - Install SAGA
+        - npm install --save saga redux-saga             
 
 
 
