@@ -46,6 +46,7 @@
 9. Build
     λ  (Server)  server-side renders at runtime (uses getInitialProps or getServerSideProps)
     ○  (Static)  automatically rendered as static HTML (uses no initial props)
+    ●  (SSG)     automatically generated as static HTML + JSON (uses getStaticProps)
     - getInitialProps
         - The method that will pre-compile the Server-Side Calls and fetch the data during the Build process 
     - getStaticProps()
@@ -55,6 +56,21 @@
         - The 'cache' folder to cache resource used by server and browser both for executing the application
         - The 'server' folder, contains the 'pages' folder that has SSR 
         - The  'static' folder that contains CSS resources
-             
+10. For the Route Navigation the 'Link' component reads the file Name
+    - e.g. if File name is home.js, under the 'components' folder, the the Link will be
+        - <Link href="/components/home"></Link>
+11. Using Explicitly added route parameters 
+    - This is the Parameterized Routing
+    - the 'next/router' module
+        - The 'useRouter()' hook
+            - The 'push()' method
+                - {
+                    pathname: '[URL-TO-NAVIGATE-TO]',
+                    query: {Key:Value}
+                }
+                - The 'query' is the Query parameter object that contains 'Key', this is the Key passed in URL with 'Value'
+                - To read the value from the query route parameter use 
+                    - router.query.Value
+                        - The 'router' is an object of type 'useRouter' 
 
 
