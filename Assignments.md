@@ -252,3 +252,9 @@ Pending Assignmets were in progress
 # Date: 30-11-2021
 - Add a new reducer that will monitor the action of RowCLick on the table and selected row value will be shown in textboxes of the other component    
 
+# Date: 01-12-2021
+1. Use Saga and make sure that when the application is loaded, data received from the REST APIs and shown in the component (Today)
+    - Then Perform Create-Update-Delete operations
+        - The Table Component will Show Delete button to delete the record
+        - The record to be updated MUST be selected from the Table and it MUST be shown in TextBoxes to update 
+2. Use JWT in SAGA to access the REST APIs  (by friday)
