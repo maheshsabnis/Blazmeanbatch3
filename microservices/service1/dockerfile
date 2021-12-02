@@ -1,0 +1,18 @@
+# Fetch base image from Docker Hub
+# fetch the Linux image that has Node.js already installed on it
+FROM node:16-alpine3.11
+# create a folder where we will copy all application files and this will be Work Directory Folder
+WORKDIR /usr/src/app
+# Copy the package.json from the source path to the WorkDir
+COPY package*.json ./
+# inside the image lets run the npm install command 
+# to install all packages mentioned in the package.json
+# install only the production packages
+RUN npm install --only=production
+# Copy all application files from Source to target
+# make sure that the 'node_modules' folder is not copied
+COPY . .
+# Lets expose the port from Container
+EXPOSE 7021
+# run the application
+CMD [ "npm","start" ]

@@ -62,3 +62,71 @@
                 - The push command will read the repository name from the image name, then connect to repository and then push the image in the repository                  
        - Pull image from the repository 
         - docker pull [IMAGE-NAME]:[TAG]           
+
+# Microservices
+1. It is an architecture where the big-complex application is divided into small cohesive set of services
+    - Each Service is
+        - Independent
+        - Containing its own logic
+        - Containing its own database
+        - Containing its own Endpoint
+    - Each service is decouples from other service
+    - Services cannot /  should not communicate with each other directly over Http
+    - Services Communication can takes place using one or all of the following mechanisms
+        - Using Messaging Services
+            - RabbitMQ
+            - Simple Queuing Service on AWS
+            - Azure Service Bus
+            - Any other messaging service provider
+        - Using Distributed Cache
+            - Redis Cache 
+            - Any other Cache provider service
+    - If the application has multiple Microservices then instead of exposing them on different HTTP Endpoints, use the following mechanism for Single Point of Communication
+        - Using Application Gateways
+            - Using Code e.g. Express-Session
+            - Cloud Gateways
+                - Application Gateway by AWS, Azure, Google
+            - Configuration based Gateways e.g. Ingress        
+        - The Multiple Services MUST be deployed on Clusters    
+            - Kubernetes
+                - Minikube
+                - Microk8s
+                - Azure Kubernetes Services (AKS)
+                - Elastic Kubernetes Service (EKS)
+                - Google Kubernetes Service (GKS)
+            - The cluster offers Application Gateway using Ingress            
+2. If using multiple Microservices on premises, then use one of the following
+    - Docker-Compose    
+        - The inbuilt service for deploying, executing and managing multiple microservices
+        - Host Services in separate containers
+        - Expose Ports from  each container
+        - Manages the network resources internally
+    - We need the 'docker-compose.yml' file for building images and hosting them 
+        - The compose needs to read the dockerfile for each microservice
+        - The docker-compose.yml file MUST be on the root of all microservices
+    - The 'docker-compose.yml' file contains following settings
+        - The 'version', the version of compose that will be used to parse the file using docker-engine
+            - The current version is 3.9
+        - The 'services'
+            - This is a collection of all Microservices to be build, hosted and executed
+                - The 'SERVICE-NAME', the name of the service
+                    - The 'build', the folder path where 'dockerfile' exists
+                    - The 'ports', ports exposed from container that is hosting the service  
+                    - The 'links', (Optional) the image on which the current service is linked with
+                        - e.g. if the service is using the cache, then we need to configure the cache image separately  
+                    - The 'depends_on', (Image) the image on which the service is depending on e.g. database image     
+    - To run the docker-compose, go to the path where the docker-compose.yml file is present and then run the following command
+        - docker-compose up
+            - Read DockerFile
+            - Validate it
+            - Build an image
+            - Configure Network Resources if there multiple services    
+        - docker-compose down
+            - This will stop all containers
+            - All resources will be released    
+    - This is good for on-premises apps but for enterprises make use of kubernetes         
+    - Kubernetes on Premises (Recommended)                                 
+3. Practices for creating Microservices
+    - Make sure that the Cloud-Based database is used by Microservice for Data Read/Write operations
+    - Do not use Database Image
+    - For the messaging use the Enterprise Messaging Service Provider (generally on cloud), do not use image    

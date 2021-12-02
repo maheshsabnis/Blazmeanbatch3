@@ -1,0 +1,13 @@
+version: "3.9"
+
+# define services
+
+services:
+  service1: # name of the first service
+    build:  service1 # the folder from which dockerfile is read
+    ports:
+      - "7021:7021" # the port mapping [LOCAL-MACHINE-PORT]: [CONTAINER-PORT]
+  service2: # name of the first service
+    build:  service2 # the folder from which dockerfile is read
+    ports:
+      - "7022:7022" # the port mapping [LOCAL-MACHINE-PORT]: [CONTAINER-PORT]    
