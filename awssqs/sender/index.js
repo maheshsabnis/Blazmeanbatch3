@@ -16,7 +16,7 @@ AWS.config.update({
 
 // set the queue URL
 
-const ququeURL = 'QueueURL';
+const ququeURL = 'https://sqs.ap-south-1.amazonaws.com/472804039072/myquque';
 
 // Create an instance of SQS
 // set apiVersion to Access the SQS Service 
