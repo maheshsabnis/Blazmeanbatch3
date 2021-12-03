@@ -258,3 +258,8 @@ Pending Assignmets were in progress
         - The Table Component will Show Delete button to delete the record
         - The record to be updated MUST be selected from the Table and it MUST be shown in TextBoxes to update 
 2. Use JWT in SAGA to access the REST APIs  (by friday)
+
+# Date: 03-12-2021
+
+1. Create a Service-Gate way using Express, that will Access the API Services for Performing CRUD Operations on In Memory Collections (Mandatory)
+    
