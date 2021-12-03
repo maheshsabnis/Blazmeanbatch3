@@ -130,3 +130,124 @@
     - Make sure that the Cloud-Based database is used by Microservice for Data Read/Write operations
     - Do not use Database Image
     - For the messaging use the Enterprise Messaging Service Provider (generally on cloud), do not use image    
+
+4. Microservices Development Practices
+    - Autonomous, it has its DAL, Business Layer, Validation and also Identity Check
+        - Access its Own database, The database  MUST be Configured to Access
+        - Either Create a docker Image for Database and use it in Application (Not-Recommended for Production)
+        - Configure the IP Address of Local Database with Container (Time-Consuming Process and IT-Pro guy to help developer)
+        - Access Database Running on Cloud over the Publicly exposed Endpoints (Recommended for Production)   
+            - AWS RDS Instance for RDBMS
+            - AWS DynamoDB for Document Database
+            - Azure SQL
+            - GCP Relational Database Service
+    - Isolated, Each Microservice is having its own predefined and pre-configured boundaries 
+        - Technology Stack (.NET Core, JAVA Sprint-Boot, PHP, Node.js)      
+    - Elastic
+        - One Microservice can run with Multiple Instances those are exposed oin different ports   
+        - We need the Cluster
+        - Help in Scaling the Microservice
+    - Resilient
+        - There is Retry-on-fail configuration can be made possible for Microservice         
+    - Message Oriented
+        - The messaging or communication across Microservices can be implemented using Message-Broker pattern
+            - RabbitMQ
+            - AWS SQS
+            - Any other Queue service or messaging service
+        - Establish Communication Across Microservices with following mechanisms
+            - Use Messaging Provider
+                - RabbitMQ
+                    - This MUST be installed separately
+                    - On-Premises it is free
+                    - On-Cloud, we need to create a Virtual Machine (Azure) OR Elastic Compute Instance (EC 2) (AWS) to install and configure RabbitMQ   
+                - Kafka    
+                - Why not to use Messaging Engines provided by default on Cloud?    
+                    - AWS SQS (Simple-Queing-Service)
+                        - Available from AWS SDK
+            - Using AWS SQS
+                - npm install --save aws-sdk
+                - npm install --save sqs-consumer
+                    - USed for messaging
+                - On the AWS Portal, login
+                    - Create User, you will get the Secret ID and Access Secret
+                    - Search for SQS and create the SQS
+                        - The URL to Access the SQS is
+                         - https://sqs.[REGION-NAME].amazonaws.com/[ACCOUNT-ID]/[SQS-NAME]
+
+            - Use Cache Provider 
+
+    - AWS SDK
+        - The JavaScript Based object Model by AWS for using the AWS Features in JavaScript (Precisely Node.js)
+            - SQS
+            - Cache
+            - Serverless Lambda
+            - Amplify for Static Web Sites
+            - EC 2
+            - DynamoDB
+            - RDS
+        - Download the AWS CLI 
+            - https://docs.aws.amazon.com/cli/v1/userguide/install-windows.html
+        - The AWS CLI will provide the 'aws' Command-Line-Tool
+            - You can configure the developer machine to connect to the AWS Service for Development and Deployment
+            - aws configure
+                - Provide Access Key
+                - Access Secret
+                - Region
+                - Format for Data (Generally JSON by default)
+        - Using aws-sdk for Node.js apps
+            - npm install --save aws-sdk 
+        - Go to IAM user to create an Access Key and Access Secret               
+
+    - Configuring the Service Access Application Gateways
+        - Use Programmable Gateway
+            - Create a Configuration file that contains an Address of Actual Service to forward the request
+            - The Gateway service has its own address
+            - Advantages
+                - Technology can be chosen by us
+                - No additional cost
+                - The Team has control on configuration
+            - Challenges
+                - The Configuration is changed frequently with an addition of new services
+                - The gateway MUST be deployed separately
+            - E.g.
+                - Use Express-Gateway for Node.js+Express Microservices
+            - Using Express Gateway
+                - Consumer Management
+                    - Manage the Authentication from the Customer
+                        - The Configuration file for defining Service Authentication and Authorization 
+                - Distributed Persistent Data Store
+                    - Manages the Data Send by the Consumer in the Persistent Store (e.g. Cache, Messaging) configured for the service
+                - This data is access globally
+                - Plugin System
+                    - Used to configure the Various Middlewares used by Express Runtime
+            - Using Express Gateway
+                - npm install -g express-gateway
+                    - This offers the 'eg' CLI
+                - eg gateway create
+                    - This start a Wizard for Configuration of the gateway project
+                - install dependencies
+                    - npm install --save @babel/core @babel/node @babel/preset-env    
+                - Dependencies for Express-Gateway app
+                    - @babel/core
+                        - Babel Transpiler
+                        - USed to use understand the Configuration object for Services in Gateway
+                    - @babel/node
+                        - The EWS 6 transpiler of Babel for Node.js Apps 
+                    - @babel/preset-env     
+                        - The Environment Configuration for Gateway Project
+                - Add a  'script' in package.json to run the server file which will load the gateway configuration
+                    - "script":{
+                         "start": "nodemon --exec babel-node server.js"
+                    }
+                - gateway.config.yml
+                    - This file contains the gateway configuration
+                    - yml: Deployment Markup Language, this will be converted into JSON object and then it will be executed by Environment     
+        - Use Kubernetes Cluster Management Gateway 
+            - Ingress
+            - Istio                
+            - All these MUST be configured Correctly and deployed correctly
+            - Both are VERY COMPLEX
+        - Use the Cloud Provide Gateway
+            - Easy
+            - Available with Some Deployment Features out-of-the-box e.g. AWS Serverless (aka Lambda)
+            - COST is involved    

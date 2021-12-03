@@ -324,6 +324,8 @@ export default function initModels(sequelize) {
           - Create an Async Operation Manager to monitor the Async Execution and return the Promise from it so that the caller can easily subscribe to it 
     - The 'bluebird'
       - A Promise based package for Managing large scale Async Operations     
+- dotenv package
+  - The package for Reading Environment values from .env file       
 
 # Advanced Node.js Programming
   - Node.js Micro-Services

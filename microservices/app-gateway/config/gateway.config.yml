@@ -1,0 +1,58 @@
+http:
+  port: 8090 # The express Gateway
+admin:
+  port: 9876
+  host: localhost
+apiEndpoints: # define Actual API Endpoints
+  api:
+    host: localhost # the default used by gateway 
+    paths: '/ip' # the URI
+  firstserv:
+    host: localhost # host for the actual service
+    paths: ['/api/employees', '/api/employees/*'] # URLs for the actual service  
+  secondserv:
+    host: localhost # host for the actual service
+    paths: ['/api/persons', '/api/persons/*'] # URLs for the actual service    
+serviceEndpoints: # the exposed http endpoints to access services from the gateway
+  httpbin: # default for express-gateway
+    url: 'https://httpbin.org'
+  firstservice:
+    url: 'http://localhost:7021' # actual Address of the API
+  secondservice:
+    url: 'http://localhost:7022' # actual Address of the API   
+policies:
+  - basic-auth
+  - cors
+  - expression
+  - key-auth
+  - log
+  - oauth2
+  - proxy
+  - rate-limit
+pipelines: # the plugin that will be used to set the communication pipeline with the APIs when the request is received to Gateway
+  default: # the default pipeline to connect to the gateway service
+    apiEndpoints:
+      - api
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy: # the Proxy Address those will be used to communicate to actual services from gateway 
+          - action:
+              serviceEndpoint: httpbin 
+              changeOrigin: true
+  firstServicePipeline:
+    apiEndpoints:
+      - firstserv
+    policies:
+      - proxy: # the Proxy Address those will be used to communicate to actual services from gateway 
+          - action:
+              serviceEndpoint: firstservice 
+              changeOrigin: true               
+  secondServicePipeline:
+    apiEndpoints:
+      - secondserv
+    policies:
+      - proxy: # the Proxy Address those will be used to communicate to actual services from gateway 
+          - action:
+              serviceEndpoint: secondservice 
+              changeOrigin: true     
