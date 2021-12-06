@@ -1,0 +1,21 @@
+{
+  "name": "testapps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "simple.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.4",
+    "express": "^4.17.1",
+    "mocha": "^9.1.3"
+  },
+  "type": "module",
+  "devDependencies": {
+    "request": "^2.88.2"
+  }
+}

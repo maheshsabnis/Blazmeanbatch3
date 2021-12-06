@@ -263,3 +263,10 @@ Pending Assignmets were in progress
 
 1. Create a Service-Gate way using Express, that will Access the API Services for Performing CRUD Operations on In Memory Collections (Mandatory)
     
+# Date: 06-12-2021
+1. Write a test on Login Functionality of REST API with Following Check
+    - The UserName MUST be Email
+    - The UserNAme MUST be Unique
+    - The Password MUST be min 8 to max 16 Characters
+    - If the Credential Match the return Status code as 200  else 401
+     

@@ -44,5 +44,25 @@
         - A Framework that executes 'chai' tests in Server
     - npm install -g mocha
     - npm install --save mocha chai
-                        
-                                
+    - the filename that contains code for test MUST be
+        - [File-Name].test.js
+        - Mocha will understand the '.test.js' 
+
+# Writing the Test
+- Create a 'test' folder and add test file in it 
+- The filename that contains code for test MUST be
+        - [File-Name].test.js
+        - Mocha will understand the '.test.js'                             
+- Import 'chai' and then import the code which is to be tested
+
+- Create a test-suit using
+    - describe()
+    - Under the 'describe()' create a test case
+        - 'it()'
+            - Arrange
+            - Act
+            - Assert
+        - The TestCase Name MUST be unique    
+- To make a HTTP request to REST API use the 'request' package
+    - npm install --save request
+        - The 'request' is a Promise base package             
