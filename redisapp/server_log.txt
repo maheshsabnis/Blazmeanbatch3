@@ -1,0 +1,16 @@
+[28972] 03 Dec 15:35:39.362 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+[28972] 03 Dec 15:35:39.363 # Redis version=5.0.14, bits=64, commit=a7c01ef4, modified=0, pid=28972, just started
+[28972] 03 Dec 15:35:39.363 # Configuration loaded
+[28972] 03 Dec 15:35:39.365 # Could not create server TCP listening socket 127.0.0.1:6379: bind: The operation completed successfully.
+[28964] 03 Dec 15:35:47.569 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+[28964] 03 Dec 15:35:47.570 # Redis version=5.0.14, bits=64, commit=a7c01ef4, modified=0, pid=28964, just started
+[28964] 03 Dec 15:35:47.570 # Configuration loaded
+[28964] 03 Dec 15:35:47.573 # Could not create server TCP listening socket 127.0.0.1:6379: bind: The operation completed successfully.
+[21696] 03 Dec 15:35:56.800 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+[21696] 03 Dec 15:35:56.801 # Redis version=5.0.14, bits=64, commit=a7c01ef4, modified=0, pid=21696, just started
+[21696] 03 Dec 15:35:56.802 # Configuration loaded
+[21696] 03 Dec 15:35:56.805 # Could not create server TCP listening socket 127.0.0.1:6379: bind: The operation completed successfully.
+[25552] 03 Dec 15:50:51.933 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+[25552] 03 Dec 15:50:51.937 # Redis version=5.0.14, bits=64, commit=a7c01ef4, modified=0, pid=25552, just started
+[25552] 03 Dec 15:50:51.937 # Configuration loaded
+[25552] 03 Dec 15:50:51.940 # Could not create server TCP listening socket 127.0.0.1:6379: bind: The operation completed successfully.

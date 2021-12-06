@@ -251,3 +251,67 @@
             - Easy
             - Available with Some Deployment Features out-of-the-box e.g. AWS Serverless (aka Lambda)
             - COST is involved    
+    - Data Persistence Practices in Microservices
+        - Using Relational Database
+            - Frequently used for Line-of-Business (LOB) Apps
+            - Provides a Lift-and-Shift experience of Data and Database Migrations from On-Premises Data Store to Cloud 
+                - RDS on AWS
+                    - MySQL
+                    - Postgres
+                    - SQL Server
+                    - Oracle
+        - Using NoSQL Database
+            - Recommended in Large-Scale Data Collection Applications
+            - NoSQL Data Provide from Cloud is Key for Microservices Apps
+                - Use DynamoDB, on AWS
+                    - Big-Data Solution on Cloud
+                        - Full-Managed, serverless, kay-value NoSQL Database for Application like
+                            - High-Performance Apps
+                            - Analytics Apps
+                            - Globally distributed data apps
+                    - Huge Data Storage Features
+                        - 25 GB Storage with 200 million read/write requests per month in Free Subscription
+                    - High-Availability
+                    - Data Read/Write Unit
+                        - Per Unit Size 4 KB for an item
+                    - Data is Stored in 'Table'
+                        - Table has Attributes (Concept Like Columns) 
+                        - The Document or a Record (Concept Like Rows)
+                    - On-Demand Data Read/Write Per-Table   
+                        - 40000 Read and Write request Units
+                    - To Access the DynamoDB we need an Account
+                        - Per Account Mac 256 Tables
+                        - No Size Limit for Table
+                    - Each Table MUST have
+                        - Partition Key
+                        - Sort Key 
+                        - Both These Keys in COmbine are accepted as 'Primary Key'
+                - To Access the DynamoDB Service we need following
+                    - The AWS Subscription
+                    - The AWS Access Permission for the Account
+                    - Clear Requirements for Table, Items, Read and Write Units
+                    - AWS.DynamoDB() Object    
+                        - createTable() to Table
+                    - AWS.DynamoDB.DocumentClient() Object
+                        - put(), to create new Record
+                        - get(), to read record based on Partition Key and Sort Key
+                        - update(), to modify record
+                        - delete(), to delete record
+                        - scan(), return all Items   
+                - Use MongoDB
+        - Using Binary-Large-Object (BLOB)  
+            - Data is stored in Binary Documents
+                - Images, Spreadsheets, Documents, PDFs, Media Files
+            - Cost is a Key on Cloud
+                - On AWS, use Simple Storage Service, the Cloud BAsed Object Storage (S3)
+            - npm install --save aws-sdk    
+            - The S3 Bucket
+                - Used to store all Binary Files
+                - Industry-leading and industry standard scalable, secure, high-performance, durable data storage for Binary files
+                - Max File sSiz Allowed is 5 TB
+                - One PUT request (One request for Upload) can store 5 GB of File Size 
+                - The Data is Organized as Key-bAsed Object Store  
+        - Distributed Caching
+            - When the data is not frequently changing then instead of accessing data from Database and increasing Read-Unit (RU) cost, cache data from a Pre-Calculated Time Duration         
+                - Redis Cache
+                - Elastic Cache     
