@@ -11,12 +11,12 @@ spec: # deployment specifications
   template:
     metadata:
       labels:
-        app: service # application name that will be used
+        app: service # application name that will be  
     spec:
       containers:  # container Configuration
       - name: servk8scontainer # container name
         image: mast007/servk8s:v1 # the image to be fetched from the docker repository
-        resources:
+        resources: # Infra resources used by pod for execution
           limits:
             memory: "128Mi" # the Memory allocated to service 128 MB
             cpu: "500m" # the percent of CPU allocated to service (half CPU)

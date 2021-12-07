@@ -82,4 +82,5 @@
     - push image to docker repository
     - create deployment.yml 
     - create service.yml file
-    - deploy deployment and service yml files                                             
+    - deploy deployment and service yml files       
+    - connect to 'port' from service.yml using http://localhost:[port]/apiendpoint                                      
