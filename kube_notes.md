@@ -1,0 +1,85 @@
+# Using Kubernetes aka K8s
+- Node  
+    - A Virtual Machine that is used to manage the Container Based Solutions
+    - This contains a K8s Master Service to manage the containerized Application
+        - Creating PODs
+        - Managing PODs
+        - Managing Resources e.g. CPU, RAM
+    - By default there is a 1 Node available for the K8s cluster
+        - This is MAIN NODE
+            - API Server
+            - Controller Manager
+            - Schedular       
+- Pod
+    - A Logical Section on Node that manages Multiple Containers
+        - There could be multiple PODs on a Single Node
+        - Each POD has IP Addresses
+            - Private IP
+                - Used for Internal Communication across Containers in POD
+            - Public IP aka LoadBalancer
+                - Published by K8s Cluster for Outside Communication
+        - There can be Multiple Replicas of PODs can be running on Node
+            - Managed by API Server
+            - If POD is crashed or killed, then the Controller Manager takes care of managing the Container execution using Schedulers              
+- Container
+    - Container for Image
+    - Expose a Port
+    - POD provides CPU and RAM for the Container
+- Image
+    - The Microservice Service Image that runs in the Container
+
+# Defining the Deployment Configuration for Microservices on K8s
+- The 'kubectl' command line tool
+    - Set the Context for K8s Access for Deployment
+        - decide what environment we are using for Deployment
+            - On-Premises
+            - On-Cloud
+    - Get List of Nodes
+        - kubectl get nodes        
+    - Get List of PODs 
+        - kubectl get pods
+            - List all PODs currently created in deployment   
+            - If the deployment configuration has some issues in deployment then following errors will occur
+                - ErrorImagePull
+                    - The Image is failed while pulling from repository
+                    - Image name and tag must be defined accurately
+                - CrashDump
+                    - The Image is crashed while executing in the container
+            - Run following command to see the details
+                - kubectl describe pod [POD-NAME]                
+    - Get List of Services
+        - kubectl get services
+            - List of all services with their Communication Modes
+                - LoadBalancer: 
+                    - Expose the Service Publicly based on IP Address assigned by the Provider (On-Premised it is 'localhost' and on Cloud, its is PubliC IP)
+                - ClusterIP:
+                    - Exposing the service on the IP  that will be known by the cluster
+                    - Used for Internal Communication
+                    - This is default IP assigned by cluster
+                    - The request from External Resources is routed internally by the ClusterIP
+                - NodePort:
+                    - The Static IP of the Node on which the service is exposed
+                    - The NodePort will route the received request to a service using ClusterIP
+    - Deploy the POD
+        - Create a deployment.yml file
+            - kubectl apply -f deployment.yml
+                - Create PODs with container with image deployed in it and creating replicas, assigning resources, etc.
+    - Deploy the service
+        - Create a service.yml file
+            - kubectl apply -f service.yml
+                - Deploy service means it will be exposed on port
+    - To delete Service abd deployment run following command
+        - first delete service
+            - kubectl delete -f service.yml
+        - then delete POD deployment
+            - kubectl delete -f deployment.yml         
+# Defining Process for K8s deployment
+    - Create REST API Application
+    - Add dockerfile and dockerignore file
+    - Build image
+    - locally test image
+    - tag image to the Docker HUB repository
+    - push image to docker repository
+    - create deployment.yml 
+    - create service.yml file
+    - deploy deployment and service yml files                                             
