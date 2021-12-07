@@ -269,4 +269,9 @@ Pending Assignmets were in progress
     - The UserNAme MUST be Unique
     - The Password MUST be min 8 to max 16 Characters
     - If the Credential Match the return Status code as 200  else 401
+
+# Date: 07-12-2021
+1. Create a Test for React Application for Component as per the following requirement
+    - The component will generate a table row with data in it when a button is clicked. The Test MUST dispatch the click event and make sure that the new record is added in Array and the new row is appended in the Table
+      
      

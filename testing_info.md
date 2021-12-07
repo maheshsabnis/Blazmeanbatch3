@@ -66,3 +66,14 @@
 - To make a HTTP request to REST API use the 'request' package
     - npm install --save request
         - The 'request' is a Promise base package             
+- Code-Coverage Policy
+    - The Code-Coverage Guarantees that the maximum code in the source is successfully tested
+    - The 'nyc' tool for code coverage  
+        - npm install -g nyc
+        - npm install --save nyc
+    - nyc mocha
+        - Command to generate code coverage
+        - nyc --reporter=html --reporter=text mocha
+            - The command will be executing the mocha for running tests and generate an HTML file with report in 'coverage' (--reporter=html) folder and the text based report on the console (--reporter=text)    
+    - The Code-Coverage report MUSt be More than 80% for each Code File that is covered under Test     
+    - The Production Ready Code is an average for more than 95%

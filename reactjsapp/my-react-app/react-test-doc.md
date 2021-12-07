@@ -1,0 +1,36 @@
+# Testing React.js apps
+- "@testing-library/jest-dom": "^5.11.4",
+    - Jest Integration with React Application to Test DOM
+    - The DOM will be generated in-memory
+    - This is depending on the react library for DOM Rendering and Virtual DOM 
+- "@testing-library/react": "^11.1.0",
+    - THis provides an inbuilt functionality for managing the DOM generation and Mounting it for Testing
+        - Uses the react-dom module
+            - The 'act' method
+                - Load the DOM in the Memory
+                - Monitor all DOM Changes based on Data Updates and the Events
+- "@testing-library/user-event": "^12.1.10",
+    - Monitor all events dispatched on DOM elements generated in Memory
+
+- Process of Writing the Test
+    - Use following classed from the 'react-dom' package
+        - render()
+            - Method to RTender the DOM
+        - unMountComponentAtNode()
+            -  release the DOM from the memory and free memory from DOM
+    - react-dom/test-utils
+        - The  'act' method
+    - Add a new folder in the 'src' folder and name it as 'test'
+        - FileName for test MUST be  [COMPONENT-FILE-NAME].test.js    
+    - To generate the code Coverage Report use the following command
+        - npm run test -- --coverage 
+            - npm run test will call 'react scripts test', this will internally call 'jest'
+                - and then it will call 'jest --coverage'     
+- React Component's Testing Features
+    - Test the Component
+    - Test events
+        - To test an event on the HTML element use 'dispatchEvent()' function and pass an Event Object to it
+    - Test Relationships across Components    
+        - If enzyme is used then We MUST have an enzyme configuration and an adapter that will check if the parent component or a single (shallow) is tested or the whole DOM tree is tested (mount)             
+        - We need the Enzyme Adapter (for React 17+), the Official adapter is not present so we have to use the following unofficial adapter
+            - @wojtekmaj/enzyme-adapter-react-17  

@@ -5,7 +5,7 @@ import request from 'request';
 
 let expect = test.expect; 
 
-import instance from './../server.js';
+import instance from '../server.js';
 
 // The test data
 let data = [
