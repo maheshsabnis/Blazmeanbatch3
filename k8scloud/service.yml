@@ -1,0 +1,11 @@
+kind: Service # the microservice deployment
+apiVersion: v1 
+metadata:
+  name:  service # deployment name for the service
+spec:
+  selector:
+    app:  service # the name of the service, this MUST match with the spec.selector.app in deployment.yml
+  type:  LoadBalancer # publish on the public IP (on local machine iyt is localhost)
+  ports: # exposed ports for communication
+    - port:  9065 # external port to access the service
+      targetPort:  7022 # container port

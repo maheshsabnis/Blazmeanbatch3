@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment # means that this is configuration fir deployment for PODs
+metadata:
+  name: servk8sdeploy # name of the deployment
+  namespace: default # namespace under which the microservice (POD and Service) will deploy, the default is 'default'
+spec: # deployment specifications
+  replicas: 2 # number of replicas where multiple PODs will be created
+  selector:
+    matchLabels:
+      app: service # I am setting this as service because this is REST API . this must be used in service.yml
+  template:
+    metadata:
+      labels:
+        app: service # application name that will be  
+    spec:
+      containers:  # container Configuration
+      - name: servk8scontainer # container name
+        image: mast007/servk8s:v1 # the image to be fetched from the docker repository
+        resources: # Infra resources used by pod for execution
+          limits:
+            memory: "128Mi" # the Memory allocated to service 128 MB
+            cpu: "500m" # the percent of CPU allocated to service (half CPU)
+        ports:
+        - containerPort: 7022 # the port exposed by container (this MUST match with PORT exposed in dockerfile)
+
+---
+kind: Service # the microservice deployment
+apiVersion: v1 
+metadata:
+  name:  service # deployment name for the service
+spec:
+  selector:
+    app:  service # the name of the service, this MUST match with the spec.selector.app in deployment.yml
+  type:  LoadBalancer # publish on the public IP (on local machine iyt is localhost)
+  ports: # exposed ports for communication
+    - port:  9065 # external port to access the service
+      targetPort:  7022 # container port
