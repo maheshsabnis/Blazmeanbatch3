@@ -1,0 +1,15 @@
+# Name of the Lambda Deployment
+service: blaz-b3-express-lambda-app
+# deployment information
+provider:
+  name: aws # the provider that will deploy the Lambda
+  runtime: nodejs14.x # Node.js Runtime Version
+  stage: dev  # the stage 'dev' (development) / 'prod' (production)
+  region: ap-south-1  # region that deploys the Lambda
+# Lambda Function Definition
+functions:
+  app:  # app information
+    handler: index.handler  # the REST API object
+    events: # triggers
+      - http: ANY / # any HTTP Method
+      - http: 'ANY /{proxy+}'  # any HTTP Method with the URL parameters 

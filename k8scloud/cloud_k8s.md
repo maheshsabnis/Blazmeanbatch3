@@ -65,5 +65,51 @@
             - The Securitygroup MUST be configured for Public Access over the Http Protocol
 5. Deploying app in EKS using following steps    
     - https://github.com/maheshsabnis/ekddemoworking.git
+6. We need EC 2 Instances for the Cluster Creation, to work with it use the CloudFormation Template
+    - This is an offering from AWS tio Create an EKS Cluster with its dependencies as follows
+        - Availability Zones
+            - Public
+                - AZ-a and AZ-b
+            - Private  
+                - AZ-a and AZ-b
+        - EC2 instances with its Size
+        - Network Security Group aka Security Group for the Communication from Outside
+        -  CIDR 
+            - Classless Inter-Domain Routing
+                - reserved IPs for Public and Private Subnet communication used by EKS Cluster        
+7. AWS Lambda
+    - Serverless Deployment of Service on AWS
+    - Pay-for-use
+        - When the resources is executed the the Computation and Memory Utilization is Calculated and the charges are applied based on it                 
+    - It is a concept where we deploy the Microservice and the AWS will charge only when the service is
+        - requested
+        - executed
+        - responded
+    - Used Cases for Lambda
+        - Taking backup of Data from RDS to DynamoDB
+        - Interacting with S3 for Binary Resource Management (Compressing and Uncompressing Files)     
+        - Background Processing of SQS Messages
+    - Triggers (events) are the key for Lambda
+        - Start executing when HTTP request is received
+        - Start reading message from SQS when the message is received 
+    - Creating Lambda using Node.js
+        - aws-sdk
+        - serverless-http
+            - An Event package that will listen to the Http request
+            - npm install -g serverless-http
+                - This will provide the serverless utility for deployment on AWS
+        - Create serverless.yml file     
+            - contain the configuration for deploying the Node.js app as Lambda
+                - Sections for deployment 
+                    - 'service': the name of the Lambda Service
+                    - 'provider': the deployment provider with following information
+                        - 'name': name of the provider i.e. 'aws'
+                        - 'runtime': the runtime that is used to execute the server e.g. 'nodejs14.x'
+                        - 'stage': the deployment stage on Cloud 'dev' or 'prod'
+                        - 'region': the region for the deployment           
+                    - 'function': the serverless execution on event (the trigger)
+                        - 'app': the application definition
+                                - 'handler': the code which is supposed to be execute
+                                - 'events': the type of events when they occur start running the function  
 
-                 
+

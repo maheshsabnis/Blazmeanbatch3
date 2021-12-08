@@ -1,0 +1,29 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: batch-node-Cluster
+  region: ap-south-1
+
+vpc:
+  id: vpc-046400c7ea3871b00
+  cidr: "192.168.0.0/16"
+  subnets:
+    public:
+      ap-south-1a:
+        id: subnet-0c26bf04e6a1d3210
+      ap-south-1b:
+        id: subnet-079db94dbf23076c7
+    private:
+      ap-south-1a:
+        id: subnet-079ee4411c73479c4
+      ap-south-1b:
+        id: subnet-0f231f5d50178c136
+
+nodeGroups:
+  - name: batch3-public-workers
+    instanceType: t2.medium
+    desiredCapacity: 2
+  - name: batch3-private-workers
+    instanceType: t2.medium
+    desiredCapacity: 1
+    privateNetworking: true

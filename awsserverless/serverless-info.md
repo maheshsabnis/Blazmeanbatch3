@@ -1,0 +1,30 @@
+# Creating AWS Lambda using Node.js
+- Creating Lambda using Node.js
+        - aws-sdk
+        - serverless-http
+            - An Event package that will listen to the Http request
+            - npm install -g serverless-http
+                - This will provide the serverless utility for deployment on AWS
+        - Create serverless.yml file     
+            - contain the configuration for deploying the Node.js app as Lambda
+                - Sections for deployment 
+                    - 'service': the name of the Lambda Service
+                    - 'provider': the deployment provider with following information
+                        - 'name': name of the provider i.e. 'aws'
+                        - 'runtime': the runtime that is used to execute the server e.g. 'nodejs14.x'
+                        - 'stage': the deployment stage on Cloud 'dev' or 'prod'
+                        - 'region': the region for the deployment           
+                    - 'function': the serverless execution on event (the trigger)
+                        - 'app': the application definition
+                                - 'handler': the code which is supposed to be execute
+                                - 'events': the type of events when they occur start running the function  
+- serverless-http
+    - Package that will be used for
+        - Registering the REST APIs in Lambda and Set it for execution
+        - When the http event is occurred the REST API will be executed by loading it in Computation and with allocated memory
+    - (IMP****) Make sure that, an instance of the REST API is passed to serverless-http  
+- The deployment of the application will takes place in the S3 Bucket using 'zip' upload
+    - The Application code will be zipped and it will be uploaded into the S3 and then based on the Event the code will be loaded into the computation and will be executed     
+- To Deploy the Node.js Lambda Application do the following
+    - npm install -g serverless
+    - serverless deploy OR sls deploy    
